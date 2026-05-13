@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Motion References — VOLTR</title>
+</head>
+<body>
+  <h1>Motion References</h1>
+  <p><a href="../index.html">← Back to Library</a></p>
+  <p><em>Easing curves, transitions, durations, scroll behavior, and camera movement language for cinematic automotive UI.</em></p>
+
+  <hr>
+
+  <section>
+    <h2>Easing Presets — The VOLTR Curve Library</h2>
+    <p><em>Every VOLTR motion uses one of these. No exceptions.</em></p>
+
+    <table>
+      <tr>
+        <th>Motion Type</th>
+        <th>cubic-bezier</th>
+        <th>Feels Like</th>
+      </tr>
+      <tr>
+        <td>Section entry (hero)</td>
+        <td><code>(0.65, 0, 0.35, 1)</code></td>
+        <td>Gimbal start/stop — heavy camera rig</td>
+      </tr>
+      <tr>
+        <td>Card reveal</td>
+        <td><code>(0.22, 1, 0.36, 1)</code></td>
+        <td>Apple spring — 0 overshoot</td>
+      </tr>
+      <tr>
+        <td>Gauge sweep</td>
+        <td><code>(0.42, 0, 0.58, 1)</code></td>
+        <td>Linear middle, eased ends — needle precision</td>
+      </tr>
+      <tr>
+        <td>Micro-interaction (click, hover)</td>
+        <td><code>(0.05, 0.7, 0.1, 1)</code></td>
+        <td>Snap — mechanical detent</td>
+      </tr>
+      <tr>
+        <td>Scroll-linked parallax</td>
+        <td><code>(1, 0, 0, 1)</code></td>
+        <td>Linear — 1:1 with scroll, no easing</td>
+      </tr>
+      <tr>
+        <td>Atmospheric float</td>
+        <td><code>(0.4, 0, 0.6, 1)</code></td>
+        <td>Slow breathing — ambient motion</td>
+      </tr>
+      <tr>
+        <td>Page load entrance</td>
+        <td><code>(0.12, 0.7, 0.1, 1)</code></td>
+        <td>Fast start, slow settle — "arrival"</td>
+      </tr>
+    </table>
+  </section>
+
+  <hr>
+
+  <section>
+    <h2>Duration Tokens</h2>
+    <table>
+      <tr>
+        <th>Token</th>
+        <th>Duration</th>
+        <th>Used For</th>
+      </tr>
+      <tr>
+        <td>micro</td>
+        <td>60-100ms</td>
+        <td>Hover, button press, magnetic snap</td>
+      </tr>
+      <tr>
+        <td>ui-fast</td>
+        <td>180-200ms</td>
+        <td>Card shift, panel slide, tooltip</td>
+      </tr>
+      <tr>
+        <td>ui-slow</td>
+        <td>300-400ms</td>
+        <td>Modal open, navigation transition</td>
+      </tr>
+      <tr>
+        <td>scene</td>
+        <td>800-1400ms</td>
+        <td>Section transition, hero entry</td>
+      </tr>
+      <tr>
+        <td>camera</td>
+        <td>2000-4000ms</td>
+        <td>Large scroll-driven camera move, orbit reveal</td>
+      </tr>
+    </table>
+  </section>
+
+  <hr>
+
+  <section>
+    <h2>Mechanical Motion References</h2>
+
+    <article>
+      <h3>Automotive Gauge Needle Sweep</h3>
+      <p class="source">Power-on animation (Mercedes, Audi, BMW)</p>
+      <p>Needle sweeps 0 → redline → back-to-idle in 1.2s with easeInOutCubic. The "self-test" is the brand mark in motion.</p>
+      <p><strong>VOLTR pattern:</strong> Logo entry animation: mark sweeps in from -90° rotation to 0°, then "settles" with a 3° overshoot bounce back. Exactly like a tachometer. Use gauge sweep easing <code>(0.42, 0, 0.58, 1)</code>.</p>
+    </article>
+
+    <article>
+      <h3>Porsche PCM UI Knob Detents</h3>
+      <p class="source">Porsche PCM infotainment</p>
+      <p>Rotation snaps to positions with 50ms magnetic catch. Haptic-esque UI without haptics — felt through sight.</p>
+      <p><strong>VOLTR pattern:</strong> Button clicks have micro-"dent" animation: scale to 0.95 over 60ms, snap back over 150ms. Simulates mechanical switch.</p>
+    </article>
+
+    <article>
+      <h3>Tesla Yoke UI — Card Arrival</h3>
+      <p class="source">Tesla Model S yoke UI</p>
+      <p>Cards slide in with 200ms travel, stop with 30ms settle oscillation. Quick arrival, fast settle, no float.</p>
+      <p><strong>VOLTR pattern:</strong> Side-panel entries: 200ms slide, 30ms rubber-band settle. No easing-out — they arrive firmly.</p>
+    </article>
+
+    <article>
+      <h3>BMW iDrive Rotary Controller</h3>
+      <p class="source">BMW iDrive</p>
+      <p>Menu scrolling has physical "notch" resistance every 24px. Discrete steps with tactile illusion.</p>
+      <p><strong>VOLTR pattern:</strong> Scroll snapping with acceleration blur: between snap points the content blurs 2px, clears on stop — simulates mechanical detent.</p>
+    </article>
+
+    <article>
+      <h3>Apple Watch Crown Scroll</h3>
+      <p class="source">watchOS</p>
+      <p>Acceleration maps rotation speed to scroll distance non-linearly. Faster spin = more distance per tick.</p>
+      <p><strong>VOLTR pattern:</strong> Mouse wheel multiplier: at slow scroll, 1:1 mapping. At fast flick, 1:4. Curve: <code>cubic-bezier(0.22, 1, 0.36, 1)</code>.</p>
+    </article>
+  </section>
+
+  <hr>
+
+  <section>
+    <h2>Automotive Commercial Camera Movements</h2>
+
+    <article>
+      <h3>Mercedes "Chasing the Light" (2024)</h3>
+      <p>20-second single take: crane boom from interior dial detail → pulls up through sunroof → reveals mountain road. Camera moves are narrative.</p>
+      <p><strong>VOLTR pattern:</strong> Page transitions "boom up" from detail to context. A micro-infographic scales down and retreats upward as the next section's hero enters from below.</p>
+    </article>
+
+    <article>
+      <h3>Audi "The Next Chapter"</h3>
+      <p>Slow dolly push-in through a forest of reflective columns; car emerges at end. Push-in = focus, commitment.</p>
+      <p><strong>VOLTR pattern:</strong> Scroll-driven push-in: as user scrolls, the camera pushes into a data visualization, which becomes background for the next section.</p>
+    </article>
+
+    <article>
+      <h3>Porsche "The Weight of Light"</h3>
+      <p>360° orbit on crane around car at 0.5x speed. Slowest orbit signals importance.</p>
+      <p><strong>VOLTR pattern:</strong> Hero product on landing page rotates 3° per scroll tick — a full 360° takes 120 scroll events. The slowest rotation on the page.</p>
+    </article>
+
+    <article>
+      <h3>Ronin 4D "Smooth Drive" Mode</h3>
+      <p>Algorithmic acceleration ramp: 0→peak over 1.5s, peak→0 over 2s. Slow-in: 40% of duration, fast middle: 20%, slow-out: 40%.</p>
+      <p><strong>VOLTR pattern:</strong> This is where <code>(0.65, 0, 0.35, 1)</code> comes from. Used for all scroll-triggered reveals.</p>
+    </article>
+  </section>
+
+  <hr>
+
+  <section>
+    <h2>Film Transitions → Web Sections</h2>
+
+    <table>
+      <tr>
+        <th>Film Transition</th>
+        <th>Film Example</th>
+        <th>Web Implementation</th>
+        <th>VOLTR Usage</th>
+      </tr>
+      <tr>
+        <td>Match Cut (graphic)</td>
+        <td>Kubrick's bone → satellite (2001)</td>
+        <td>Shape A morphs to Shape B</td>
+        <td>Circular data viz in section 1 scales up and becomes hero image in section 2</td>
+      </tr>
+      <tr>
+        <td>Whip Pan</td>
+        <td>Edgar Wright (Scott Pilgrim)</td>
+        <td>translateX(-120%) over 200ms + blur</td>
+        <td>Between related sub-sections within a chapter</td>
+      </tr>
+      <tr>
+        <td>Iris In/Out</td>
+        <td>The Grand Budapest Hotel</td>
+        <td>clip-path: circle(0%) → circle(100%)</td>
+        <td>New section blooms from a focal point (button, data point) over 800ms</td>
+      </tr>
+      <tr>
+        <td>Fade Through Darkness</td>
+        <td>The Godfather chapter breaks</td>
+        <td>Opacity 0 → 400ms hold → fade in</td>
+        <td>Primary section transition. 300ms out, 200ms black, 300ms in. Total: 800ms</td>
+      </tr>
+      <tr>
+        <td>Push In / Pull Out</td>
+        <td>The Social Network — push into code</td>
+        <td>Content scales 1.5x → becomes new section</td>
+        <td>Hero text scales up as you enter, simulating dolly push</td>
+      </tr>
+      <tr>
+        <td>Wipe (geometric)</td>
+        <td>Star Wars horizontal wipe</td>
+        <td>clip-path: inset animated on diagonal</td>
+        <td>Android-style at cinematic speed (1.2s) with 10px soft edge</td>
+      </tr>
+      <tr>
+        <td>Defocus Transition</td>
+        <td>Saving Private Ryan flashbacks</td>
+        <td>filter: blur(10px) → new section snaps in</td>
+        <td>Timeline/"memory" sections — past blurs away, present snaps in</td>
+      </tr>
+      <tr>
+        <td>L-Cut (audio leads)</td>
+        <td>Any dialogue scene</td>
+        <td>Next section audio starts 200ms before visual</td>
+        <td>Low hum of next section bleeds in before visual transition completes</td>
+      </tr>
+    </table>
+  </section>
+
+  <hr>
+
+  <section>
+    <h2>Camera Stabilization Principles</h2>
+
+    <article>
+      <h3>Steadicam Float</h3>
+      <p class="source">The Shining hallway, gimbal operation</p>
+      <p>Drifting float with micro-corrections. Never perfectly still. Imperceptible movement = tension.</p>
+      <p><strong>VOLTR pattern:</strong> Page has a 0.1° perpetual tilt-rotate that resets on user interaction — "alive" without being distracting.</p>
+    </article>
+
+    <article>
+      <h3>ARRI Trinity — Ground-Level Glide</h3>
+      <p>Low-mode shots glide inches above surface. Proximity = groundedness.</p>
+      <p><strong>VOLTR pattern:</strong> Sticky headers move at 0.8x scroll speed with 1.2s catch-up spring — feels like heavy camera on tracks.</p>
+    </article>
+
+    <article>
+      <h3>Per-Axis Mass</h3>
+      <p class="source">MoVI Pro "ramp" profile</p>
+      <p>Each axis has different mass. X-movements (horizontal reveals) ease differently from Y (scrolling).</p>
+      <p><strong>VOLTR pattern:</strong> Horizontal reveals are more damped than vertical scroll. Different easing for different axes.</p>
+    </article>
+  </section>
+
+  <hr>
+
+  <section>
+    <h2>System Extraction — Motion Principles</h2>
+    <table>
+      <tr>
+        <th>Principle</th>
+        <th>Rule</th>
+      </tr>
+      <tr>
+        <td>No bounce</td>
+        <td>No spring easing, no playful overshoot. Every motion has weight.</td>
+      </tr>
+      <tr>
+        <td>Gimbal easing</td>
+        <td>Primary curve (0.65, 0, 0.35, 1) for all section reveals. 40% slow-in, 20% fast middle, 40% slow-out.</td>
+      </tr>
+      <tr>
+        <td>Duration hierarchy</td>
+        <td>micro: 60-100ms, ui: 180-400ms, scene: 800-1400ms, camera: 2000-4000ms</td>
+      </tr>
+      <tr>
+        <td>Mechanical metaphor</td>
+        <td>All micro-interactions simulate physical detents and switches</td>
+      </tr>
+      <tr>
+        <td>Fade-through-black</td>
+        <td>Primary section transition: 300ms out, 200ms black hold, 300ms in</td>
+      </tr>
+      <tr>
+        <td>Match-cut shapes</td>
+        <td>Every section transition shares one geometric element</td>
+      </tr>
+      <tr>
+        <td>Scroll speed = mass</td>
+        <td>Heavy elements move slower than light ones. 0.8x for headers, 0.5x for backgrounds.</td>
+      </tr>
+    </table>
+  </section>
+
+  <hr>
+  <p><a href="../index.html">← Back to Library</a></p>
+</body>
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Architecture References — VOLTR</title>
+</head>
+<body>
+  <h1>Architecture References</h1>
+  <p><a href="../index.html">← Back to Library</a></p>
+  <p><em>Architects, material palettes, spatial principles, and light modulation that inform VOLTR's architectural approach to UI.</em></p>
+
+  <hr>
+
+  <section>
+    <h2>Architects & Spatial Principles</h2>
+
+    <article>
+      <h3>Tadao Ando — Silence Through Concrete</h3>
+      <p class="source">Japan — Church of the Light, Naoshima Museum, Water Temple</p>
+
+      <h4>Spatial concept</h4>
+      <p>Ando's concrete is not cold — it's silent. The material recedes so light and space can speak. His architecture is defined by what it removes. Walls are thick, openings are few and precise. Light enters only through deliberate cuts.</p>
+
+      <h4>Pattern to extract</h4>
+      <ul>
+        <li><strong>Material recedes, light speaks</strong> — the background should be a quiet container, not a statement</li>
+        <li><strong>Light through absence</strong> — bright moments in UI are "cuts" through a dark surface</li>
+        <li><strong>Thick boundaries</strong> — generous padding and margins create the feeling of "thick walls" between sections</li>
+        <li><strong>Slow light transitions</strong> — Ando's light changes over hours. UI light should shift slowly (400-800ms ease-in-out)</li>
+      </ul>
+
+      <h4>VOLTR application</h4>
+      <p>Dark backgrounds with precise, deliberate "cuts" of bright content. Wide margins between sections feel like walking through thick walls. Color transitions are slow and atmospheric.</p>
+    </article>
+
+    <article>
+      <h3>Peter Zumthor — Atmosphere & Material Presence</h3>
+      <p class="source">Switzerland — Therme Vals, Bruder Klaus Field Chapel, Kolumba Museum</p>
+
+      <h4>Spatial concept</h4>
+      <p>Zumthor designs for the senses. Materials are chosen for how they feel, smell, and age — not just how they look. Therme Vals uses local quartzite laid in horizontal bands that reference geological strata. Light is never direct; it's always filtered, bounced, or diffused.</p>
+
+      <h4>Pattern to extract</h4>
+      <ul>
+        <li><strong>Material-first design</strong> — choose the "material" (visual texture, color, surface quality) before the form</li>
+        <li><strong>Atmosphere over information</strong> — the feeling of a space matters more than the objects in it</li>
+        <li><strong>Reflected / filtered light</strong> — no direct hard light in UI. Everything should bounce or diffuse</li>
+        <li><strong>Aging and depth</strong> — materials have history. UI elements can have subtle depth that suggests permanence</li>
+      </ul>
+
+      <h4>VOLTR application</h4>
+      <p>UI "materials" chosen before layout. Atmosphere as a design input — the page mood is set before content is placed. All shadows are diffused and soft.</p>
+    </article>
+
+    <article>
+      <h3>David Chipperfield — Precision & Restraint</h3>
+      <p class="source">UK/Germany — Neues Museum reconstruction, Modern Museum of Art Stockholm</p>
+
+      <h4>Spatial concept</h4>
+      <p>Chipperfield's work is about reduction to essence. The Neues Museum restoration leaves bomb damage visible — history is part of the material. His spaces are restrained but never cold. Proportion is everything.</p>
+
+      <h4>Pattern to extract</h4>
+      <ul>
+        <li><strong>Remove until it breaks</strong> — then add back one thing</li>
+        <li><strong>History as material</strong> — the context of a section (how user arrived) should be visible in the transition</li>
+        <li><strong>Proportion system</strong> — every dimension relates to every other (modular scale)</li>
+      </ul>
+
+      <h4>VOLTR application</h4>
+      <p>Strict modular scale for all dimensions. Section transitions acknowledge where the user came from.</p>
+    </article>
+
+    <article>
+      <h3>Kengo Kuma — Material Lightness</h3>
+      <p class="source">Japan — V&A Dundee, GC Prostho Museum, Japan National Stadium</p>
+
+      <h4>Spatial concept</h4>
+      <p>Kuma uses materials in unexpected ways — stone as curtain, wood as lattice, light as fabric. His buildings feel porous, not solid. There's always a threshold where inside and outside blur.</p>
+
+      <h4>Pattern to extract</h4>
+      <ul>
+        <li><strong>Porous boundaries</strong> — section dividers don't have to be solid lines. They can be gradients, fog, or light</li>
+        <li><strong>Thresholds as spaces</strong> — transitions between sections are themselves designed moments, not afterthoughts</li>
+        <li><strong>Material reimagined</strong> — use UI elements in unexpected ways (a border that becomes a shadow, a shadow that becomes content)</li>
+      </ul>
+
+      <h4>VOLTR application</h4>
+      <p>No hard section dividers (lines, borders). Transitions are fog, light, or gradient changes. The space between sections is designed as carefully as the sections themselves.</p>
+    </article>
+
+    <article>
+      <h3>Foster + Partners — High-Tech Precision</h3>
+      <p class="source">UK — Gherkin, Willis Building, Hearst Tower, Apple Park influence</p>
+
+      <h4>Spatial concept</h4>
+      <p>Foster's work is engineering as aesthetic. Structure is expressed, not hidden. Every joint, every panel, every seam is intentionally aligned. Technology is celebrated, not concealed.</p>
+
+      <h4>Pattern to extract</h4>
+      <ul>
+        <li><strong>Engineering as aesthetic</strong> — expose the system state, don't hide it behind decoration</li>
+        <li><strong>Grid precision</strong> — every element is on the grid. Nothing is approximate.</li>
+        <li><strong>Structure expressed</strong> — navigation, loading states, transitions can be visible as "structure"</li>
+      </ul>
+
+      <h4>VOLTR application</h4>
+      <p>Loading states and transitions are honest — the user sees the system working. Strict grid alignment everywhere. No "organic" or approximate positioning.</p>
+    </article>
+
+    <article>
+      <h3>SANAA — Weightless Minimalism</h3>
+      <p class="source">Japan — New Museum (NYC), Rolex Learning Center, Kanagawa Institute of Technology</p>
+
+      <h4>Spatial concept</h4>
+      <p>SANAA designs buildings that barely seem to exist. White, thin, translucent. Boundaries dissolve. The Rolex Learning Center is one continuous space with no doors — you flow through it.</p>
+
+      <h4>Pattern to extract</h4>
+      <ul>
+        <li><strong>Weightless UI</strong> — elements that feel like they could float away</li>
+        <li><strong>Continuous flow</strong> — no hard section breaks. Content flows seamlessly.</li>
+        <li><strong>Translucency</strong> — see-through elements that suggest what's next</li>
+      </ul>
+
+      <h4>VOLTR application</h4>
+      <p>Use sparingly — for transition moments and "previews" of next section. Translucent overlays that hint at content beneath.</p>
+    </article>
+
+    <article>
+      <h3>John Pawson — Absolute Reduction</h3>
+      <p class="source">UK — Nový Dvůr Monastery, minimalism and plainness as philosophy</p>
+
+      <h4>Spatial concept</h4>
+      <p>Pawson takes minimalism to its extreme. A room is a floor, four walls, and light. Nothing else. The absence of objects becomes the experience.</p>
+
+      <h4>Pattern to extract</h4>
+      <ul>
+        <li><strong>Plainness as luxury</strong> — not having something is itself a feature</li>
+        <li><strong>Material purity</strong> — one material per space. No mixing.</li>
+        <li><strong>Light as content</strong> — when there's nothing else, light becomes the subject</li>
+      </ul>
+
+      <h4>VOLTR application</h4>
+      <p>Some sections can be almost empty — just a headline, generous space, and atmospheric light. Not every section needs data or interaction.</p>
+    </article>
+
+    <article>
+      <h3>Álvaro Siza — Poetic Modernism</h3>
+      <p class="source">Portugal — Serralves Museum, Expo '98 Portuguese Pavilion</p>
+
+      <h4>Spatial concept</h4>
+      <p>Siza's buildings feel inevitable — they belong exactly where they are. White forms that catch Mediterranean light. Simple geometries that feel deeply considered.</p>
+
+      <h4>Pattern to extract</h4>
+      <ul>
+        <li><strong>Inevitable placement</strong> — every element should feel like it couldn't be anywhere else</li>
+        <li><strong>Light geometry</strong> — simple forms (rectangle, circle, line) used with precision</li>
+        <li><strong>Site-specific</strong> — the design responds to its context</li>
+      </ul>
+
+      <h4>VOLTR application</h4>
+      <p>Every UI element has a reason for its position. Simple geometries used consistently. The page responds to its "context" — scroll position, time, user behavior.</p>
+    </article>
+  </section>
+
+  <hr>
+
+  <section>
+    <h2>Material Palettes — Mapped to VOLTR</h2>
+
+    <table>
+      <tr>
+        <th>Architectural Material</th>
+        <th>Source Architect</th>
+        <th>VOLTR Equivalent</th>
+        <th>HEX</th>
+        <th>Use Case</th>
+      </tr>
+      <tr>
+        <td>Warm concrete</td>
+        <td>Ando, Siza</td>
+        <td>Background surface</td>
+        <td>#8A807A</td>
+        <td>Section backgrounds, card surfaces</td>
+      </tr>
+      <tr>
+        <td>Oxidized bronze</td>
+        <td>Foster, Kuma</td>
+        <td>Accent metal</td>
+        <td>#9B7B5E</td>
+        <td>Borders, dividers, icons</td>
+      </tr>
+      <tr>
+        <td>Deep olive</td>
+        <td>Zumthor</td>
+        <td>Secondary accent</td>
+        <td>#4A5A4E</td>
+        <td>Subtle hover states, mode indicator</td>
+      </tr>
+      <tr>
+        <td>Slate grey</td>
+        <td>Foster, Chipperfield</td>
+        <td>Base dark</td>
+        <td>#2A2A2E</td>
+        <td>Default background</td>
+      </tr>
+      <tr>
+        <td>White plaster</td>
+        <td>SANAA, Pawson</td>
+        <td>Light surface</td>
+        <td>#E8E4DF</td>
+        <td>Light mode background</td>
+      </tr>
+      <tr>
+        <td>Textured linen</td>
+        <td>Kuma</td>
+        <td>Noise overlay</td>
+        <td>transparent</td>
+        <td>Subtle grain on dark surfaces</td>
+      </tr>
+      <tr>
+        <td>Bronze glass</td>
+        <td>SANAA, Foster</td>
+        <td>Translucent overlay</td>
+        <td>rgba(155,123,94,0.15)</td>
+        <td>Section previews, modal overlays</td>
+      </tr>
+      <tr>
+        <td>Deep shadow</td>
+        <td>Ando, Zumthor</td>
+        <td>Negative space</td>
+        <td>#0A0A0A</td>
+        <td>70% of frame — the void</td>
+      </tr>
+    </table>
+  </section>
+
+  <hr>
+
+  <section>
+    <h2>System Extraction — Architecture Principles</h2>
+    <table>
+      <tr>
+        <th>Principle</th>
+        <th>Source Architects</th>
+        <th>VOLTR Rule</th>
+      </tr>
+      <tr>
+        <td>Atmospheric sections</td>
+        <td>Ando, Zumthor</td>
+        <td>States defined by light quality, not borders</td>
+      </tr>
+      <tr>
+        <td>Material-first design</td>
+        <td>Kuma, Zumthor, Chipperfield</td>
+        <td>Choose the visual "material" before the form</td>
+      </tr>
+      <tr>
+        <td>Remove until it breaks</td>
+        <td>Pawson, Chipperfield</td>
+        <td>Iterative subtraction. Every element must justify existence.</td>
+      </tr>
+      <tr>
+        <td>Engineering as aesthetic</td>
+        <td>Foster, SANAA</td>
+        <td>Expose system state. Loading and transitions are honest.</td>
+      </tr>
+      <tr>
+        <td>Thresholds as spaces</td>
+        <td>Kuma, SANAA</td>
+        <td>Transitions between sections are designed moments.</td>
+      </tr>
+      <tr>
+        <td>Warm minimalism</td>
+        <td>All eight</td>
+        <td>Never cold. Always with undertone. Warm concrete over cold steel.</td>
+      </tr>
+      <tr>
+        <td>One material per space</td>
+        <td>Pawson</td>
+        <td>One dominant surface treatment per section. No mixing.</td>
+      </tr>
+      <tr>
+        <td>Slow light</td>
+        <td>Ando</td>
+        <td>Color and brightness transitions at 400-800ms. Let the user feel the change.</td>
+      </tr>
+    </table>
+  </section>
+
+  <hr>
+  <p><a href="../index.html">← Back to Library</a></p>
+</body>
+</html>

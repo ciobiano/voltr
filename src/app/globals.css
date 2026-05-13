@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@theme {
+  --color-obsidian: #0A0A0A;
+  --color-charcoal: #2A2A2E;
+  --color-graphite: #8A807A;
+  --color-silver: #E8E4DF;
+  --color-white-primary: #E8E8E8;
+  --color-white-secondary: #888888;
+  --color-accent-gold: #C9A96E;
+  --color-accent-copper: #B87333;
+  --color-accent-ice: #4A8FE7;
+  --color-bronze: #9B7B5E;
+  --color-olive: #4A5A4E;
+  --color-warm-concrete: #8A807A;
+
+  --font-sans: "Inter", "Geist", system-ui, sans-serif;
+  --font-mono: "Geist Mono", "IBM Plex Mono", monospace;
+
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 40px;
+  --spacing-2xl: 64px;
+  --spacing-3xl: 96px;
+  --spacing-4xl: 160px;
+
+  --ease-hero: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-card: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-gauge: cubic-bezier(0.42, 0, 0.58, 1);
+  --ease-micro: cubic-bezier(0.05, 0.7, 0.1, 1);
+  --ease-ambient: cubic-bezier(0.4, 0, 0.6, 1);
+  --ease-entrance: cubic-bezier(0.12, 0.7, 0.1, 1);
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    background-color: var(--color-obsidian);
+    color: var(--color-white-primary);
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  ::selection {
+    background-color: var(--color-accent-gold);
+    color: var(--color-obsidian);
+  }
+}

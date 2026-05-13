@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UI References — VOLTR</title>
+</head>
+<body>
+  <h1>UI References</h1>
+  <p><a href="../index.html">← Back to Library</a></p>
+  <p><em>HUDs, infotainment systems, aerospace interfaces, and high-end audio equipment that define VOLTR's interaction vocabulary.</em></p>
+
+  <hr>
+
+  <section>
+    <h2>Automotive HUDs & Gauge Clusters</h2>
+
+    <article>
+      <h3>Audi Virtual Cockpit + Concept C</h3>
+      <p class="source">Audi A6 e-tron (2024+), Concept C (2025)</p>
+      <h4>Why it works</h4>
+      <p>Audi's latest direction <em>pulls back</em> from maximalist screens. The Concept C — the most praised interior of 2025 — uses a small driver screen, fold-away touchscreen, and physical metal buttons. It's "the one you want to drive."</p>
+      <h4>Pattern to extract</h4>
+      <ul>
+        <li>Floating display illusion via ambient edge lighting</li>
+        <li>Crisp OLED black levels — inactive areas are truly off</li>
+        <li>Configurable view states that don't clutter</li>
+        <li>Physical controls with haptic conviction over touch-everything</li>
+      </ul>
+      <h4>VOLTR application</h4>
+      <p>UI panels appear to float via subtle glow underneath. Sections have configurable complexity modes (basic/advanced). Critical controls are persistent and tactile-feeling, not hidden in gestures.</p>
+    </article>
+
+    <article>
+      <h3>BMW Panoramic iDrive (Neue Klasse)</h3>
+      <p class="source">BMW Neue Klasse concept (2025)</p>
+      <h4>Why it works</h4>
+      <p>Full-windshield projection with only 6 custom widgets. Information distributed across depth planes: windshield → cluster → central display. "Right information, right time, right place."</p>
+      <h4>Pattern to extract</h4>
+      <ul>
+        <li>Information distributed across visual depth planes</li>
+        <li>Context-triggered content (not always-on)</li>
+        <li>Sound as emotional UI layer (HypersonX)</li>
+      </ul>
+      <h4>VOLTR application</h4>
+      <p>Three-layer UI: persistent chrome/nav (foreground), content (midground), ambient background (depth). Sound/motion cues signal state changes.</p>
+    </article>
+
+    <article>
+      <h3>Polestar HMI</h3>
+      <p class="source">Polestar Precept / Polestar 3</p>
+      <h4>Why it works</h4>
+      <p>"Every pixel has a home." Single typeface (custom LL Unica77 from Lineto), single weight, single size in many contexts. Eye-tracking + proximity sensors adjust info density. "You don't always need to know everything."</p>
+      <h4>Pattern to extract</h4>
+      <ul>
+        <li>Monotypographic system — one face, few weights</li>
+        <li>Content-on-demand via context sensing</li>
+        <li>Extreme consistency across every screen</li>
+        <li>"Remove everything unnecessary and perfect what's left"</li>
+      </ul>
+      <h4>VOLTR application</h4>
+      <p>One typeface for UI. Information reveals contextually (hover, scroll position). Every element on the page must justify its existence.</p>
+      <h4>What to avoid</h4>
+      <p>Gamified screens. Colorful gauges. Information dumping. Varying typefaces across sections.</p>
+    </article>
+
+    <article>
+      <h3>Mercedes Hyperscreen — Ambient Styles</h3>
+      <p class="source">Mercedes-Benz MBUX</p>
+      <h4>Why it works</h4>
+      <p>39.1" seamless display with matrix backlight (1000+ LEDs) and zone dimming. "Ambient styles" range from calm to intense, cool to warm. The instrument cluster, controls, and ambient lighting all shift together. "Welcome home" feeling.</p>
+      <h4>Pattern to extract</h4>
+      <ul>
+        <li>Coordinated color ecosystems across all displays + lighting</li>
+        <li>Zone dimming for focus management</li>
+        <li>Emotional state as a UX parameter — not just dark/light mode</li>
+      </ul>
+      <h4>VOLTR application</h4>
+      <p>Page theme shifts by section mood (hero = deep calm, performance = intense focus). Background lighting (gradients) coordinate with UI colors.</p>
+    </article>
+
+    <article>
+      <h3>Lucid UX — Glass Cockpit</h3>
+      <p class="source">Lucid Air</p>
+      <h4>Why it works</h4>
+      <p>34" 5K curved display. Dark monochromatic palette with single warm gold accent pulled from interior materials. Card/window layering with generous negative space. 3D only where it adds value (speedometer is beautifully modeled). Font is custom GT typeface from Grilli Type.</p>
+      <h4>Pattern to extract</h4>
+      <ul>
+        <li>Dark monochrome with one material-matched accent color</li>
+        <li>Card/window layering system with consistent depth</li>
+        <li>Sparing 3D — only where it adds comprehension</li>
+        <li>Physical controls for high-use functions</li>
+      </ul>
+      <h4>VOLTR application</h4>
+      <p>Dark theme with one accent. Content organized in layered cards with subtle depth. 3D/illustration only for hero moments and product display.</p>
+    </article>
+  </section>
+
+  <hr>
+
+  <section>
+    <h2>Aerospace / Aviation Interfaces</h2>
+
+    <article>
+      <h3>FAA Typography & Garmin / Honeywell</h3>
+      <p class="source">Aviation industry standards</p>
+      <h4>Why it works</h4>
+      <p>Strictest legibility requirements in existence. FAA mandates: sans-serif fonts, 25-33% leading, minimum character spacing 25% of overall size, high stroke contrast. Garmin's "optical cognition" principle — icons processed faster than text. Honeywell's "quiet, dark" flight deck — show information only when relevant.</p>
+      <h4>Pattern to extract</h4>
+      <ul>
+        <li><strong>"Quiet, dark" default state</strong> — information off by default, on by context</li>
+        <li><strong>Phase-triggered reveal</strong> — data appears when the phase requires it</li>
+        <li><strong>Stroke contrast + generous spacing</strong> as legibility principles</li>
+        <li><strong>Icon-first</strong> for rapid recognition</li>
+      </ul>
+      <h4>VOLTR application</h4>
+      <p>Default page state is minimal. Data panels reveal as user scrolls into relevant sections. Icons accompany all metric labels for glanceability.</p>
+      <h4>What to avoid</h4>
+      <p>Thin stroke weights on low-contrast backgrounds. Cluttered information density. Decorative typography.</p>
+    </article>
+  </section>
+
+  <hr>
+
+  <section>
+    <h2>High-End Audio Equipment</h2>
+
+    <article>
+      <h3>Bang & Olufsen</h3>
+      <p class="source">B&O product design language</p>
+      <h4>Why it works</h4>
+      <p>"Technology should inspire the senses." Aluminum craftsmanship, motorized theatrical reveals (Beolab 28 lamellas opening like curtains). Form expresses purpose before function. Scandinavian restraint. Dark anthracite + natural aluminum + warm gold tone.</p>
+      <h4>Pattern to extract</h4>
+      <ul>
+        <li><strong>Motorized/physical reveal moments</strong> — theatrical control as interaction</li>
+        <li><strong>Material honesty</strong> — aluminum, not plastic pretending</li>
+        <li><strong>Product "expresses itself"</strong> before you interact</li>
+        <li><strong>Dark+metal palette</strong> — premium restraint</li>
+      </ul>
+      <h4>VOLTR application</h4>
+      <p>Sections "reveal" themselves on scroll with mechanical precision (not fade-in). UI panels have material feel via subtle texture and shadow. Self-expression: hero content is visible before user interacts.</p>
+    </article>
+
+    <article>
+      <h3>McIntosh</h3>
+      <p class="source">McIntosh Laboratory</p>
+      <h4>Why it works</h4>
+      <p>Glowing blue watt meters, black glass, green LEDs, exposed vacuum tubes. <em>Functional elements become visual identity.</em> The blue meters are globally recognized — they serve a purpose <em>and</em> are the brand.</p>
+      <h4>Pattern to extract</h4>
+      <ul>
+        <li><strong>Functional elements as signature visual language</strong> — metrics-as-decoration, done right</li>
+        <li><strong>Glow/light as state communication</strong> — power, warmth, activity</li>
+        <li><strong>Contrast</strong> between precision (meters) and warmth (tube glow)</li>
+      </ul>
+      <h4>VOLTR application</h4>
+      <p>Performance metrics are both data AND visual identity. Animated gauges serve dual purpose: inform and express brand. Warm glow indicates active state, cool precision indicates standby/default.</p>
+      <h4>What to avoid</h4>
+      <p>Glow applied gratuitously without functional purpose. Retro for retro's sake — McIntosh earns it through authenticity.</p>
+    </article>
+
+    <article>
+      <h3>Naim Audio</h3>
+      <p class="source">Naim Audio product design</p>
+      <h4>Why it works</h4>
+      <p>British engineering restraint. Minimal controls, maximal substance. Knurled aluminum knobs with precise detents. Display is secondary to physical interaction. Dark, dense, heavy presence.</p>
+      <h4>Pattern to extract</h4>
+      <ul>
+        <li>Physical control with mechanical precision</li>
+        <li>Display as secondary — physical interaction as primary</li>
+        <li>Density and weight as premium signals</li>
+      </ul>
+      <h4>VOLTR application</h4>
+      <p>Important interactions should feel "heavy" — confirmation animations, state changes with deliberate pacing. Not everything is a tap; some things require a "press."</p>
+    </article>
+  </section>
+
+  <hr>
+
+  <section>
+    <h2>System Extraction — UI Principles</h2>
+    <table>
+      <tr>
+        <th>Principle</th>
+        <th>Source</th>
+        <th>VOLTR Rule</th>
+      </tr>
+      <tr>
+        <td>Quiet, dark default</td>
+        <td>Honeywell, Polestar</td>
+        <td>Page loads minimal. Information reveals on scroll/hover context.</td>
+      </tr>
+      <tr>
+        <td>Monochromatic + one accent</td>
+        <td>Lucid, Polestar</td>
+        <td>Dark background, white/off-white text, one warm accent color.</td>
+      </tr>
+      <tr>
+        <td>Three-layer depth</td>
+        <td>BMW Panoramic iDrive</td>
+        <td>Chrome/nav → content → ambient background. Three planes always.</td>
+      </tr>
+      <tr>
+        <td>Content-on-demand</td>
+        <td>Polestar, Garmin</td>
+        <td>Data appears when relevant. Otherwise screen is clean.</td>
+      </tr>
+      <tr>
+        <td>Functional element as identity</td>
+        <td>McIntosh</td>
+        <td>Metrics and gauges ARE the visual design, not decoration added to it.</td>
+      </tr>
+      <tr>
+        <td>Theatrical reveal</td>
+        <td>Bang & Olufsen</td>
+        <td>Sections don't fade in — they reveal with mechanical intention.</td>
+      </tr>
+      <tr>
+        <td>Physical feedback metaphor</td>
+        <td>Naim Audio, Lucid</td>
+        <td>Critical interactions have "weight" — confirmation is felt, not just seen.</td>
+      </tr>
+    </table>
+  </section>
+
+  <hr>
+  <p><a href="../index.html">← Back to Library</a></p>
+</body>
+</html>

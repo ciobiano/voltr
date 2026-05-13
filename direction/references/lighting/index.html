@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lighting References — VOLTR</title>
+</head>
+<body>
+  <h1>Lighting References</h1>
+  <p><a href="../index.html">← Back to Library</a></p>
+  <p><em>Studio photography lighting, volumetric light in film, architectural light design, and car launch event lighting.</em></p>
+
+  <hr>
+
+  <section>
+    <h2>Automotive Studio Photography</h2>
+
+    <article>
+      <h3>Mercedes-Benz "The Silence"</h3>
+      <p class="source">Mercedes-Benz commercial (2019)</p>
+      <h4>Technique</h4>
+      <p>Soft key light at 45° + rim light tracing body lines + blacked-out background. 70% of frame is near-black.</p>
+      <h4>Principle</h4>
+      <p>Sculpt form with negative space. Show only what matters.</p>
+      <h4>VOLTR application</h4>
+      <p>Single soft key light from upper-left on hero product shots. Let 70% of frame fall to near-black. Rim light to outline UI surface edges.</p>
+    </article>
+
+    <article>
+      <h3>Lexus "Gift" Commercial</h3>
+      <p class="source">Lexus brand film</p>
+      <h4>Technique</h4>
+      <p>Candlelit interior cross-fading to car's ambient cabin lighting. Warm fill + cold rim.</p>
+      <h4>Principle</h4>
+      <p>Warm fill light creates intimacy. Cold rim light = technology.</p>
+      <h4>VOLTR application</h4>
+      <p>Dual-temp lighting: 2700K accent for human elements (story, testimonials), 5600K cool white for data/UI panels.</p>
+    </article>
+
+    <article>
+      <h3>BMW "The Electric" Spot</h3>
+      <p class="source">BMW brand film</p>
+      <h4>Technique</h4>
+      <p>Moving slit scan light passing over vehicle silhouette.</p>
+      <h4>Principle</h4>
+      <p>Linear light reveal builds anticipation.</p>
+      <h4>VOLTR application</h4>
+      <p>Animated gradient sweep across section titles — light passes left-to-right, revealing text in its wake.</p>
+    </article>
+
+    <article>
+      <h3>Audi "Light is Everything"</h3>
+      <p class="source">Audi brand film</p>
+      <h4>Technique</h4>
+      <p>Single pinpoint spot moving across car in total darkness.</p>
+      <h4>Principle</h4>
+      <p>Theatrical isolation — what's lit is sacred.</p>
+      <h4>VOLTR application</h4>
+      <p>Spotlight cursor: mouse position reveals content beneath a dark overlay. Everything else stays hidden.</p>
+    </article>
+  </section>
+
+  <hr>
+
+  <section>
+    <h2>Volumetric Lighting in Film</h2>
+
+    <article>
+      <h3>Blade Runner 2049 (Deakins)</h3>
+      <p class="source">Cinematography by Roger Deakins</p>
+      <h4>Technique</h4>
+      <p>Hard beams through venetian blinds + floating atmospheric haze.</p>
+      <h4>Principle</h4>
+      <p>Light as a solid object. Air has mass and depth.</p>
+      <h4>VOLTR application</h4>
+      <p>box-shadow with blur(40px) on pseudo-elements for god-ray effects behind hero text. Layered radial-gradient for atmospheric depth between sections.</p>
+    </article>
+
+    <article>
+      <h3>The Batman (Fraser)</h3>
+      <p class="source">Cinematography by Greig Fraser</p>
+      <h4>Technique</h4>
+      <p>Single red/gold beam cutting through smoke in vertical shafts.</p>
+      <h4>Principle</h4>
+      <p>Color-as-atmosphere defines emotional territory.</p>
+      <h4>VOLTR application</h4>
+      <p>Section background transitions use gradient fog layer (opacity 0→0.3→0) that scrolls at 0.5x speed — creates volumetric depth without WebGL.</p>
+    </article>
+
+    <article>
+      <h3>Arrival (Bradford Young)</h3>
+      <p class="source">Cinematography by Bradford Young</p>
+      <h4>Technique</h4>
+      <p>Soft, dispersed light through semi-transparent ceiling panels.</p>
+      <h4>Principle</h4>
+      <p>Diffuse top-light = clarity, objectivity, calm.</p>
+      <h4>VOLTR application</h4>
+      <p>Top-down gradient on content cards: lightest at top edge, fading to background color — simulates overhead studio softbox.</p>
+    </article>
+
+    <article>
+      <h3>Dune (Villeneuve / Fraser)</h3>
+      <p class="source">Cinematography by Greig Fraser</p>
+      <h4>Technique</h4>
+      <p>Atmospheric dust catching harsh desert sunlight.</p>
+      <h4>Principle</h4>
+      <p>Particle matter makes light visible.</p>
+      <h4>VOLTR application</h4>
+      <p>filter: blur() + mix-blend-mode: screen on repeating radial gradient to simulate dust particles catching light between sections.</p>
+    </article>
+  </section>
+
+  <hr>
+
+  <section>
+    <h2>Architectural Lighting Design</h2>
+
+    <article>
+      <h3>Tadao Ando — Church of the Light</h3>
+      <p class="source">Architecture by Tadao Ando</p>
+      <h4>Technique</h4>
+      <p>Single horizontal/vertical slit cut through concrete wall. Cross-shaped daylight enters through absence.</p>
+      <h4>Principle</h4>
+      <p>Light defined by absence. The cut matters more than the source.</p>
+      <h4>VOLTR application</h4>
+      <p>Section dividers are horizontal "slits" of bright color in an otherwise dark layout — like light through a concrete gap.</p>
+    </article>
+
+    <article>
+      <h3>James Turrell — Ganzfeld Series</h3>
+      <p class="source">Light art installations</p>
+      <h4>Technique</h4>
+      <p>Whole-room immersion in single hue. Edges dissolve into uniform color. No reference points.</p>
+      <h4>Principle</h4>
+      <p>Perception is the medium. Remove reference points.</p>
+      <h4>VOLTR application</h4>
+      <p>Background color transitions (HSL shift) that happen so slowly the user doesn't notice until they scroll back — pure atmospheric mood.</p>
+    </article>
+
+    <article>
+      <h3>Ando — Naoshima Museum</h3>
+      <p class="source">Architecture by Tadao Ando</p>
+      <h4>Technique</h4>
+      <p>Underground spaces lit only by reflected light from water pools.</p>
+      <h4>Principle</h4>
+      <p>Indirect light is softer, more contemplative.</p>
+      <h4>VOLTR application</h4>
+      <p>Cards use subtle box-shadow to suggest light bouncing up from below — ground-plane illumination.</p>
+    </article>
+
+    <article>
+      <h3>Turrell — Roden Crater</h3>
+      <p class="source">Light art installation, Arizona</p>
+      <h4>Technique</h4>
+      <p>Aperture to sky frames celestial light. Color changes every moment with time of day.</p>
+      <h4>Principle</h4>
+      <p>Real-time light. The interface responds to time of day.</p>
+      <h4>VOLTR application</h4>
+      <p>Page theme shifts with hour — cool blue before dawn, warm gold at sunset, deep indigo at night — driven by Date().getHours().</p>
+    </article>
+  </section>
+
+  <hr>
+
+  <section>
+    <h2>Car Launch Event Lighting</h2>
+
+    <article>
+      <h3>Porsche Taycan Launch</h3>
+      <p class="source">Porsche Taycan world premiere</p>
+      <h4>Technique</h4>
+      <p>Single rotating follow-spot on car, black cyc wall, haze.</p>
+      <h4>Principle</h4>
+      <p>Theatrical reveal: dark → light → detail.</p>
+      <h4>VOLTR application</h4>
+      <p>Page load starts black, fades to hero in 1.2s with a single moving highlight that traces diagonally across content.</p>
+    </article>
+
+    <article>
+      <h3>Rimac Nevera Reveal</h3>
+      <p class="source">Rimac Nevera debut</p>
+      <h4>Technique</h4>
+      <p>Pixel-mapped LED floor + absolute darkness above.</p>
+      <h4>Principle</h4>
+      <p>Ground plane defines space. Above is void.</p>
+      <h4>VOLTR application</h4>
+      <p>Navigation items hover with a "ground glow" — light pool beneath each word, not above. Inverting expectation.</p>
+    </article>
+
+    <article>
+      <h3>EQXX Light Box Room</h3>
+      <p class="source">Mercedes-Benz EQXX debut</p>
+      <h4>Technique</h4>
+      <p>Light box room — white walls, white floor, car lit from all sides evenly.</p>
+      <h4>Principle</h4>
+      <p>Total diffusion. No shadows. Pure objecthood.</p>
+      <h4>VOLTR application</h4>
+      <p>Minimal UI mode: no card shadows, no gradients, just crisp content on uniformly lit surface — engineering precision.</p>
+    </article>
+
+    <article>
+      <h3>F-150 Lightning Launch</h3>
+      <p class="source">Ford F-150 Lightning debut</p>
+      <h4>Technique</h4>
+      <p>Blue LED light channels in floor converging on vehicle.</p>
+      <h4>Principle</h4>
+      <p>Directional light paths guide the eye.</p>
+      <h4>VOLTR application</h4>
+      <p>Scroll indicators as animated light bands that travel along path lines toward the next section.</p>
+    </article>
+  </section>
+
+  <hr>
+
+  <section>
+    <h2>System Extraction — Lighting Principles</h2>
+    <table>
+      <tr>
+        <th>Principle</th>
+        <th>Source</th>
+        <th>VOLTR Rule</th>
+      </tr>
+      <tr>
+        <td>Single light source</td>
+        <td>Mercedes "The Silence"</td>
+        <td>One dominant light direction per section. Everything else is shadow.</td>
+      </tr>
+      <tr>
+        <td>70% darkness</td>
+        <td>Porsche Taycan launch</td>
+        <td>Most of the frame is dark. Light is precious.</td>
+      </tr>
+      <tr>
+        <td>Light defined by absence</td>
+        <td>Ando — Church of Light</td>
+        <td>Bright elements are "cuts" in a dark layout, not additions.</td>
+      </tr>
+      <tr>
+        <td>Diffuse warmth</td>
+        <td>Arrival, EQXX</td>
+        <td>Soft gradients over hard edges. Feathered over sharp.</td>
+      </tr>
+      <tr>
+        <td>Atmospheric layer</td>
+        <td>BR2049, The Batman</td>
+        <td>Always have a fog/depth layer between background and content.</td>
+      </tr>
+      <tr>
+        <td>Dark → light reveal</td>
+        <td>Porsche, BMW slit scan</td>
+        <td>Content enters from darkness, not from nowhere.</td>
+      </tr>
+      <tr>
+        <td>Real-time light</td>
+        <td>Roden Crater</td>
+        <td>Theme responds to time of day. The page is alive.</td>
+      </tr>
+    </table>
+  </section>
+
+  <hr>
+  <p><a href="../index.html">← Back to Library</a></p>
+</body>
+</html>
