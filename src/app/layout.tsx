@@ -1,18 +1,32 @@
 import type { Metadata } from "next";
-import { Inter, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
+import { IBM_Plex_Mono } from "next/font/google";
 import { LenisProvider } from "@/motion/lenis-provider";
 import { ScrollProvider } from "@/motion/scroll-provider";
 import "./globals.css";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
+const f37Bolton = localFont({
+  src: [
+    { path: "./public/F37Bolton-Light.woff2", weight: "300" },
+    { path: "./public/F37Bolton-Medium.woff2", weight: "500" },
+  ],
+  variable: "--font-display",
   display: "swap",
 });
 
-const geistMono = Geist_Mono({
+const suisseIntl = localFont({
+  src: [
+    { path: "./public/suisse/SuisseIntl-Book.woff2", weight: "400" },
+    { path: "./public/suisse/SuisseIntl-Medium.woff2", weight: "500" },
+  ],
+  variable: "--font-body",
+  display: "swap",
+});
+
+const ibmPlexMono = IBM_Plex_Mono({
   subsets: ["latin"],
-  variable: "--font-geist-mono",
+  weight: ["400", "500"],
+  variable: "--font-mono",
   display: "swap",
 });
 
@@ -28,7 +42,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${geistMono.variable}`}>
+    <html
+      lang="en"
+      className={`${f37Bolton.variable} ${suisseIntl.variable} ${ibmPlexMono.variable}`}
+    >
       <body className="font-sans antialiased">
         <LenisProvider>
           <ScrollProvider>{children}</ScrollProvider>

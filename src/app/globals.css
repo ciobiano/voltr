@@ -1,21 +1,34 @@
 @import "tailwindcss";
 
 @theme {
-  --color-obsidian: #0A0A0A;
-  --color-charcoal: #2A2A2E;
-  --color-graphite: #8A807A;
-  --color-silver: #E8E4DF;
-  --color-white-primary: #E8E8E8;
-  --color-white-secondary: #888888;
-  --color-accent-gold: #C9A96E;
-  --color-accent-copper: #B87333;
-  --color-accent-ice: #4A8FE7;
-  --color-bronze: #9B7B5E;
-  --color-olive: #4A5A4E;
-  --color-warm-concrete: #8A807A;
+  --font-display: "F37 Bolton", "Suisse Int'l", sans-serif;
+  --font-sans: "Suisse Int'l", "Helvetica Neue", sans-serif;
+  --font-mono: "IBM Plex Mono", "Geist Mono", monospace;
 
-  --font-sans: "Inter", "Geist", system-ui, sans-serif;
-  --font-mono: "Geist Mono", "IBM Plex Mono", monospace;
+  --color-surface-primary: oklch(100% 0 0);
+  --color-surface-secondary: oklch(95% 2% 81deg);
+  --color-surface-tertiary: oklch(97% 1% 81deg);
+  --color-text-primary: oklch(0% 0 0);
+  --color-text-secondary: oklch(50.5% 0 0);
+  --color-text-tertiary: oklch(73.5% 0 0);
+  --color-border-subtle: oklch(92.5% 0 0);
+  --color-border-focus: oklch(0% 0 0);
+
+  --text-display: clamp(3rem, 5vw, 6rem);
+  --text-heading: clamp(2rem, 3vw, 3.5rem);
+  --text-subhead: clamp(1.25rem, 1.5vw, 1.75rem);
+  --text-body: clamp(1rem, 1vw, 1.125rem);
+  --text-caption: 0.875rem;
+  --text-meta: 0.75rem;
+
+  --tracking-display: 0.08em;
+  --tracking-wide: 0.05em;
+  --tracking-normal: 0em;
+  --tracking-mono: 0.02em;
+
+  --leading-display: 0.95;
+  --leading-heading: 1.1;
+  --leading-body: 1.6;
 
   --spacing-xs: 4px;
   --spacing-sm: 8px;
@@ -26,12 +39,72 @@
   --spacing-3xl: 96px;
   --spacing-4xl: 160px;
 
+  --shadow-elevation-1: 0 2px 8px rgba(0,0,0,0.04);
+  --shadow-elevation-2: 0 4px 24px rgba(0,0,0,0.06);
+  --shadow-elevation-3: 0 8px 48px rgba(0,0,0,0.08);
+
+  --blur-fog: 12px;
+  --blur-depth: 24px;
+  --opacity-fog: 0.08;
+
+  --duration-micro: 80ms;
+  --duration-ui: 250ms;
+  --duration-scene: 1000ms;
+  --duration-camera: 3000ms;
+
   --ease-hero: cubic-bezier(0.65, 0, 0.35, 1);
   --ease-card: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-gauge: cubic-bezier(0.42, 0, 0.58, 1);
   --ease-micro: cubic-bezier(0.05, 0.7, 0.1, 1);
   --ease-ambient: cubic-bezier(0.4, 0, 0.6, 1);
   --ease-entrance: cubic-bezier(0.12, 0.7, 0.1, 1);
+}
+
+@utility text-display {
+  font-family: var(--font-display);
+  font-size: var(--text-display);
+  letter-spacing: var(--tracking-display);
+  line-height: var(--leading-display);
+  font-weight: 300;
+}
+
+@utility text-heading {
+  font-family: var(--font-display);
+  font-size: var(--text-heading);
+  letter-spacing: var(--tracking-wide);
+  line-height: var(--leading-heading);
+  font-weight: 300;
+}
+
+@utility text-subhead {
+  font-family: var(--font-sans);
+  font-size: var(--text-subhead);
+  letter-spacing: var(--tracking-wide);
+  line-height: 1.3;
+  font-weight: 400;
+}
+
+@utility text-body {
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+  font-weight: 400;
+}
+
+@utility text-caption {
+  font-family: var(--font-mono);
+  font-size: var(--text-caption);
+  letter-spacing: var(--tracking-mono);
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+@utility text-metric {
+  font-family: var(--font-mono);
+  font-size: var(--text-heading);
+  letter-spacing: var(--tracking-mono);
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
 }
 
 @layer base {
@@ -45,17 +118,20 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-    background-color: var(--color-obsidian);
-    color: var(--color-white-primary);
+    background-color: var(--color-surface-primary);
+    color: var(--color-text-primary);
   }
 
   body {
     margin: 0;
     padding: 0;
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--leading-body);
   }
 
   ::selection {
-    background-color: var(--color-accent-gold);
-    color: var(--color-obsidian);
+    background-color: var(--color-text-primary);
+    color: var(--color-surface-primary);
   }
 }

@@ -1,41 +1,48 @@
 import { cva } from "class-variance-authority";
 
-export const headingVariants = cva("font-light tracking-[0.12em] leading-none", {
-  variants: {
-    level: {
-      display: "text-5xl md:text-7xl lg:text-8xl tracking-[0.15em]",
-      h1: "text-4xl md:text-6xl tracking-[0.12em]",
-      h2: "text-3xl md:text-4xl tracking-[0.1em]",
-      h3: "text-2xl tracking-[0.08em]",
+export const headingVariants = cva(
+  "font-light leading-[var(--leading-heading)] text-text-primary",
+  {
+    variants: {
+      level: {
+        display:
+          "text-[var(--text-display)] tracking-[var(--tracking-display)] leading-[var(--leading-display)]",
+        h1: "text-[var(--text-heading)] tracking-[var(--tracking-wide)]",
+        h2: "text-[var(--text-subhead)] tracking-[var(--tracking-wide)]",
+        h3: "text-[var(--text-body)] tracking-[var(--tracking-normal)] font-medium",
+      },
+    },
+    defaultVariants: {
+      level: "h1",
     },
   },
-  defaultVariants: {
-    level: "h1",
-  },
-});
+);
 
 export const labelVariants = cva(
-  "font-mono text-sm text-white-secondary tracking-widest uppercase",
+  "font-mono text-[var(--text-caption)] text-text-secondary tracking-[var(--tracking-mono)] uppercase",
   {
     variants: {
       intent: {
         scene: "",
-        metric: "text-4xl text-white-primary",
+        metric: "text-[var(--text-heading)] text-text-primary font-light",
       },
     },
   },
 );
 
-export const metricVariants = cva("font-mono tabular-nums", {
-  variants: {
-    size: {
-      sm: "text-lg",
-      md: "text-2xl",
-      lg: "text-4xl",
-      xl: "text-6xl",
+export const metricVariants = cva(
+  "font-mono tabular-nums tracking-[var(--tracking-mono)]",
+  {
+    variants: {
+      size: {
+        sm: "text-[var(--text-body)]",
+        md: "text-[var(--text-subhead)]",
+        lg: "text-[var(--text-heading)]",
+        xl: "text-[var(--text-display)]",
+      },
+    },
+    defaultVariants: {
+      size: "md",
     },
   },
-  defaultVariants: {
-    size: "md",
-  },
-});
+);
