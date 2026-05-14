@@ -7,8 +7,8 @@ import "./globals.css";
 
 const f37Bolton = localFont({
   src: [
-    { path: "./public/F37Bolton-Light.woff2", weight: "300" },
-    { path: "./public/F37Bolton-Medium.woff2", weight: "500" },
+    { path: "./fonts/F37Bolton-Light.woff2", weight: "300" },
+    { path: "./fonts/F37Bolton-Medium.woff2", weight: "500" },
   ],
   variable: "--font-display",
   display: "swap",
@@ -16,8 +16,8 @@ const f37Bolton = localFont({
 
 const suisseIntl = localFont({
   src: [
-    { path: "./public/suisse/SuisseIntl-Book.woff2", weight: "400" },
-    { path: "./public/suisse/SuisseIntl-Medium.woff2", weight: "500" },
+    { path: "./fonts/suisse/SuisseIntl-Book.woff2", weight: "400" },
+    { path: "./fonts/suisse/SuisseIntl-Medium.woff2", weight: "500" },
   ],
   variable: "--font-body",
   display: "swap",
