@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { headingVariants } from "./variants";
+import { headingVariants } from "@/design-system/variants";
 
 type Level = "display" | "h1" | "h2" | "h3";
 const levelMap: Record<Level, "h1" | "h2" | "h3" | "p"> = {

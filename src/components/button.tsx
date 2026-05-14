@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { buttonVariants } from "./variants";
+import { buttonVariants } from "@/design-system/variants";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   intent?: "primary" | "outline" | "ghost";

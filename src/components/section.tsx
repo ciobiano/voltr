@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
-import { sectionVariants } from "./variants";
-import { Label } from "./label";
-import { Container } from "./container";
+import { sectionVariants } from "@/design-system/variants";
+import { Label } from "@/components/label";
+import { Container } from "@/components/container";
 
 interface SectionProps {
   label?: string;

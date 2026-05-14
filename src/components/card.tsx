@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { cardVariants } from "./variants";
+import { cardVariants } from "@/design-system/variants";
 
 interface CardProps {
   intent?: "elevated" | "flat" | "atmospheric";

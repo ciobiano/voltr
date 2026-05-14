@@ -1,6 +1,6 @@
-import { Section } from "@/design-system/section";
-import { Heading } from "@/design-system/heading";
-import { Metric } from "@/design-system/metric";
+import { Section } from "@/components/section";
+import { Heading } from "@/components/heading";
+import { Metric } from "@/components/metric";
 
 export default function PerformanceScene() {
   return (
