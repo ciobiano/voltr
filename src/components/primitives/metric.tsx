@@ -8,23 +8,23 @@ interface MetricProps {
 }
 
 const metricSizes: Record<string, string> = {
-  sm: "text-[var(--text-body)]",
-  md: "text-[var(--text-subhead)]",
-  lg: "text-[var(--text-heading)]",
-  xl: "text-[var(--text-display)]",
+  sm: "text-size-body",
+  md: "text-size-subhead",
+  lg: "text-size-heading",
+  xl: "text-size-display",
 };
 
 export function Metric({ value, label, size = "lg", className }: MetricProps) {
   return (
     <div className={cn("space-y-1", className)}>
       <p className={cn(
-        "font-mono tabular-nums tracking-[var(--tracking-mono)] text-text-primary font-light",
+        "font-mono tabular-nums tracking-mono text-primary font-light",
         metricSizes[size],
       )}>
         {value}
       </p>
       {label && (
-        <p className="text-caption text-text-secondary">{label}</p>
+        <p className="text-caption text-secondary">{label}</p>
       )}
     </div>
   );

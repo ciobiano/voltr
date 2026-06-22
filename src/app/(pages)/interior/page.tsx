@@ -1,8 +1,8 @@
-import { Section } from "@/components/section";
-import { Heading } from "@/components/heading";
-import { Text } from "@/components/text";
+import { Section } from "@/components/primitives/section";
+import { Heading } from "@/components/primitives/heading";
+import { Text } from "@/components/primitives/text";
 
-export default function InteriorScene() {
+export default function InteriorPage() {
   return (
     <Section label="Intelligent calm" surface="warm">
       <Heading level="h1">Technology through invisibility.</Heading>

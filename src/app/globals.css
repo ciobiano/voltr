@@ -12,11 +12,13 @@
   --color-text-secondary: oklch(50.5% 0 0);
   --color-text-tertiary: oklch(73.5% 0 0);
   --color-accent: oklch(68% 50% 32deg);
+  --color-text-inverse: oklch(94% 1% 80deg);
   --color-border-subtle: oklch(92.5% 0 0);
   --color-border-focus: oklch(0% 0 0);
 
   --text-display: clamp(3rem, 5vw, 6rem);
   --text-heading: clamp(2rem, 3vw, 3.5rem);
+  --text-heading-xl: clamp(3rem, 2.5rem + 2.5vw, 4.6875rem);
   --text-subhead: clamp(1.25rem, 1.5vw, 1.75rem);
   --text-body: clamp(1rem, 1vw, 1.125rem);
   --text-caption: 0.875rem;
@@ -25,10 +27,10 @@
   --tracking-display: 0.08em;
   --tracking-wide: 0.05em;
   --tracking-normal: 0em;
-  --tracking-mono: 0.02em;
+  --tracking-mono: -0.05em;
 
   --leading-display: 0.95;
-  --leading-heading: 1.1;
+  --leading-heading: 1;
   --leading-body: 1.6;
 
   --spacing-xs: 4px;
@@ -47,7 +49,6 @@
   --blur-fog: 12px;
   --blur-depth: 24px;
   --opacity-fog: 0.08;
-
   --duration-micro: 80ms;
   --duration-ui: 250ms;
   --duration-scene: 1000ms;
@@ -67,6 +68,14 @@
   letter-spacing: var(--tracking-display);
   line-height: var(--leading-display);
   font-weight: 300;
+}
+
+@utility text-heading-xl {
+  font-family: var(--font-display);
+  font-size: var(--text-heading-xl);
+  letter-spacing: var(--tracking-mono);
+  line-height: var(--leading-heading);
+  font-weight: 400;
 }
 
 @utility text-heading {
@@ -106,6 +115,62 @@
   letter-spacing: var(--tracking-mono);
   font-weight: 400;
   font-variant-numeric: tabular-nums;
+}
+
+@utility text-primary {
+  color: var(--color-text-primary);
+}
+
+@utility text-secondary {
+  color: var(--color-text-secondary);
+}
+
+@utility text-tertiary {
+  color: var(--color-text-tertiary);
+}
+
+@utility leading-body {
+  line-height: var(--leading-body);
+}
+
+@utility leading-display {
+  line-height: var(--leading-display);
+}
+
+@utility leading-heading {
+  line-height: var(--leading-heading);
+}
+
+@utility tracking-display {
+  letter-spacing: var(--tracking-display);
+}
+
+@utility tracking-wide {
+  letter-spacing: var(--tracking-wide);
+}
+
+@utility tracking-mono {
+  letter-spacing: var(--tracking-mono);
+}
+
+@utility text-meta {
+  font-size: var(--text-meta);
+}
+
+@utility text-size-body {
+  font-size: var(--text-body);
+}
+
+@utility text-size-subhead {
+  font-size: var(--text-subhead);
+}
+
+@utility text-size-heading {
+  font-size: var(--text-heading);
+}
+
+@utility text-size-display {
+  font-size: var(--text-display);
 }
 
 @layer base {

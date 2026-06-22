@@ -1,8 +1,8 @@
-import { Section } from "@/components/section";
-import { Heading } from "@/components/heading";
-import { Metric } from "@/components/metric";
+import { Section } from "@/components/primitives/section";
+import { Heading } from "@/components/primitives/heading";
+import { Metric } from "@/components/primitives/metric";
 
-export default function PerformanceScene() {
+export default function PerformancePage() {
   return (
     <Section label="Restrained power" surface="light">
       <Heading level="h1">Precision in motion.</Heading>

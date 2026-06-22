@@ -1,14 +1,18 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { IBM_Plex_Mono } from "next/font/google";
-import { LenisProvider } from "@/motion/lenis-provider";
-import { ScrollProvider } from "@/motion/scroll-provider";
+import { ViewportProvider } from "@/components/primitives/viewport-provider";
 import "./globals.css";
 
 const f37Bolton = localFont({
   src: [
+    { path: "./fonts/F37Bolton-Thin.woff2", weight: "100" },
+    { path: "./fonts/F37Bolton-ExtraLight.woff2", weight: "200" },
     { path: "./fonts/F37Bolton-Light.woff2", weight: "300" },
+    { path: "./fonts/F37Bolton-Regular.woff2", weight: "400" },
     { path: "./fonts/F37Bolton-Medium.woff2", weight: "500" },
+    { path: "./fonts/F37Bolton-Bold.woff2", weight: "700" },
+    { path: "./fonts/F37Bolton-SuperBold.woff2", weight: "800" },
   ],
   variable: "--font-display",
   display: "swap",
@@ -16,8 +20,14 @@ const f37Bolton = localFont({
 
 const suisseIntl = localFont({
   src: [
+    { path: "./fonts/suisse/SuisseIntl-Thin.woff2", weight: "100" },
+    { path: "./fonts/suisse/SuisseIntl-ThinIt.woff2", weight: "100", style: "italic" },
+    { path: "./fonts/suisse/SuisseIntl-Light.woff2", weight: "300" },
     { path: "./fonts/suisse/SuisseIntl-Book.woff2", weight: "400" },
     { path: "./fonts/suisse/SuisseIntl-Medium.woff2", weight: "500" },
+    { path: "./fonts/suisse/SuisseIntl-MediumIt.woff2", weight: "500", style: "italic" },
+    { path: "./fonts/suisse/SuisseIntl-Bold.woff2", weight: "700" },
+    { path: "./fonts/suisse/SuisseIntl-Black.woff2", weight: "900" },
   ],
   variable: "--font-body",
   display: "swap",
@@ -47,9 +57,8 @@ export default function RootLayout({
       className={`${f37Bolton.variable} ${suisseIntl.variable} ${ibmPlexMono.variable}`}
     >
       <body className="font-sans antialiased">
-        <LenisProvider>
-          <ScrollProvider>{children}</ScrollProvider>
-        </LenisProvider>
+        <ViewportProvider />
+        {children}
       </body>
     </html>
   );

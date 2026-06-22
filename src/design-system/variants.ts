@@ -1,15 +1,16 @@
 import { cva } from "class-variance-authority";
 
 export const headingVariants = cva(
-  "font-light leading-[var(--leading-heading)] text-text-primary",
+  "font-display text-text-primary",
   {
     variants: {
       level: {
         display:
-          "text-[var(--text-display)] tracking-[var(--tracking-display)] leading-[var(--leading-display)]",
-        h1: "text-[var(--text-heading)] tracking-[var(--tracking-wide)]",
-        h2: "text-[var(--text-subhead)] tracking-[var(--tracking-wide)]",
-        h3: "text-[var(--text-body)] tracking-[var(--tracking-normal)] font-medium",
+          "text-display tracking-[var(--tracking-display)] leading-[var(--leading-display)]",
+        h1: "text-heading-xl tracking-[var(--tracking-mono)] ",
+        h2: "text-subhead tracking-[var(--tracking-wide)]",
+        h3: "text-body tracking-[var(--tracking-normal)]",
+        
       },
     },
     defaultVariants: {

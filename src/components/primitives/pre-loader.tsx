@@ -43,7 +43,7 @@ export function PreLoader() {
     >
       <motion.div
         layout
-        className="text-display text-text-primary flex items-center justify-center"
+        className="text-display text-primary flex items-center justify-center"
         initial={{ opacity: 0, y: 20 }}
         animate={{
           opacity: 1,

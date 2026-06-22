@@ -2,9 +2,9 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Heading } from "@/components/heading";
-import { Text } from "@/components/text";
-import { Button } from "@/components/button";
+import { Heading } from "@/components/primitives/heading";
+import { Text } from "@/components/primitives/text";
+import { Button } from "@/components/primitives/button";
 import { VOLTR_EASING } from "@/motion/easing";
 
 export function Hero() {
@@ -22,7 +22,7 @@ export function Hero() {
 
       <div className="relative z-10 max-w-4xl mx-auto px-6 pt-24 pb-32 w-full">
         <motion.p
-          className="text-caption text-text-secondary mb-8"
+          className="text-caption text-secondary mb-8"
           initial={{ opacity: 0, y: -8, filter: "blur(2px)" }}
           animate={
             ready
@@ -84,7 +84,7 @@ export function Hero() {
             : {}
         }
       >
-        <span className="text-caption text-text-tertiary">Scroll</span>
+        <span className="text-caption text-tertiary">Scroll</span>
         <motion.div
           className="w-px h-8 bg-text-tertiary"
           animate={{

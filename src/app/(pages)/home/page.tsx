@@ -1,8 +1,8 @@
-import { Section } from "@/components/section";
-import { Heading } from "@/components/heading";
-import { Text } from "@/components/text";
+import { Section } from "@/components/primitives/section";
+import { Heading } from "@/components/primitives/heading";
+import { Text } from "@/components/primitives/text";
 
-export default function HeroScene() {
+export default function HomePage() {
   return (
     <Section label="Controlled awe" surface="atmospheric">
       <Heading level="h1">Engineered for silence.</Heading>

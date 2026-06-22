@@ -9,15 +9,15 @@ interface TextProps {
 }
 
 const textStyles: Record<string, string> = {
-  body: "text-body text-text-primary",
-  caption: "text-caption text-text-secondary",
-  meta: "text-[var(--text-meta)] text-text-tertiary font-mono tracking-[var(--tracking-mono)] uppercase",
+  body: "text-body text-primary",
+  caption: "text-caption text-secondary",
+  meta: "text-meta text-tertiary font-mono tracking-mono uppercase",
 };
 
 const textColors: Record<string, string> = {
-  primary: "text-text-primary",
-  secondary: "text-text-secondary",
-  tertiary: "text-text-tertiary",
+  primary: "text-primary",
+  secondary: "text-secondary",
+  tertiary: "text-tertiary",
 };
 
 export function Text({

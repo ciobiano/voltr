@@ -7,7 +7,7 @@ interface LabelProps {
 
 export function Label({ children, className }: LabelProps) {
   return (
-    <p className={cn("text-caption text-text-secondary", className)}>
+    <p className={cn("text-caption text-secondary", className)}>
       {children}
     </p>
   );
