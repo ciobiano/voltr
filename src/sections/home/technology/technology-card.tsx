@@ -52,8 +52,7 @@ export const TechnologyCard = forwardRef<HTMLElement, TechnologyCardProps>(
         <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between gap-4">
           {/* Tagline */}
           <p
-            className="font-display text-white leading-[0.95] whitespace-pre-line"
-            style={{ fontSize: "clamp(2rem, 3vw, 3.5rem)" }}
+            className="font-display text-size-heading text-white leading-[0.95] whitespace-pre-line"
           >
             {feature.tagline}
           </p>
