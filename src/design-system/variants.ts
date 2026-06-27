@@ -58,7 +58,7 @@ export const buttonVariants = cva(
         accent:
           "bg-accent text-surface-primary hover:brightness-[1.15] active:brightness-[0.85]",
         ghost:
-          "border border-white/30 bg-white/10 text-white backdrop-blur-sm hover:bg-surface-secondary hover:text-text-primary active:brightness-[0.9]",
+          "border border-white/30 bg-glass-dark text-white backdrop-blur-sm hover:bg-accent hover:border-accent hover:text-surface-primary active:brightness-[0.9]",
       },
       shape: {
         pill: "rounded-full",

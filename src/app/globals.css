@@ -15,6 +15,7 @@
   --color-text-inverse: oklch(94% 1% 80deg);
   --color-border-subtle: oklch(92.5% 0 0);
   --color-border-focus: oklch(0% 0 0);
+  --color-glass-dark: color-mix(in oklab, black 40%, transparent);
 
   --text-display: clamp(3rem, 5vw, 6rem);
   --text-heading: clamp(2rem, 3vw, 3.5rem);
