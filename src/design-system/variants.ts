@@ -49,7 +49,7 @@ export const metricVariants = cva(
 );
 
 export const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 font-medium rounded-full transition-all duration-[var(--duration-ui)] ease-[var(--ease-micro)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus disabled:pointer-events-none disabled:opacity-35",
+  "inline-flex items-center justify-center gap-2 font-medium transition-all duration-[var(--duration-ui)] ease-[var(--ease-micro)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-focus disabled:pointer-events-none disabled:opacity-35",
   {
     variants: {
       intent: {
@@ -57,6 +57,12 @@ export const buttonVariants = cva(
           "bg-text-primary text-surface-primary hover:brightness-[1.4] active:brightness-[0.75]",
         accent:
           "bg-accent text-surface-primary hover:brightness-[1.15] active:brightness-[0.85]",
+        ghost:
+          "border border-white/30 bg-white/10 text-white backdrop-blur-sm hover:bg-surface-secondary hover:text-text-primary active:brightness-[0.9]",
+      },
+      shape: {
+        pill: "rounded-full",
+        semi: "rounded-2xl",
       },
       size: {
         sm: "px-5 py-1.5 text-[var(--text-caption)]",
@@ -66,6 +72,7 @@ export const buttonVariants = cva(
     },
     defaultVariants: {
       intent: "primary",
+      shape: "pill",
       size: "md",
     },
   },
