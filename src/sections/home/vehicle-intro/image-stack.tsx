@@ -1,33 +1,23 @@
 import Image from "next/image";
 import { RefObject } from "react";
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/primitives/button";
 
-const cards = [
-  {
-    src: "/images/rv-images/interior.png",
-    alt: "Interior view",
-  },
-  {
-    src: "/images/rv-images/features.png",
-    alt: "Integrated features",
-  },
-  {
-    src: "/images/rv-images/lifestyle.png",
-    alt: "Lifestyle scene",
-  },
-  {
-    src: "/images/rv-images/lifestyle.png",
-    alt: "AE.1 night reveal",
-  },
+const CARD_Z_INDICES = ["z-20", "z-30", "z-40", "z-50"] as const;
+
+const CARD_IMAGES = [
+  { src: "/images/rv-images/interior.png", alt: "Interior view" },
+  { src: "/images/rv-images/features.png", alt: "Integrated features" },
+  { src: "/images/rv-images/lifestyle.png", alt: "Lifestyle scene" },
+  { src: "/images/rv-images/lifestyle.png", alt: "AE.1 night reveal" },
 ];
 
 interface ImageStackProps {
   cardsRef: RefObject<(HTMLDivElement | null)[]>;
-  overlayRef?: RefObject<HTMLDivElement | null>;
   className?: string;
 }
 
-export function ImageStack({ cardsRef, overlayRef, className }: ImageStackProps) {
+export function ImageStack({ cardsRef, className }: ImageStackProps) {
   return (
     <div
       className={cn(
@@ -35,7 +25,7 @@ export function ImageStack({ cardsRef, overlayRef, className }: ImageStackProps)
         className,
       )}
     >
-      {cards.map((card, i) => (
+      {CARD_IMAGES.map((card, i) => (
         <div
           key={`${card.src}-${i}`}
           ref={(el) => {
@@ -43,10 +33,7 @@ export function ImageStack({ cardsRef, overlayRef, className }: ImageStackProps)
           }}
           className={cn(
             "relative aspect-[4/5] w-full shrink-0 rounded-[1rem] md:absolute md:left-0 md:top-0 md:will-change-transform md:max-h-[67vh]",
-            i === 0 && "z-20",
-            i === 1 && "z-30",
-            i === 2 && "z-40",
-            i === 3 && "z-50",
+            CARD_Z_INDICES[i],
           )}
         >
           <Image
@@ -59,18 +46,15 @@ export function ImageStack({ cardsRef, overlayRef, className }: ImageStackProps)
           />
 
           {i === 3 && (
-            <div
-              ref={overlayRef}
-              className="card-overlay absolute inset-0 flex flex-col items-center justify-center gap-5 rounded-[1rem] bg-black/30 px-6 text-center text-white opacity-100 md:opacity-0"
-            >
+            <div className="absolute inset-0 flex flex-col items-center justify-center gap-5 rounded-[1rem] bg-black/40 px-6 text-center text-white">
               <h3 className="text-[clamp(2.6rem,4vw,4.6rem)] font-display leading-[0.92] tracking-[-0.06em]">
                 Your home,
                 <br />
                 anywhere.
               </h3>
-              <button className="inline-flex items-center justify-center rounded-full border border-white/30 bg-white/10 px-6 py-3 text-sm font-medium tracking-wide backdrop-blur-sm transition-colors hover:bg-white/20">
+              <Button intent="ghost" shape="semi" size="md">
                 Explore the AE.1
-              </button>
+              </Button>
             </div>
           )}
         </div>
