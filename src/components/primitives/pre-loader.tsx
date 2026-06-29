@@ -2,17 +2,9 @@
 
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { VOLTR_EASING } from "@/motion/easing";
+import { wordmarkAppear, letterExit, oZoom, overlayFade } from "@/motion/variants";
 
 type Phase = "wordmark" | "zoom" | "exit" | "done";
-
-const exitProps = {
-  exit: {
-    opacity: 0,
-    x: -40,
-    transition: { duration: 0.3, ease: VOLTR_EASING.card },
-  },
-};
 
 export function PreLoader() {
   const [phase, setPhase] = useState<Phase>("wordmark");
@@ -35,25 +27,20 @@ export function PreLoader() {
   return (
     <motion.div
       className="fixed inset-0 z-50 bg-surface-primary flex items-center justify-center"
-      animate={
-        phase === "exit"
-          ? { opacity: 0, transition: { duration: 0.6, ease: VOLTR_EASING.entrance } }
-          : { opacity: 1 }
-      }
+      variants={overlayFade}
+      initial="visible"
+      animate={phase === "exit" ? "exit" : "visible"}
     >
       <motion.div
         layout
         className="text-display text-primary flex items-center justify-center"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{
-          opacity: 1,
-          y: 0,
-          transition: { duration: 0.8, ease: VOLTR_EASING.hero, delay: 0.4 },
-        }}
+        variants={wordmarkAppear}
+        initial="hidden"
+        animate="visible"
       >
         <AnimatePresence mode="popLayout">
           {showLetters && (
-            <motion.span key="V" layout {...exitProps}>
+            <motion.span key="V" layout variants={letterExit} exit="exit">
               V
             </motion.span>
           )}
@@ -61,11 +48,9 @@ export function PreLoader() {
 
         <motion.span
           layout
-          animate={
-            phase !== "wordmark"
-              ? { scale: 15, transition: { duration: 0.9, ease: VOLTR_EASING.entrance, delay: 0.1 } }
-              : { scale: 1 }
-          }
+          variants={oZoom}
+          initial="initial"
+          animate={phase !== "wordmark" ? "zoom" : "initial"}
           style={{ transformOrigin: "center center" }}
         >
           O
@@ -73,7 +58,7 @@ export function PreLoader() {
 
         <AnimatePresence mode="popLayout">
           {showLetters && (
-            <motion.span key="L" layout {...exitProps}>
+            <motion.span key="L" layout variants={letterExit} exit="exit">
               L
             </motion.span>
           )}
@@ -81,7 +66,7 @@ export function PreLoader() {
 
         <AnimatePresence mode="popLayout">
           {showLetters && (
-            <motion.span key="T" layout {...exitProps}>
+            <motion.span key="T" layout variants={letterExit} exit="exit">
               T
             </motion.span>
           )}
@@ -89,7 +74,7 @@ export function PreLoader() {
 
         <AnimatePresence mode="popLayout">
           {showLetters && (
-            <motion.span key="R" layout {...exitProps}>
+            <motion.span key="R" layout variants={letterExit} exit="exit">
               R
             </motion.span>
           )}

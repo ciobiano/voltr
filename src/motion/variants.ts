@@ -52,7 +52,7 @@ export const wordmarkAppear: Variants = {
 export const letterExit: Variants = {
   exit: {
     opacity: 0,
-    x: -30,
+    x: -40,
     transition: { duration: 0.3, ease: VOLTR_EASING.card },
   },
 };
@@ -61,7 +61,7 @@ export const oZoom: Variants = {
   initial: { scale: 1 },
   zoom: {
     scale: 15,
-    transition: { duration: 0.9, ease: VOLTR_EASING.entrance },
+    transition: { duration: 0.9, ease: VOLTR_EASING.entrance, delay: 0.1 },
   },
 };
 

@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Menu } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { VOLTR_EASING } from "@/motion/easing";
 
 const navLinksLeft = [
   { label: "AE.1", href: "#ae1" },
@@ -17,9 +18,10 @@ const navLinksRight = [
 
 interface HeroNavProps {
   className?: string;
+  ready?: boolean;
 }
 
-export function HeroNav({ className }: HeroNavProps) {
+export function HeroNav({ className, ready = false }: HeroNavProps) {
   const { scrollY } = useScroll();
 
   const paddingY = useTransform(scrollY, [0, 80], [28, 12]);
@@ -31,7 +33,7 @@ export function HeroNav({ className }: HeroNavProps) {
   const bg = useTransform(
     scrollY,
     [0, 80],
-    ["rgba(255,255,255,0)", "rgba(255,255,255,0.9)"],
+    ["rgba(255,255,255,0)", "rgba(251,251,251,1)"],
   );
 
   const radius = useTransform(scrollY, [0, 80], [0, 8]);
@@ -60,6 +62,12 @@ export function HeroNav({ className }: HeroNavProps) {
         "fixed top-0 left-0 z-50 flex w-full items-center justify-center",
         className,
       )}
+      initial={{ opacity: 0, y: -10 }}
+      animate={
+        ready
+          ? { opacity: 1, y: 0, transition: { duration: 0.6, ease: VOLTR_EASING.hero } }
+          : {}
+      }
       style={{ paddingTop: paddingY, paddingBottom: paddingY, paddingLeft: paddingX, paddingRight: paddingX }}
     >
       <motion.div

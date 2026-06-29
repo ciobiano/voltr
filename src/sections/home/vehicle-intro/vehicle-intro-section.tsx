@@ -1,12 +1,14 @@
 "use client";
 
 import { useRef, useEffect } from "react";
+import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 import { useLenis } from "lenis/react";
 import { ImageStack } from "./image-stack";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export function VehicleIntroSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -19,131 +21,124 @@ export function VehicleIntroSection() {
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
   const lenis = useLenis();
 
-  useEffect(() => {
-    const trigger = sectionRef.current;
-    const svg = svgRef.current;
-    const pinned = pinnedRef.current;
-    const cardsContainer = cardsContainerRef.current;
-    const cardsTrack = cardsTrackRef.current;
-    const leftText = leftTextRef.current;
-    const rightText = rightTextRef.current;
-    const cards = cardsRef.current.filter(Boolean);
+  useGSAP(
+    () => {
+      const trigger = sectionRef.current;
+      const svg = svgRef.current;
+      const pinned = pinnedRef.current;
+      const cardsTrack = cardsTrackRef.current;
+      const leftText = leftTextRef.current;
+      const rightText = rightTextRef.current;
+      const cards = cardsRef.current.filter(Boolean) as HTMLDivElement[];
 
-    if (
-      !trigger ||
-      !svg ||
-      !pinned ||
-      !cardsContainer ||
-      !cardsTrack ||
-      !leftText ||
-      !rightText ||
-      cards.length < 4
-    ) return;
+      if (
+        !trigger || !svg || !pinned ||
+        !cardsTrack || !leftText || !rightText ||
+        cards.length < 4
+      ) return;
 
-    const overlay = cards[3]?.querySelector(".card-overlay");
+      const mm = gsap.matchMedia();
 
-    const mm = gsap.matchMedia();
+      mm.add("(min-width: 768px)", () => {
+        const phaseLen = 0.6;
+        const releaseScale = 0.88;
+        const driftUp = 140;
+        const headerGap = 24;
 
-    mm.add("(min-width: 768px)", () => {
-      const headerGap = 24;
-      const releaseScale = 0.88;
-      const driftUp = 90;
-      const phaseLen = 1.1;
+        // Clear any stale transforms before setting up.
+        gsap.set(cards, { clearProps: "all" });
+        gsap.set([cardsTrack, leftText, rightText], { clearProps: "transform,opacity" });
 
-      gsap.set(svg, { scale: 1, opacity: 1, transformOrigin: "center center" });
-      gsap.set(cardsTrack, { clearProps: "transform" });
-      gsap.set(cards, { transformOrigin: "50% 50%" });
+        gsap.set(svg, { scale: 1, opacity: 1, transformOrigin: "center center" });
+        gsap.set(cardsTrack, { clearProps: "transform" });
+        gsap.set(cards, { transformOrigin: "50% 50%" });
+        gsap.set(leftText, { opacity: 1, y: 0 });
 
-      const getSceneTravel = () => window.innerHeight * 4.5;
-      const getCardStackBase = () => {
-        const cardParent = cards[0]?.parentElement;
-        if (!cardParent) return 0;
-        return cardParent.getBoundingClientRect().top - pinned.getBoundingClientRect().top;
-      };
-      const getHeaderStop = () => {
-        const svgBounds = svg.getBoundingClientRect();
-        const pinnedBounds = pinned.getBoundingClientRect();
-        return svgBounds.bottom - pinnedBounds.top + headerGap;
-      };
-      const getActiveY = () => Math.max(0, getHeaderStop() - getCardStackBase());
-      const getCardStartY = () => {
-        const viewportH = pinned.offsetHeight || window.innerHeight;
-        return viewportH - getCardStackBase() + 60;
-      };
+        const cardParentTop = () => cards[0].parentElement!.getBoundingClientRect().top;
+        const activeY = () => Math.max(0, svg.getBoundingClientRect().bottom + headerGap - cardParentTop());
+        const startY = () => (pinned.offsetHeight || innerHeight) - (cardParentTop() - pinned.getBoundingClientRect().top) + 10;
 
-      ScrollTrigger.create({
-        trigger: trigger,
-        start: "top top",
-        end: () => `+=${getSceneTravel()}`,
-        pin: svg,
-        pinSpacing: false,
-        invalidateOnRefresh: true,
-      });
-
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: trigger,
+        const stConfig = {
+          trigger,
           start: "top top",
-          end: () => `+=${getSceneTravel()}`,
-          pin: pinned,
-          scrub: 1,
-          anticipatePin: 1,
+          end: () => `+=${innerHeight * 2}`,
           invalidateOnRefresh: true,
-        },
-      });
+        };
 
-      tl
-        .to(leftText, { opacity: 1, y: 0, duration: 0.35 }, 0)
-        .to(leftText, { opacity: 0, y: -24, duration: 0.3 }, 0.9)
-        .to(rightText, { opacity: 1, y: 0, duration: 0.35 }, 2.5)
-        .to(rightText, { opacity: 0, y: -24, duration: 0.35 }, 3.8);
+        ScrollTrigger.create({ ...stConfig, pin: svg, pinSpacing: false });
 
-      cards.forEach((card, i) => {
-        const arrivalStart = i * phaseLen;
+        const tl = gsap.timeline({
+          defaults: { ease: "none" },
+          scrollTrigger: {
+            ...stConfig,
+            pin: pinned,
+            scrub: 1,
+            anticipatePin: 1,
+            pinSpacing: false,
+          },
+        });
 
-        // Card rises from below into the active (pinned) position
+        tl.to(leftText, { opacity: 0, duration: 0.75 }, 0);
+
         tl.fromTo(
-          card,
-          { y: () => getCardStartY(), scale: 1, immediateRender: true },
-          { y: () => getActiveY(), scale: 1, duration: 0.75, ease: "none" },
-          arrivalStart,
+          cards[0],
+          { y: () => activeY() + 20, scale: 1, immediateRender: true },
+          { y: () => activeY(), duration: 0.3 },
+          0,
+        );
+        tl.to(
+          cards[0],
+          { scale: releaseScale, y: () => activeY() - driftUp, duration: 0.5 },
+          0.3,
         );
 
-        // Card scales down + drifts up as the next card arrives into the gap
-        if (i < cards.length - 1) {
+        cards.slice(1).forEach((card, idx) => {
+          const riseAt = idx * phaseLen;
+          tl.fromTo(
+            card,
+            { y: () => startY(), scale: 1, immediateRender: true },
+            { y: () => activeY(), duration: 0.75 },
+            riseAt,
+          );
           tl.to(
             card,
-            { scale: releaseScale, y: () => getActiveY() - driftUp, duration: 0.8, ease: "none" },
-            arrivalStart + 0.85,
+            { scale: releaseScale, y: () => activeY() - driftUp, duration: 0.5 },
+            riseAt + 0.75,
           );
-        }
+        });
+
+        tl.fromTo(
+          rightText,
+          { y: () => startY(), opacity: 1, immediateRender: true },
+          { y: () => activeY(), duration: 0.75 },
+          phaseLen,
+        );
+        tl.to(rightText, { opacity: 0, duration: 0.25 }, phaseLen + 0.5);
+
+        return () => {
+          gsap.set(cards, { clearProps: "all" });
+          gsap.set([cardsTrack, leftText, rightText], { clearProps: "all" });
+        };
       });
 
-      if (overlay) {
-        const overlayStart = (cards.length - 1) * phaseLen + 0.75 + 0.3;
-        tl.fromTo(overlay, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8 }, overlayStart);
-      }
-    });
+      ScrollTrigger.refresh();
+    },
+    { scope: sectionRef, dependencies: [] },
+  );
 
-    let cleanupLenis: (() => void) | undefined;
-    if (lenis) {
-      cleanupLenis = lenis.on("scroll", ScrollTrigger.update);
-    }
-
+  // Lenis scroll sync is event-binding, not a GSAP animation — useEffect is correct here.
+  useEffect(() => {
+    if (!lenis) return;
+    const unsub = lenis.on("scroll", ScrollTrigger.update);
     ScrollTrigger.refresh();
-
-    return () => {
-      if (cleanupLenis) cleanupLenis();
-      mm.revert();
-    };
+    return () => unsub?.();
   }, [lenis]);
 
   return (
     <section className="relative isolate bg-surface-primary overflow-hidden">
-      {/* Intro text */}
       <div className="w-full px-6 pt-[18vh] pb-[22vh] md:px-8 md:pt-[15vh] md:pb-[15vh]">
         <div className="flex justify-center">
-          <p className="max-w-[560px] text-center font-normal text-[clamp(1.05rem,1.45vw,1.35rem)] leading-[1.28] text-tertiary">
+          <p className="max-w-[560px] text-center text-xl leading-[1.28] text-secondary">
             VOLTR is a new standard in travel, where automotive-grade engineering
             meets the soul of American craft. From our Silicon Valley roots to our
             Colorado factory floor, we build every vehicle under one roof, ensuring
@@ -152,68 +147,61 @@ export function VehicleIntroSection() {
         </div>
       </div>
 
-      {/* Main interactive area containing both SVG heading and cards */}
       <div ref={sectionRef} className="relative w-full">
-        {/* Large heading (desktop only, pinned independently) */}
         <div
           ref={svgRef}
           aria-hidden="true"
-          className="pointer-events-none absolute left-1/2 top-[5vh] z-10 hidden w-[97vw] -translate-x-1/2 select-none md:flex md:justify-center"
+          className="pointer-events-none absolute left-1/2 top-[5vh] z-10 hidden w-[98vw] -translate-x-1/2 select-none md:flex md:justify-center"
         >
-          <img
+          <Image
             src="/svg/heading-ae1.svg"
             alt=""
-            className="w-full min-w-[1120px] max-w-[1680px] text-primary"
+            width={1411}
+            height={181}
+            className="w-full min-w-[1120px] max-w-[1680px]"
           />
         </div>
 
-        {/* Pinned card stack area */}
-        <div
-          ref={pinnedRef}
-          className="relative w-full h-auto md:h-screen md:overflow-visible"
-        >
-          {/* Mobile heading */}
+        <div ref={pinnedRef} className="relative w-full h-auto md:h-screen md:overflow-visible z-50">
           <div
             aria-hidden="true"
             className="pointer-events-none relative z-10 flex w-[90vw] shrink-0 select-none justify-center md:hidden"
           >
-            <img
+            <Image
               src="/svg/heading-ae1.svg"
               alt=""
-              className="w-full min-w-[640px] max-w-[1680px] text-primary"
+              width={1411}
+              height={181}
+              className="w-full min-w-[640px] max-w-[1680px]"
             />
           </div>
 
-          {/* Desktop interactive elements wrapper */}
-          <div ref={cardsContainerRef} className="relative w-full">
-            {/* Left text */}
+          <div ref={cardsContainerRef} className="relative w-full -top-10">
             <div
               ref={leftTextRef}
-              className="relative z-30 hidden max-w-[245px] md:absolute md:left-[7.5vw] md:top-[56vh] md:block"
+              className="relative z-30 hidden max-w-[245px] md:absolute md:left-[7.5vw] md:top-[30vh] md:block"
             >
-              <p className="text-primary text-medium font-semibold tracking-normal">
+              <p className="text-primary text-xs font-semibold tracking-normal">
                 Freedom, Reimagined.
               </p>
-              <p className="text-tertiary text-body leading-body mt-3">
+              <p className="text-secondary font-display text-size-2xs leading-tight mt-3">
                 Go further, stay longer and share it with those who matter most.
               </p>
             </div>
 
-            {/* Right text */}
             <div
               ref={rightTextRef}
-              className="relative z-30 hidden max-w-[245px] text-right md:absolute md:right-[7.5vw] md:top-[56vh] md:block"
+              className="hidden max-w-[245px] md:absolute md:right-[6.5vw] md:top-[18vh] md:block z-30"
             >
-              <p className="text-primary text-medium font-semibold tracking-normal">
+              <p className="text-primary text-xs font-semibold tracking-normal">
                 Built Different.
               </p>
-              <p className="text-tertiary text-body leading-body mt-3">
+              <p className="text-secondary font-display text-size-2xs leading-tight mt-3">
                 From the Rocky Mountains to the open road, every detail is crafted
                 for the journey ahead.
               </p>
             </div>
 
-            {/* Card stack - normal flow, pinned track */}
             <div
               ref={cardsTrackRef}
               className="relative z-50 w-full px-4 md:px-0 md:pt-[20vh] md:will-change-transform"
@@ -225,6 +213,7 @@ export function VehicleIntroSection() {
             </div>
           </div>
         </div>
+        <div className="hidden md:block md:h-[180vh]" aria-hidden="true" />
       </div>
     </section>
   );
