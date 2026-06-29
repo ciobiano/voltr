@@ -16,6 +16,7 @@ const f37Bolton = localFont({
   ],
   variable: "--font-display",
   display: "swap",
+  
 });
 
 const suisseIntl = localFont({
@@ -56,7 +57,7 @@ export default function RootLayout({
       lang="en"
       className={`${f37Bolton.variable} ${suisseIntl.variable} ${ibmPlexMono.variable}`}
     >
-      <body className="font-sans antialiased">
+      <body className="font-sans antialiased ">
         <ViewportProvider />
         {children}
       </body>

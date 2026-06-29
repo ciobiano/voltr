@@ -11,7 +11,7 @@ interface TextProps {
 const textStyles: Record<string, string> = {
   body: "text-body text-primary",
   caption: "text-caption text-secondary",
-  meta: "text-meta text-tertiary font-mono tracking-mono uppercase",
+  meta: "text-caption text-tertiary",
 };
 
 const textColors: Record<string, string> = {

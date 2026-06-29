@@ -8,7 +8,7 @@ export const headingVariants = cva(
         display:
           "text-display tracking-[var(--tracking-display)] leading-[var(--leading-display)]",
         h1: "text-heading-xl tracking-[var(--tracking-mono)] ",
-        h2: "text-subhead tracking-[var(--tracking-wide)]",
+        h2: "text-subhead font-semi tracking-[var(--tracking-wide)]",
         h3: "text-body tracking-[var(--tracking-normal)]",
         
       },
@@ -20,12 +20,12 @@ export const headingVariants = cva(
 );
 
 export const labelVariants = cva(
-  "font-mono text-[var(--text-caption)] text-text-secondary tracking-[var(--tracking-mono)] uppercase",
+  "text-caption text-text-secondary",
   {
     variants: {
       intent: {
         scene: "",
-        metric: "text-[var(--text-heading)] text-text-primary font-light",
+        metric: "text-size-lg text-text-primary font-light",
       },
     },
   },
@@ -36,10 +36,10 @@ export const metricVariants = cva(
   {
     variants: {
       size: {
-        sm: "text-[var(--text-body)]",
-        md: "text-[var(--text-subhead)]",
-        lg: "text-[var(--text-heading)]",
-        xl: "text-[var(--text-display)]",
+        sm: "text-size-body",
+        md: "text-size-xs",
+        lg: "text-size-lg",
+        xl: "text-size-3xl",
       },
     },
     defaultVariants: {
@@ -54,22 +54,30 @@ export const buttonVariants = cva(
     variants: {
       intent: {
         primary:
-          "bg-text-primary text-surface-primary hover:brightness-[1.4] active:brightness-[0.75]",
+          "bg-text-primary text-surface-primary active:brightness-[0.85]",
         accent:
-          "bg-accent text-surface-primary hover:brightness-[1.15] active:brightness-[0.85]",
+          "bg-accent text-surface-primary active:brightness-[0.85]",
         ghost:
-          "border border-white/30 bg-glass-dark text-white backdrop-blur-sm hover:bg-accent hover:border-accent hover:text-surface-primary active:brightness-[0.9]",
+          "border border-white/30 bg-glass-dark text-white backdrop-blur-sm active:brightness-[0.9]",
+        outline:
+          "bg-surface-tertiary border border-border-subtle text-text-primary shadow-[var(--shadow-elevation-1)] active:brightness-[0.9]",
       },
       shape: {
-        pill: "rounded-full",
-        semi: "rounded-2xl",
+        pill: "relative overflow-hidden rounded-full ",
+        semi: "rounded-3xl",
       },
       size: {
-        sm: "px-5 py-1.5 text-[var(--text-caption)]",
-        md: "px-8 py-2.5 text-[var(--text-body)]",
-        lg: "px-10 py-3.5 text-[var(--text-body)]",
+        sm: "px-5 py-1.5 text-size-caption",
+        md: "px-8 py-2.5 text-sm",
+        lg: "px-10 py-3.5 text-base",
       },
     },
+    compoundVariants: [
+      { shape: "semi", intent: "primary", class: "hover:bg-orange" },
+      { shape: "semi", intent: "accent",  class: "hover:bg-orange" },
+      { shape: "semi", intent: "ghost",   class: "hover:bg-orange hover:border-orange hover:text-surface-primary" },
+      { shape: "semi", intent: "outline", class: "hover:bg-orange hover:text-surface-primary hover:border-orange" },
+    ],
     defaultVariants: {
       intent: "primary",
       shape: "pill",

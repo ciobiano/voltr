@@ -9,9 +9,9 @@ interface MetricProps {
 
 const metricSizes: Record<string, string> = {
   sm: "text-size-body",
-  md: "text-size-subhead",
-  lg: "text-size-heading",
-  xl: "text-size-display",
+  md: "text-size-xs",
+  lg: "text-size-lg",
+  xl: "text-size-3xl",
 };
 
 export function Metric({ value, label, size = "lg", className }: MetricProps) {

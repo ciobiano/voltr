@@ -3,6 +3,7 @@
 import { forwardRef } from "react";
 import Image from "next/image";
 import { Plus } from "lucide-react";
+import { Button } from "@/components/primitives/button";
 import { cn } from "@/lib/utils";
 
 export interface FeatureCardData {
@@ -23,8 +24,8 @@ export const TechnologyCard = forwardRef<HTMLElement, TechnologyCardProps>(
       <article
         ref={ref as React.Ref<HTMLElement>}
         className={cn(
-          "relative flex-shrink-0 rounded-2xl overflow-hidden aspect-[3/4] snap-start",
-          "w-[80vw] md:w-[45vw]",
+          "relative min-w-0 rounded-2xl overflow-hidden aspect-8/5",
+          "w-[80vw] md:w-[35vw]",
           className,
         )}
       >
@@ -43,7 +44,7 @@ export const TechnologyCard = forwardRef<HTMLElement, TechnologyCardProps>(
 
         {/* Top-left: feature name */}
         <div className="absolute top-5 left-5">
-          <span className="font-mono text-caption tracking-widest uppercase text-white/80">
+          <span className="text-body  text-white/90">
             {feature.name}
           </span>
         </div>
@@ -52,25 +53,20 @@ export const TechnologyCard = forwardRef<HTMLElement, TechnologyCardProps>(
         <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between gap-4">
           {/* Tagline */}
           <p
-            className="font-display text-size-heading text-white leading-[0.95] whitespace-pre-line"
+            className="font-sans text-size-xs text-white leading-[1.2] whitespace-pre-line"
           >
             {feature.tagline}
           </p>
 
           {/* Circular + button */}
-          <button
-            type="button"
+          <Button
+            intent="ghost"
+            shape="pill"
+            size="sm"
+            icon={<Plus size={18} strokeWidth={1.5} className="text-accent"  />}
             aria-label={`Learn more about ${feature.name}`}
-            className={cn(
-              "flex-shrink-0 flex items-center justify-center",
-              "w-11 h-11 rounded-full",
-              "border border-white/60 bg-white/10 backdrop-blur-sm",
-              "text-white transition-colors duration-[var(--duration-ui)]",
-              "hover:bg-white/20",
-            )}
-          >
-            <Plus size={18} strokeWidth={1.5} />
-          </button>
+            className="flex-shrink-0 w-11 h-11 p-0 "
+          />
         </div>
       </article>
     );

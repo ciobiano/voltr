@@ -47,12 +47,12 @@ export function ImageStack({ cardsRef, className }: ImageStackProps) {
 
           {i === 3 && (
             <div className="absolute inset-0 flex flex-col items-center justify-center gap-5 rounded-[1rem] bg-black/40 px-6 text-center text-white">
-              <h3 className="text-[clamp(2.6rem,4vw,4.6rem)] font-display leading-[0.92] tracking-[-0.06em]">
+              <h3 className="text-size-xl font-display leading-[0.92] tracking-[-0.06em]">
                 Your home,
                 <br />
                 anywhere.
               </h3>
-              <Button intent="ghost" shape="semi" size="md">
+              <Button intent="ghost" shape="semi" size="sm">
                 Explore the AE.1
               </Button>
             </div>

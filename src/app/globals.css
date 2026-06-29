@@ -11,19 +11,25 @@
   --color-text-primary: oklch(0% 0 0);
   --color-text-secondary: oklch(50.5% 0 0);
   --color-text-tertiary: oklch(73.5% 0 0);
-  --color-accent: oklch(68% 50% 32deg);
+  --color-accent: oklch(98% 0% 90deg);
   --color-text-inverse: oklch(94% 1% 80deg);
   --color-border-subtle: oklch(92.5% 0 0);
   --color-border-focus: oklch(0% 0 0);
   --color-glass-dark: color-mix(in oklab, black 40%, transparent);
+  --color-orange: oklch(0.68 0.2 32.3);
 
-  --text-display: clamp(3rem, 5vw, 6rem);
-  --text-heading: clamp(2rem, 3vw, 3.5rem);
-  --text-heading-xl: clamp(3rem, 2.5rem + 2.5vw, 4.6875rem);
-  --text-subhead: clamp(1.25rem, 1.5vw, 1.75rem);
-  --text-body: clamp(1rem, 1vw, 1.125rem);
-  --text-caption: 0.875rem;
-  --text-meta: 0.75rem;
+  --text-size-4xl:       clamp(5.5rem, 3.18rem + 11.61vw, 13.625rem);
+  --text-size-3xl:       clamp(4rem, 2.5rem + 7.5vw, 9.25rem);
+  --text-size-editorial: clamp(4.5rem, 9vw, 10.5rem);
+  --text-size-2xl:       clamp(2.06rem, 1.29rem + 3.84vw, 4.75rem);
+  --text-size-xl:        clamp(2.375rem, 1.77rem + 3.04vw, 4.5rem);
+  --text-size-lg:        clamp(2.125rem, 1.59rem + 2.68vw, 4rem);
+  --text-size-md:        clamp(2rem, 3vw, 3.5rem);
+  --text-size-sm:        clamp(1.5rem, 1.32rem + 0.89vw, 2.125rem);
+  --text-size-xs:        clamp(1.375rem, 1.34rem + 0.18vw, 1.5rem);
+  --text-size-2xs:       clamp(1.125rem, 1.09rem + 0.18vw, 1.25rem);
+  --text-size-body:      1rem;
+  --text-size-caption:   0.75rem;
 
   --tracking-display: 0.08em;
   --tracking-wide: 0.05em;
@@ -65,23 +71,40 @@
 
 @utility text-display {
   font-family: var(--font-display);
-  font-size: var(--text-display);
+  font-size: var(--text-size-3xl);
   letter-spacing: var(--tracking-display);
   line-height: var(--leading-display);
   font-weight: 300;
 }
 
+@utility text-editorial {
+  font-family: var(--font-display);
+  font-size: var(--text-size-xl);
+  letter-spacing: -0.02em;
+  line-height: 0.92;
+  font-weight: 300;
+}
+
+@utility text-descriptor {
+  font-family: var(--font-display);
+  font-size: var(--text-size-lg);
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+  font-weight: 400;
+}
+
 @utility text-heading-xl {
   font-family: var(--font-display);
-  font-size: var(--text-heading-xl);
+  font-size: var(--text-size-xl);
   letter-spacing: var(--tracking-mono);
   line-height: var(--leading-heading);
   font-weight: 400;
+  -webkit-text-stroke: 2px currentColor;
 }
 
 @utility text-heading {
   font-family: var(--font-display);
-  font-size: var(--text-heading);
+  font-size: var(--text-size-lg);
   letter-spacing: var(--tracking-wide);
   line-height: var(--leading-heading);
   font-weight: 300;
@@ -89,7 +112,7 @@
 
 @utility text-subhead {
   font-family: var(--font-sans);
-  font-size: var(--text-subhead);
+  font-size: var(--text-size-xs);
   letter-spacing: var(--tracking-wide);
   line-height: 1.3;
   font-weight: 400;
@@ -97,14 +120,14 @@
 
 @utility text-body {
   font-family: var(--font-sans);
-  font-size: var(--text-body);
+  font-size: 1rem;
   line-height: var(--leading-body);
   font-weight: 400;
 }
 
 @utility text-caption {
   font-family: var(--font-mono);
-  font-size: var(--text-caption);
+  font-size: var(--text-size-caption);
   letter-spacing: var(--tracking-mono);
   font-weight: 400;
   text-transform: uppercase;
@@ -112,7 +135,7 @@
 
 @utility text-metric {
   font-family: var(--font-mono);
-  font-size: var(--text-heading);
+  font-size: var(--text-size-md);
   letter-spacing: var(--tracking-mono);
   font-weight: 400;
   font-variant-numeric: tabular-nums;
@@ -154,24 +177,115 @@
   letter-spacing: var(--tracking-mono);
 }
 
-@utility text-meta {
-  font-size: var(--text-meta);
+@utility cross-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cline x1='50' y1='38' x2='50' y2='62' stroke='%23C2BAB0' stroke-width='0.5'/%3E%3Cline x1='38' y1='50' x2='62' y2='50' stroke='%23C2BAB0' stroke-width='0.5'/%3E%3C/svg%3E");
+  background-size: 80px 80px;
+  background-repeat: repeat;
 }
 
-@utility text-size-body {
-  font-size: var(--text-body);
+/* Optical weight between Regular (400) and Medium (500).
+   Static fonts can't interpolate — a hairline stroke thickens glyph paths optically. */
+
+
+@utility text-size-4xl     { font-size: var(--text-size-4xl); }
+@utility text-size-3xl     { font-size: var(--text-size-3xl); }
+@utility text-size-editorial { font-size: var(--text-size-editorial); }
+@utility text-size-2xl     { font-size: var(--text-size-2xl); }
+@utility text-size-xl      { font-size: var(--text-size-xl); }
+@utility text-size-lg      { font-size: var(--text-size-lg); }
+@utility text-size-md      { font-size: var(--text-size-md); }
+@utility text-size-sm      { font-size: var(--text-size-sm); }
+@utility text-size-xs      { font-size: var(--text-size-xs); }
+@utility text-size-2xs     { font-size: var(--text-size-2xs); }
+@utility text-size-body    { font-size: var(--text-size-body); }
+@utility text-size-caption { font-size: var(--text-size-caption); }
+
+/* ── Pill button ink-blob hover ────────────────────────────────────────────
+   Adapted from Codrops ButtonHoverStyles demo 11 (button--calypso).
+   A circle blob sweeps down from the top edge; once it covers the button a
+   solid fill snaps in. The label exits upward and re-enters from below.
+   mix-blend-mode: difference keeps the label readable on any intent colour.
+   ──────────────────────────────────────────────────────────────────────── */
+
+.btn-pill::before {
+  content: '';
+  position: absolute;
+  background: var(--color-orange);
+  width: 120%;
+  height: 0;
+  padding-bottom: 120%;
+  top: -110%;
+  left: -10%;
+  border-radius: 50%;
+  transform: translate3d(0, 68%, 0) scale3d(0, 0, 0);
+  pointer-events: none;
 }
 
-@utility text-size-subhead {
-  font-size: var(--text-subhead);
+.btn-pill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-orange);
+  transform: translate3d(0, -100%, 0);
+  transition: transform 0.4s cubic-bezier(0.1, 0, 0.3, 1);
+  pointer-events: none;
 }
 
-@utility text-size-heading {
-  font-size: var(--text-heading);
+.btn-pill > span {
+  position: relative;
+  z-index: 10;
 }
 
-@utility text-size-display {
-  font-size: var(--text-display);
+@media (hover: hover) and (pointer: fine) {
+  .btn-pill:hover::before {
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+    transition: transform 0.4s cubic-bezier(0.1, 0, 0.3, 1);
+  }
+
+  .btn-pill:hover::after {
+    transform: translate3d(0, 0, 0);
+    transition-duration: 0.05s;
+    transition-delay: 0.4s;
+    transition-timing-function: linear;
+  }
+
+  .btn-pill:hover > span {
+    animation: calypso-text-exit 0.3s forwards, calypso-text-enter 0.3s forwards 0.3s;
+  }
+}
+
+@keyframes calypso-text-exit {
+  to {
+    transform: translate3d(0, -105%, 0) scale3d(1, 2, 1);
+    opacity: 0;
+  }
+}
+
+@keyframes calypso-text-enter {
+  from {
+    transform: translate3d(0, 100%, 0) scale3d(1, 2, 1);
+    opacity: 0;
+    color: var(--color-surface-primary);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+    color: var(--color-surface-primary);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-pill::before,
+  .btn-pill::after {
+    transition: none;
+  }
+
+  .btn-pill:hover > span {
+    animation: none;
+  }
 }
 
 @layer base {
@@ -185,6 +299,11 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    font-synthesis: none;
+    font-optical-sizing: auto;
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
     background-color: var(--color-surface-primary);
     color: var(--color-text-primary);
   }
@@ -193,7 +312,7 @@
     margin: 0;
     padding: 0;
     font-family: var(--font-sans);
-    font-size: var(--text-body);
+    font-size: var(--text-size-body);
     line-height: var(--leading-body);
   }
 
