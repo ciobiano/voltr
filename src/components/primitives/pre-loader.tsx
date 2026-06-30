@@ -2,17 +2,119 @@
 
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { wordmarkAppear, letterExit, oZoom, overlayFade } from "@/motion/variants";
+import { letterExit } from "@/motion/variants";
+import { VOLTR_EASING } from "@/motion/easing";
 
-type Phase = "wordmark" | "zoom" | "exit" | "done";
+type Phase = "wordmark" | "zoom" | "split" | "done";
+
+const ZOOM_SCALE = 5;
+
+const VIEWBOX = "155 287 314 314";
+
+// Path 1 — upper-right cluster: up arm, right arm, upper-right diagonal, lower-right corner, upper-left diagonal
+const PATH_1 =
+  "M389.429138,395.429382 C379.986481,404.785950 370.794312,413.893005 361.397369,423.202972 C363.605469,424.424622 365.279175,423.976868 366.867462,423.978516 C397.027863,424.009552 427.188263,423.996033 457.348694,424.001160 C466.239105,424.002686 466.723236,424.230408 467.735413,432.788147 C468.755280,441.410614 468.573029,450.064850 467.395630,458.699036 C466.961212,461.884796 465.297516,463.473938 462.251343,463.766296 C460.596985,463.925079 458.925262,463.955200 457.261383,463.955536 C427.601013,463.961090 397.940613,463.953156 368.280243,463.948242 C366.299927,463.947906 364.319611,463.948181 361.273315,463.948181 C363.907043,466.738831 365.857513,468.909454 367.916779,470.971405 C388.640167,491.721436 409.387115,512.447937 430.113617,533.194824 C435.547943,538.634521 435.450836,539.780823 430.391876,545.537781 C425.102020,551.557434 419.549255,557.281738 413.380524,562.405640 C408.848969,566.169617 407.283020,566.237000 403.218872,562.186951 C386.931183,545.955872 370.643280,529.724487 354.457916,513.391724 C347.942322,506.816833 344.862518,498.600433 344.742249,489.451874 C344.547272,474.624115 344.707520,459.791962 344.681580,444.961700 C344.648956,426.317261 330.759338,412.348206 312.193542,412.303223 C297.696625,412.268127 283.199493,412.319122 268.702576,412.286499 C258.381744,412.263275 249.576279,408.617828 242.260452,401.264038 C226.748566,385.671600 211.165466,370.150024 195.623413,354.587585 C190.468002,349.425385 190.460602,348.489288 195.026840,342.979950 C200.147522,336.801575 205.865295,331.238190 211.995087,326.068909 C217.392273,321.517426 218.480438,321.519501 223.596008,326.635406 C244.920105,347.960876 266.261200,369.269440 287.528046,390.651825 C288.908417,392.039703 289.717468,393.995819 290.792297,395.687622 C291.491852,395.275696 292.191406,394.863770 292.890961,394.451843 C292.890961,392.549652 292.890350,390.647430 292.891022,388.745209 C292.901428,358.751373 292.902740,328.757568 292.928833,298.763733 C292.935669,290.905762 293.932312,289.550415 301.552490,289.050903 C309.853973,288.506805 318.167480,288.414612 326.498383,289.351746 C331.456116,289.909454 333.044922,292.490936 333.000580,296.969238 C332.949432,302.134186 333.023407,307.300232 333.018463,312.465820 C332.994568,337.460571 332.962280,362.455353 332.933685,387.450104 C332.931091,389.722687 332.933319,391.995300 332.933319,394.591278 C336.079163,393.654724 337.366516,391.605591 338.954132,390.017151 C359.918823,369.041992 380.819275,348.002563 401.787018,327.030426 C407.533264,321.282959 408.267822,321.344452 414.580872,326.641785 C420.595947,331.689148 426.037933,337.305878 431.085419,343.307922 C435.298584,348.317871 435.261871,349.613342 430.693207,354.188568 C417.035583,367.865906 403.352661,381.517944 389.429138,395.429382 z";
+
+// Path 2 — lower-left cluster: down arm, left arm, lower-left diagonal
+const PATH_2 =
+  "M333.001526,494.000000 C333.023041,525.818848 333.054871,557.137695 333.061554,588.456543 C333.063446,597.371094 332.035553,598.617004 323.190704,599.101074 C315.543579,599.519592 307.859222,599.710938 300.229004,598.816101 C293.977936,598.083069 292.925873,596.780701 292.919373,590.462097 C292.887939,559.809631 292.893860,529.157166 292.861481,498.504730 C292.859772,496.882904 293.298706,495.193481 292.380127,493.571014 C290.553040,493.455292 289.917572,495.083649 288.945251,496.051941 C267.108521,517.798584 245.315948,539.589600 223.506317,561.363403 C218.350906,566.510376 217.411667,566.446350 211.911743,561.918152 C205.580460,556.705444 199.934464,550.843018 194.696411,544.564636 C190.659134,539.725586 190.763397,538.092102 195.248993,533.619263 C216.478882,512.449768 237.715286,491.286774 258.916321,470.088409 C260.525543,468.479431 262.461700,467.092133 263.728302,463.933441 C260.408356,463.933441 257.492096,463.932678 254.575851,463.933533 C225.589279,463.941956 196.602722,463.954590 167.616150,463.956848 C159.784393,463.957458 158.170441,462.574890 157.902817,454.792053 C157.622650,446.644745 157.363876,438.493744 158.246185,430.339020 C158.745621,425.723175 161.212021,423.964447 165.521576,424.022858 C166.687271,424.038666 167.853592,423.997986 169.019623,423.997894 C215.498154,423.993774 261.976685,423.995209 308.455200,423.983215 C313.502533,423.981903 318.425171,424.427582 322.916718,427.065338 C330.982391,431.802094 332.938477,439.500397 332.984161,448.020996 C333.065460,463.180267 333.004028,478.340302 333.001526,494.000000 z";
+
+function MascotSplit({ phase }: { phase: Phase }) {
+  const isZoomed = phase === "zoom" || phase === "split";
+  const isSplit = phase === "split";
+
+  return (
+    <motion.span
+      layout
+      animate={{ scale: isZoomed ? ZOOM_SCALE : 1 }}
+      transition={{
+        duration: 0.85,
+        ease: VOLTR_EASING.entrance,
+        delay: phase === "zoom" ? 0.08 : 0,
+      }}
+      style={{ transformOrigin: "center center" }}
+      className="inline-flex items-center justify-center"
+    >
+      {/* Container sized to the icon — both paths sit on top of each other */}
+      <span className="relative inline-flex" style={{ width: "0.85em", height: "0.85em" }}>
+        {/* Path 1 — upper-right arrow cluster, exits upper-right */}
+        <motion.span
+          className="absolute inset-0"
+          animate={isSplit ? { x: 160, y: -160, opacity: 0 } : { x: 0, y: 0, opacity: 1 }}
+          transition={{ duration: 0.7, ease: VOLTR_EASING.entrance }}
+        >
+          <svg viewBox={VIEWBOX} width="0.85em" height="0.85em" aria-hidden>
+            <path fill="currentColor" d={PATH_1} />
+          </svg>
+        </motion.span>
+
+        {/* Path 2 — lower-left arrow cluster, exits lower-left */}
+        <motion.span
+          className="absolute inset-0"
+          animate={isSplit ? { x: -160, y: 160, opacity: 0 } : { x: 0, y: 0, opacity: 1 }}
+          transition={{ duration: 0.7, ease: VOLTR_EASING.entrance }}
+        >
+          <svg viewBox={VIEWBOX} width="0.85em" height="0.85em" aria-hidden>
+            <path fill="currentColor" d={PATH_2} />
+          </svg>
+        </motion.span>
+      </span>
+    </motion.span>
+  );
+}
+
+function Wordmark({ phase }: { phase: Phase }) {
+  const showLetters = phase === "wordmark";
+
+  return (
+    <motion.div
+      className="text-display text-text-primary flex items-center justify-center"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: VOLTR_EASING.hero, delay: 0.4 }}
+    >
+      <AnimatePresence mode="popLayout">
+        {showLetters && (
+          <motion.span key="V" layout variants={letterExit} exit="exit">
+            V
+          </motion.span>
+        )}
+      </AnimatePresence>
+
+      <MascotSplit phase={phase} />
+
+      <AnimatePresence mode="popLayout">
+        {showLetters && (
+          <motion.span key="L" layout variants={letterExit} exit="exit">
+            L
+          </motion.span>
+        )}
+      </AnimatePresence>
+      <AnimatePresence mode="popLayout">
+        {showLetters && (
+          <motion.span key="T" layout variants={letterExit} exit="exit">
+            T
+          </motion.span>
+        )}
+      </AnimatePresence>
+      <AnimatePresence mode="popLayout">
+        {showLetters && (
+          <motion.span key="R" layout variants={letterExit} exit="exit">
+            R
+          </motion.span>
+        )}
+      </AnimatePresence>
+    </motion.div>
+  );
+}
 
 export function PreLoader() {
   const [phase, setPhase] = useState<Phase>("wordmark");
 
   useEffect(() => {
     const t1 = setTimeout(() => setPhase("zoom"), 2200);
-    const t2 = setTimeout(() => setPhase("exit"), 3100);
-    const t3 = setTimeout(() => setPhase("done"), 3700);
+    const t2 = setTimeout(() => setPhase("split"), 3050);
+    const t3 = setTimeout(() => setPhase("done"), 3900);
     return () => {
       clearTimeout(t1);
       clearTimeout(t2);
@@ -22,64 +124,19 @@ export function PreLoader() {
 
   if (phase === "done") return null;
 
-  const showLetters = phase === "wordmark";
-
   return (
-    <motion.div
-      className="fixed inset-0 z-50 bg-surface-primary flex items-center justify-center"
-      variants={overlayFade}
-      initial="visible"
-      animate={phase === "exit" ? "exit" : "visible"}
-    >
+    <div className="fixed inset-0 z-[100]">
+      {/* White overlay — fades out as paths split, revealing page beneath */}
       <motion.div
-        layout
-        className="text-display text-primary flex items-center justify-center"
-        variants={wordmarkAppear}
-        initial="hidden"
-        animate="visible"
-      >
-        <AnimatePresence mode="popLayout">
-          {showLetters && (
-            <motion.span key="V" layout variants={letterExit} exit="exit">
-              V
-            </motion.span>
-          )}
-        </AnimatePresence>
+        className="absolute inset-0 bg-surface-primary"
+        animate={phase === "split" ? { opacity: 0 } : { opacity: 1 }}
+        transition={{ duration: 0.75, ease: VOLTR_EASING.entrance }}
+      />
 
-        <motion.span
-          layout
-          variants={oZoom}
-          initial="initial"
-          animate={phase !== "wordmark" ? "zoom" : "initial"}
-          style={{ transformOrigin: "center center" }}
-        >
-          O
-        </motion.span>
-
-        <AnimatePresence mode="popLayout">
-          {showLetters && (
-            <motion.span key="L" layout variants={letterExit} exit="exit">
-              L
-            </motion.span>
-          )}
-        </AnimatePresence>
-
-        <AnimatePresence mode="popLayout">
-          {showLetters && (
-            <motion.span key="T" layout variants={letterExit} exit="exit">
-              T
-            </motion.span>
-          )}
-        </AnimatePresence>
-
-        <AnimatePresence mode="popLayout">
-          {showLetters && (
-            <motion.span key="R" layout variants={letterExit} exit="exit">
-              R
-            </motion.span>
-          )}
-        </AnimatePresence>
-      </motion.div>
-    </motion.div>
+      {/* Wordmark + mascot — above the overlay */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <Wordmark phase={phase} />
+      </div>
+    </div>
   );
 }

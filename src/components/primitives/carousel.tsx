@@ -85,7 +85,7 @@ export function Carousel({
       </div>
 
       {showControls && (
-        <div className="px-6 md:px-28 my-8 flex items-center gap-4">
+        <div className="px-6 md:px-28 my-8 flex items-center  gap-4">
           <Button
             intent="outline"
             shape="pill"
@@ -94,7 +94,7 @@ export function Carousel({
             aria-label="Previous"
             onClick={handlePrev}
             disabled={!canPrev}
-            className="w-10 h-10 p-0"
+            className="w-11 h-11 p-0 "
           />
           <Button
             intent="outline"
@@ -104,9 +104,9 @@ export function Carousel({
             aria-label="Next"
             onClick={handleNext}
             disabled={!canNext}
-            className="w-10 h-10 p-0"
+            className="w-11 h-11 p-0"
           />
-          <div className="flex items-center gap-2 ml-2" role="tablist">
+          <div className="flex items-center ml-2" role="tablist">
             {Array.from({ length: itemCount }).map((_, i) => (
               <button
                 key={i}
@@ -115,11 +115,15 @@ export function Carousel({
                 aria-label={itemLabels?.[i] ?? `Go to item ${i + 1}`}
                 aria-selected={i === activeIndex}
                 onClick={() => scrollTo(i)}
-                className={cn(
-                  "w-2 h-2 rounded-full transition-colors duration-[var(--duration-ui)]",
-                  i === activeIndex ? "bg-text-primary" : "bg-border-subtle",
-                )}
-              />
+                className="flex h-8 w-6 items-center justify-center"
+              >
+                <span
+                  className={cn(
+                    "block w-2 h-2 rounded-full transition-colors duration-[var(--duration-ui)]",
+                    i === activeIndex ? "bg-text-primary" : "bg-border-subtle",
+                  )}
+                />
+              </button>
             ))}
           </div>
         </div>

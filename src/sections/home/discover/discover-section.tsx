@@ -6,6 +6,7 @@ import { Carousel } from "@/components/primitives/carousel";
 import { Heading } from "@/components/primitives/heading";
 import { RevealText } from "@/components/primitives/reveal";
 import { RevealLines } from "@/components/primitives/reveal-lines";
+import { SplitSection } from "@/components/primitives/split-section";
 
 const articles = [
   {
@@ -62,34 +63,15 @@ export function DiscoverSection() {
         intuitive spaces, your journey becomes unforgettable.
       </RevealLines>
 
-      {/* About split — text left, photo right */}
-      <div className="flex flex-col md:flex-row gap-8 md:gap-0 px-3 md:px-2 pt-0 pb-20 md:pb-28">
-        <div className="w-full md:w-[45%] items-center flex flex-col" >
-          <div className="flex flex-col justify-between gap-10   text-primary   max-w-[20em] ">
-            
-          <p >
-            We started VOLTR with a belief: exploring the outdoors should be
-            effortless, and it should be possible for more people without
-            compromising the places we love. As a direct-to-consumer adventure
-            vehicle manufacturer, we&apos;re able to bring that experience
-            straight into people&apos;s hands, reimagining this industry from
-            the ground up with an all-electric design that&apos;s aerodynamic
-            and built to go farther with less. Whether you're heading off-grid for a weekend or crossing the country, our trailers are built for comfort, connection, and freedom, 
-          </p>
-          <Button intent="outline" shape="pill" size="md" className="self-start">
-            About us
-          </Button>
-          </div>
-        </div>
-        <div className="md:w-[55%] h-full max-h-[35vh] rounded-xl relative aspect-[4/3] md:aspect-square md:min-h-[120px] overflow-hidden">
-          <Image
-            src="/images/rv-images/lifestyle.png"
-            alt="VOLTR team"
-            fill
-            className="object-cover "
-          />
-        </div>
-      </div>
+      {/* About split */}
+      <SplitSection
+        image="/images/rv-images/lifestyle.png"
+        alt="VOLTR team"
+        body="We started VOLTR with a belief: exploring the outdoors should be effortless, and it should be possible for more people without compromising the places we love. As a direct-to-consumer adventure vehicle manufacturer, we're able to bring that experience straight into people's hands, reimagining this industry from the ground up with an all-electric design that's aerodynamic and built to go farther with less. "
+        cta={{ label: "About us" }}
+        className="pb-20 md:pb-28 "
+        bodyClassName="text-text-primary px-4"
+      />
 
       {/* More to Discover */}
       <div className="pb-24 my-20  md:pb-32">

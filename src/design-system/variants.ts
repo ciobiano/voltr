@@ -8,7 +8,7 @@ export const headingVariants = cva(
         display:
           "text-display tracking-[var(--tracking-display)] leading-[var(--leading-display)]",
         h1: "text-heading-xl tracking-[var(--tracking-mono)] ",
-        h2: "text-subhead font-semi tracking-[var(--tracking-wide)]",
+        h2: "text-subhead font-display  tracking-[var(--tracking-wide)]",
         h3: "text-body tracking-[var(--tracking-normal)]",
         
       },
@@ -58,17 +58,17 @@ export const buttonVariants = cva(
         accent:
           "bg-accent text-surface-primary active:brightness-[0.85]",
         ghost:
-          "border border-white/30 bg-glass-dark text-white backdrop-blur-sm active:brightness-[0.9]",
+          "border border-transparent bg-glass-dark text-white backdrop-blur-sm active:brightness-[0.9]",
         outline:
-          "bg-surface-tertiary border border-border-subtle text-text-primary shadow-[var(--shadow-elevation-1)] active:brightness-[0.9]",
+          "bg-white border border-border-subtle text-text-primary shadow-[var(--shadow-elevation-1)] active:brightness-[0.9]",
       },
       shape: {
         pill: "relative overflow-hidden rounded-full ",
-        semi: "rounded-3xl",
+        semi: "relative overflow-hidden rounded-lg",
       },
       size: {
         sm: "px-5 py-1.5 text-size-caption",
-        md: "px-8 py-2.5 text-sm",
+        md: "px-7 py-3 text-sm",
         lg: "px-10 py-3.5 text-base",
       },
     },

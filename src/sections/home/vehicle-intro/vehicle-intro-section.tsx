@@ -151,7 +151,7 @@ export function VehicleIntroSection() {
         <div
           ref={svgRef}
           aria-hidden="true"
-          className="pointer-events-none absolute left-1/2 top-[5vh] z-10 hidden w-[98vw] -translate-x-1/2 select-none md:flex md:justify-center"
+          className="pointer-events-none absolute left-1/2 top-[5vh] z-10 hidden  md:w-[98vw] -translate-x-1/2 select-none md:flex md:justify-center"
         >
           <Image
             src="/svg/heading-ae1.svg"
@@ -165,14 +165,14 @@ export function VehicleIntroSection() {
         <div ref={pinnedRef} className="relative w-full h-auto md:h-screen md:overflow-visible z-50">
           <div
             aria-hidden="true"
-            className="pointer-events-none relative z-10 flex w-[90vw] shrink-0 select-none justify-center md:hidden"
+            className="pointer-events-none relative z-10 flex mb-20 mx-2 md:mx-0  md:w-[90vw] shrink-0 select-none justify-center md:hidden"
           >
             <Image
               src="/svg/heading-ae1.svg"
               alt=""
               width={1411}
               height={181}
-              className="w-full min-w-[640px] max-w-[1680px]"
+              className="w-full md:min-w-[640px] max-w-[1680px]"
             />
           </div>
 

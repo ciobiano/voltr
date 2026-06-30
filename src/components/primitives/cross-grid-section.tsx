@@ -26,7 +26,7 @@ export function CrossGridSection({
   return (
     <section
       className={cn(
-        "relative flex  bg-surface-secondary cross-pattern py-24 md:py-32 mx-2 rounded-xl",
+        "relative flex bg-surface-secondary cross-pattern py-24 md:py-32 section-inset rounded-xl",
         className
       )}
     >

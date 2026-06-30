@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { IBM_Plex_Mono } from "next/font/google";
 import { ViewportProvider } from "@/components/primitives/viewport-provider";
+import { PreLoader } from "@/components/primitives/pre-loader";
 import "./globals.css";
 
 const f37Bolton = localFont({
@@ -59,6 +60,7 @@ export default function RootLayout({
     >
       <body className="font-sans antialiased ">
         <ViewportProvider />
+        <PreLoader />
         {children}
       </body>
     </html>

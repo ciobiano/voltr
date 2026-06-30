@@ -1,9 +1,9 @@
-import { PreLoader } from "@/components/primitives/pre-loader";
 import { HeroSection } from "@/sections/home/home-section";
 import { VehicleIntroSection } from "@/sections/home/vehicle-intro/vehicle-intro-section";
-import { TechnologySection } from "@/sections/home/technology/technology-section";
+import { TechnologySection } from "@/components/soul/technology/technology-section";
+import { technologyFeatures } from "@/sections/home/features";
 import { DiscoverSection } from "@/sections/home/discover/discover-section";
-import { NewsletterSection } from "@/sections/home/newsletter/newsletter-section";
+import { NewsletterSection } from "@/components/soul/newsletter/newsletter-section";
 import { FooterSection } from "@/sections/home/footer/footer-section";
 import { ClientProviders } from "@/motion/client-providers";
 
@@ -11,10 +11,9 @@ export default function HomePage() {
   return (
     <ClientProviders>
       <main>
-        <PreLoader />
         <HeroSection />
         <VehicleIntroSection />
-        <TechnologySection />
+        <TechnologySection features={technologyFeatures} label="Technology" />
         <DiscoverSection />
         <NewsletterSection />
       </main>

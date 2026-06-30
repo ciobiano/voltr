@@ -42,7 +42,7 @@ export function HeroSection() {
       {/* Main Copy */}
       <div className="relative z-20 flex h-full w-full items-center">
         <div className="w-full px-6 md:px-5">
-          <div className="flex items-end justify-between">
+          <div className="flex flex-col md:flex-row ml-5 md:ml-0 md:items-end md:justify-between">
             <motion.div
               initial={{ opacity: 0, y: 32, filter: "blur(6px)" }}
               animate={
