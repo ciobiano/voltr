@@ -158,7 +158,7 @@ export function VehicleIntroSection() {
             alt=""
             width={1411}
             height={181}
-            className="w-full min-w-[1120px] max-w-[1680px]"
+            className="w-full min-w-[640px] max-w-[1680px]"
           />
         </div>
 
