@@ -13,7 +13,6 @@ export function HeroSection() {
   const { scrollY } = useScroll();
 
   const y = useTransform(scrollY, [0, 1000], [0, 220]);
-  const scale = useTransform(scrollY, [0, 1000], [1, 1.08]);
 
   useEffect(() => {
     const t = setTimeout(() => setReady(true), 3400);
@@ -24,8 +23,8 @@ export function HeroSection() {
     <section className="relative h-screen w-full overflow-hidden text-white">
       {/* Background with parallax */}
       <motion.div
-        className="absolute inset-4 md:inset-2 will-change-transform overflow-hidden rounded-lg"
-        style={{ y, scale }}
+        className="absolute inset-3 md:inset-2 mt-14 md:mt-0 will-change-transform overflow-hidden rounded-lg"
+        style={{ y }}
       >
         <Image
           src="/images/rv-images/interior.png"
