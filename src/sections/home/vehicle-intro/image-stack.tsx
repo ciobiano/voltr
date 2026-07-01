@@ -9,7 +9,7 @@ const CARD_IMAGES = [
   { src: "/images/rv-images/interior.png", alt: "Interior view" },
   { src: "/images/rv-images/features.png", alt: "Integrated features" },
   { src: "/images/rv-images/lifestyle.png", alt: "Lifestyle scene" },
-  { src: "/images/rv-images/lifestyle.png", alt: "AE.1 night reveal" },
+  { src: "/images/rv-images/lifestyle.png", alt: "F2.B night reveal" },
 ];
 
 interface ImageStackProps {
@@ -53,7 +53,7 @@ export function ImageStack({ cardsRef, className }: ImageStackProps) {
                 anywhere.
               </h3>
               <Button intent="ghost" shape="semi" size="sm">
-                Explore the AE.1
+                Explore the F2.B
               </Button>
             </div>
           )}

@@ -9,8 +9,8 @@ interface NavLogoProps {
   scrollY: MotionValue<number>;
 }
 
-const fallT  = { duration: 0.45, ease: VOLTR_EASING.hero } as const;
 const splitT = { duration: 0.55, ease: VOLTR_EASING.card } as const;
+const pushT  = { duration: 0.45, ease: VOLTR_EASING.hero, delay: 0.06 } as const;
 
 export function NavLogo({ scrollY }: NavLogoProps) {
   const [shrunk, setShrunk] = useState(false);
@@ -19,17 +19,17 @@ export function NavLogo({ scrollY }: NavLogoProps) {
 
   return (
     // `relative` anchors the popLayout-popped letters during their exit animation
-    <div className="relative flex items-center text-lg font-medium tracking-[0.45em]">
+    <div className="relative flex items-center text-lg font-medium">
 
-      {/* "V" — direct flex child, same position as original text node. Falls out on exit. */}
+      {/* "V" — pushed out to the left, as if shoved by the mascot splitting apart. */}
       <AnimatePresence mode="popLayout">
         {!shrunk && (
           <motion.span
             key="v"
-            initial={{ y: "80%", opacity: 0 }}
-            animate={{ y: "0%", opacity: 1 }}
-            exit={{ y: "100%", opacity: 0 }}
-            transition={fallT}
+            initial={{ x: -24, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: -24, opacity: 0 }}
+            transition={pushT}
           >
             V
           </motion.span>
@@ -57,15 +57,17 @@ export function NavLogo({ scrollY }: NavLogoProps) {
         </motion.span>
       </span>
 
-      {/* "LTR" — same as "V" */}
+      {/* "LTR" — pushed out to the right, tracking here (not on the container) so the
+          lone "V" doesn't inherit trailing letter-spacing and gap away from the mascot. */}
       <AnimatePresence mode="popLayout">
         {!shrunk && (
           <motion.span
             key="ltr"
-            initial={{ y: "80%", opacity: 0 }}
-            animate={{ y: "0%", opacity: 1 }}
-            exit={{ y: "100%", opacity: 0 }}
-            transition={fallT}
+            className="tracking-[0.45em]"
+            initial={{ x: 24, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: 24, opacity: 0 }}
+            transition={pushT}
           >
             LTR
           </motion.span>

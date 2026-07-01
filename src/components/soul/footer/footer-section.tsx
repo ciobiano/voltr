@@ -16,7 +16,7 @@ function Sparkle() {
 }
 
 const primaryNavLinks = [
-  { label: "AE.1", href: "#ae1" },
+  { label: "F2.B", href: "#ae1" },
   { label: "Technology", href: "#technology" },
   { label: "Experience", href: "#experience" },
   { label: "Buy it now", href: "#buy" },

@@ -20,7 +20,7 @@ const articles = [
     image: "/images/rv-images/interior.png",
   },
   {
-    title: "Why I Chose an AE.1",
+    title: "Why I Chose an F2.B",
     date: "09.16.2025",
     image: "/images/rv-images/lifestyle.png",
   },
@@ -38,7 +38,7 @@ export function DiscoverSection() {
       <div className="relative mx-3 md:mx-2 h-[58vh] overflow-hidden rounded-2xl">
         <Image
           src="/images/rv-images/features.png"
-          alt="VOLTR AE.1"
+          alt="VOLTR F2.B"
           fill
           className="object-cover"
         />
@@ -50,7 +50,7 @@ export function DiscoverSection() {
             </p>
           </RevealText>
           <Button intent="ghost" shape="pill" size="md">
-            Explore the AE.1
+            Explore the F2.B
           </Button>
         </div>
       </div>
@@ -91,7 +91,7 @@ export function DiscoverSection() {
               key={article.title}
               className="flex-none w-[85vw] md:w-[calc((100%-2*1.25rem)/3)] cursor-pointer group"
             >
-              <div className="relative w-[95vw] md:w-full rounded-xl  aspect-[8/5] md:aspect-5/3 overflow-hidden mb-4">
+              <div className="relative w-[85vw] md:w-full rounded-xl  aspect-[8/5] md:aspect-5/3 overflow-hidden mb-4">
                 <Image
                   src={article.image}
                   alt={article.title}
