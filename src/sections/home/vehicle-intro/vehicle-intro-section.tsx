@@ -178,8 +178,18 @@ export function VehicleIntroSection() {
 
           <div ref={cardsContainerRef} className="relative w-full -top-10">
             <div
+              ref={cardsTrackRef}
+              className="relative z-50 w-full px-4 md:px-0 md:pt-[20vh] md:will-change-transform"
+            >
+              <ImageStack
+                cardsRef={cardsRef}
+                className="w-full md:w-[min(42vw,43rem)] md:mx-auto"
+              />
+            </div>
+
+            <div
               ref={leftTextRef}
-              className="relative z-30 hidden max-w-[245px] md:absolute md:left-[7.5vw] md:top-[30vh] md:block"
+              className="z-30 w-full max-w-none mt-8 md:mt-0 md:absolute md:max-w-[clamp(150px,16vw,245px)] md:left-[7.5vw] md:top-[30vh]"
             >
               <p className="text-primary text-xs font-semibold tracking-normal">
                 Freedom, Reimagined.
@@ -191,7 +201,7 @@ export function VehicleIntroSection() {
 
             <div
               ref={rightTextRef}
-              className="hidden max-w-[245px] md:absolute md:right-[6.5vw] md:top-[18vh] md:block z-30"
+              className="z-30 w-full max-w-none mt-8 md:mt-0 md:absolute md:max-w-[clamp(150px,16vw,245px)] md:right-[6.5vw] md:top-[18vh]"
             >
               <p className="text-primary text-xs font-semibold tracking-normal">
                 Built Different.
@@ -200,16 +210,6 @@ export function VehicleIntroSection() {
                 From the Rocky Mountains to the open road, every detail is crafted
                 for the journey ahead.
               </p>
-            </div>
-
-            <div
-              ref={cardsTrackRef}
-              className="relative z-50 w-full px-4 md:px-0 md:pt-[20vh] md:will-change-transform"
-            >
-              <ImageStack
-                cardsRef={cardsRef}
-                className="w-full md:w-[min(42vw,43rem)] md:mx-auto"
-              />
             </div>
           </div>
         </div>
