@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { AnimatePresence, motion, type MotionValue, useMotionValueEvent } from "framer-motion";
+import { motion, type MotionValue, useMotionValueEvent } from "framer-motion";
 import { MascotIcon } from "@/components/primitives/mascot-icon";
 import { VOLTR_EASING } from "@/motion/easing";
 
@@ -18,23 +18,23 @@ export function NavLogo({ scrollY }: NavLogoProps) {
   useMotionValueEvent(scrollY, "change", (v) => setShrunk(v > 100));
 
   return (
-    // `relative` anchors the popLayout-popped letters during their exit animation
+    // `relative` container's rendered width is driven ONLY by the mascot span below
+    // (V/LTR are position:absolute, out of flow). Keeping that width constant between
+    // shrunk states matters: the parent nav centers this component via
+    // `left-1/2 -translate-x-1/2`, so if our own width changed with `shrunk`, the
+    // centering math would shift the whole block sideways mid-animation — which is
+    // what caused "V" to visibly jump right before sliding left.
     <div className="relative flex items-center text-lg font-medium">
 
-      {/* "V" — pushed out to the left, as if shoved by the mascot splitting apart. */}
-      <AnimatePresence mode="popLayout">
-        {!shrunk && (
-          <motion.span
-            key="v"
-            initial={{ x: -24, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: -24, opacity: 0 }}
-            transition={pushT}
-          >
-            V
-          </motion.span>
-        )}
-      </AnimatePresence>
+      {/* "V" — absolutely positioned directly left of the mascot; pushed further
+          left + faded on shrink. Out of flow, so it can't perturb the centering. */}
+      <motion.span
+        className="absolute right-full inline-block whitespace-nowrap"
+        animate={{ x: shrunk ? -24 : 0, opacity: shrunk ? 0 : 1 }}
+        transition={pushT}
+      >
+        V
+      </motion.span>
 
       {/* Two mascots at identical position, split apart on shrink. Exact original mx + nudge. */}
       <span
@@ -57,22 +57,16 @@ export function NavLogo({ scrollY }: NavLogoProps) {
         </motion.span>
       </span>
 
-      {/* "LTR" — pushed out to the right, tracking here (not on the container) so the
-          lone "V" doesn't inherit trailing letter-spacing and gap away from the mascot. */}
-      <AnimatePresence mode="popLayout">
-        {!shrunk && (
-          <motion.span
-            key="ltr"
-            className="tracking-[0.45em]"
-            initial={{ x: 24, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: 24, opacity: 0 }}
-            transition={pushT}
-          >
-            LTR
-          </motion.span>
-        )}
-      </AnimatePresence>
+      {/* "LTR" — same pattern, pushed right. Tracking lives here (not on the
+          container) so the lone "V" doesn't inherit trailing letter-spacing
+          and gap away from the mascot. */}
+      <motion.span
+        className="absolute left-full inline-block whitespace-nowrap tracking-[0.45em]"
+        animate={{ x: shrunk ? 24 : 0, opacity: shrunk ? 0 : 1 }}
+        transition={pushT}
+      >
+        LTR
+      </motion.span>
 
     </div>
   );
