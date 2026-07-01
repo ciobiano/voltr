@@ -189,9 +189,9 @@ export function VehicleIntroSection() {
 
             <div
               ref={leftTextRef}
-              className="z-30 w-full max-w-none mt-8 md:mt-0 md:absolute md:max-w-[clamp(150px,16vw,245px)] md:left-[7.5vw] md:top-[30vh]"
+              className="z-30 w-full max-w-[60vw] ml-6 mt-8 md:mt-0 md:absolute md:max-w-[clamp(150px,16vw,245px)] md:left-[7.5vw] md:top-[30vh]"
             >
-              <p className="text-primary text-xs font-semibold tracking-normal">
+              <p className="text-primary text-size-2xs md:text-xs font-semibold tracking-normal">
                 Freedom, Reimagined.
               </p>
               <p className="text-secondary font-display text-size-2xs leading-tight mt-3">
@@ -201,9 +201,9 @@ export function VehicleIntroSection() {
 
             <div
               ref={rightTextRef}
-              className="z-30 w-full max-w-none mt-8 md:mt-0 md:absolute md:max-w-[clamp(150px,16vw,245px)] md:right-[6.5vw] md:top-[18vh]"
+              className="z-30 w-full max-w-[60vw] mt-8 ml-6  md:mt-0 md:absolute md:max-w-[clamp(150px,16vw,245px)] md:right-[6.5vw] md:top-[18vh]"
             >
-              <p className="text-primary text-xs font-semibold tracking-normal">
+              <p className="text-primary text-size-2xs md:text-xs font-semibold tracking-normal">
                 Built Different.
               </p>
               <p className="text-secondary font-display text-size-2xs leading-tight mt-3">

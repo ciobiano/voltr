@@ -89,7 +89,7 @@ export function DiscoverSection() {
           {articles.map((article) => (
             <article
               key={article.title}
-              className="flex-none w-[calc(13.39px*100*0.33333-clamp(1rem,-0.9286rem+9.6429vw,7.75rem)*2*0.33333-8px*0.66667)] cursor-pointer group"
+              className="flex-none w-[85vw] md:w-[calc((100%-2*1.25rem)/3)] cursor-pointer group"
             >
               <div className="relative w-[95vw] md:w-full rounded-xl  aspect-[8/5] md:aspect-5/3 overflow-hidden mb-4">
                 <Image
