@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ClientProviders } from "@/motion/client-providers";
 import { ProductNav } from "@/components/soul/navigation/product-nav";
 import { F2bHeroSection } from "@/sections/f2b/f2b-hero-section";
@@ -27,8 +28,7 @@ export default function F2bPage() {
         <NewsletterSection />
         <TechnologySection features={technologyFeatures} label="Technology" />
         <SplitSection
-          image="/images/rv-images/lifestyle.png"
-          alt="VOLTR team"
+          media={<Image src="/images/rv-images/lifestyle.png" alt="VOLTR team" fill />}
           heading="One Platform. Endless Possibilities "
           body="We started VOLTR with a belief: exploring the outdoors should be effortless, and it should be possible for more people without compromising the places we love. As a direct-to-consumer adventure vehicle manufacturer, we're able to bring that experience straight into people's hands, reimagining this industry from the ground up with an all-electric design that's aerodynamic and built to go farther with less."
           

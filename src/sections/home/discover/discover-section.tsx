@@ -64,14 +64,14 @@ export function DiscoverSection() {
       </RevealLines>
 
       {/* About split */}
-      <SplitSection
-        image="/images/rv-images/lifestyle.png"
-        alt="VOLTR team"
-        body="We started VOLTR with a belief: exploring the outdoors should be effortless, and it should be possible for more people without compromising the places we love. As a direct-to-consumer adventure vehicle manufacturer, we're able to bring that experience straight into people's hands, reimagining this industry from the ground up with an all-electric design that's aerodynamic and built to go farther with less. "
-        cta={{ label: "About us" }}
-        className="pb-20 md:pb-28 "
-        bodyClassName="text-text-primary px-4"
-      />
+      <div className="pb-20 md:pb-28">
+        <SplitSection
+          media={<Image src="/images/rv-images/lifestyle.png" alt="VOLTR team" fill />}
+          body="We started VOLTR with a belief: exploring the outdoors should be effortless, and it should be possible for more people without compromising the places we love. As a direct-to-consumer adventure vehicle manufacturer, we're able to bring that experience straight into people's hands, reimagining this industry from the ground up with an all-electric design that's aerodynamic and built to go farther with less. "
+          cta={{ label: "About us" }}
+          bodyClassName="text-text-primary px-4"
+        />
+      </div>
 
       {/* More to Discover */}
       <div className="pb-24 my-20  md:pb-32">

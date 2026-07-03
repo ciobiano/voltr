@@ -21,7 +21,7 @@ export function TechnologySection({
   description,
 }: TechnologySectionProps) {
   return (
-    <section className="flex flex-col bg-surface-primary mt-24">
+    <section className="flex flex-col bg-surface-primary my-44">
       {description && (
         <div className="w-full px-6 md:px-8 mb-12 md:mb-28">
           <Paragraph className="w-full text-lg font-normal md:max-w-1/2 mx-auto text-center">

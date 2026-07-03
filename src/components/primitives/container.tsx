@@ -14,7 +14,7 @@ const containerSizes: Record<string, string> = {
 
 export function Container({ size = "md", children, className }: ContainerProps) {
   return (
-    <div className={cn("mx-auto px-6", containerSizes[size], className)}>
+    <div className={cn("px-4", containerSizes[size], className)}>
       {children}
     </div>
   );

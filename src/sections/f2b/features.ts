@@ -5,21 +5,33 @@ export const technologyFeatures: FeatureCardData[] = [
     name: "TrekDrive",
     title: "Twice the Efficiency.\nAll the Freedom.",
     image: "/images/rv-images/features.png",
+    detailImage: "/images/rv-images/features.png",
+    description:
+      "The TrekDrive™ system is where intelligence and muscle come together. TrekDrive pairs intelligent vehicle assist technology with a proprietary smart hitch, sensing force between trailer and tow vehicle to tap into extra power on climbs and apply controlled braking on descents — for maximum travel efficiency.",
   },
   {
     name: "CampQuiet",
     title: "Quiet Comes Standard.",
     image: "/images/rv-images/lifestyle.png",
+    detailImage: "/images/rv-images/lifestyle.png",
+    description:
+      "CampQuiet™ isolates and dampens road and generator noise at the source, so campsites stay campsites. Acoustic insulation throughout the cabin keeps the outside out, letting you hear the fire crackle instead of the highway.",
   },
   {
     name: "Aero-Electric",
     title: "Built to Move.\nBuilt to Transform.",
     image: "/images/rv-images/interior.png",
+    detailImage: "/images/rv-images/interior.png",
+    description:
+      "The Aero-Electric platform reshapes itself for the road ahead — low and slippery at highway speed, tall and livable at camp. A fully electric drivetrain means fewer moving parts, less maintenance, and instant torque wherever you point it.",
   },
   {
     name: "SolarSync",
     title: "Power From\nAbove.",
     image: "/images/rv-images/features.png",
+    detailImage: "/images/rv-images/features.png",
+    description:
+      "SolarSync™ keeps the battery topped up wherever the sun is, automatically balancing panel input with onboard demand. No manual switching, no guesswork — just power that keeps pace with your trip.",
   },
 ];
 
@@ -27,17 +39,29 @@ export const discoverFeatures: FeatureCardData[] = [
   {
     title: "The Most Capable All-Electric Power System",
     image: "/images/rv-images/interior.png",
+    detailImage: "/images/rv-images/interior.png",
+    description:
+      "A fully electric drivetrain built for towing and off-grid living alike, delivering instant torque and industry-leading range without a single drop of gas.",
   },
   {
     title: "One of a Kind Design",
     image: "/images/rv-images/features.png",
+    detailImage: "/images/rv-images/features.png",
+    description:
+      "Every surface is purpose-built, from the aerodynamic shell down to the hardware, rethinking what an adventure vehicle looks like from the ground up.",
   },
   {
     title: "Views You Can Take Anywhere",
     image: "/images/rv-images/lifestyle.png",
+    detailImage: "/images/rv-images/lifestyle.png",
+    description:
+      "Expansive glass and a low-profile silhouette put the landscape front and center, wherever the road takes you.",
   },
   {
     title: "Built for Every Kind of Adventure",
     image: "/images/rv-images/features.png",
+    detailImage: "/images/rv-images/features.png",
+    description:
+      "From weekend getaways to months off-grid, the F2.b is engineered to handle rough terrain and long stays with the same ease.",
   },
 ];

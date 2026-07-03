@@ -99,6 +99,37 @@ export const cardVariants = cva("rounded-none", {
   },
 });
 
+export const dialogOverlayVariants = cva(
+  "fixed inset-0 z-50 bg-black/60 backdrop-blur-sm ",
+);
+
+export const dialogContentVariants = cva(
+  "fixed left-1/2 top-1/2 z-50 w-[92vw] max-w-[var(--container-dialog)] max-h-[85vh] overflow-hidden rounded-2xl bg-surface-primary shadow-[var(--shadow-elevation-1)] focus:outline-none",
+);
+
+export const dialogPanelVariants = cva(
+  "h-full max-h-[85vh] overflow-y-auto p-8 md:p-12",
+);
+
+export const dialogCloseVariants = cva(
+  "absolute top-4 right-4 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-orange text-surface-primary shadow-[var(--shadow-elevation-1)] transition-colors duration-[var(--duration-ui)] hover:brightness-95 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-surface-primary focus:ring-border-focus",
+);
+
+export const faqIconVariants = cva(
+  "transition-transform duration-[var(--duration-ui)] ease-[var(--ease-micro)]",
+  {
+    variants: {
+      open: {
+        true: "rotate-45",
+        false: "rotate-0",
+      },
+    },
+    defaultVariants: {
+      open: false,
+    },
+  },
+);
+
 export const sectionVariants = cva("relative min-h-screen flex items-center justify-center", {
   variants: {
     surface: {

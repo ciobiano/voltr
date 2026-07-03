@@ -9,7 +9,7 @@ import { NavLogo } from "@/components/primitives/nav-logo";
 
 const navLinksLeft = [
   { label: "F2b", href: "/f2b" },
-  { label: "Technology", href: "#technology" },
+  { label: "Technology", href: "/technology" },
   { label: "Specs", href: "#specs" },
 ];
 

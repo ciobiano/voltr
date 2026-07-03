@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Paragraph } from "@/components/primitives/paragraph";
 import { Heading } from "@/components/primitives/heading";
@@ -13,9 +12,13 @@ interface SplitSectionCta {
 }
 
 interface SplitSectionProps {
-  image: string;
-  alt: string;
-  imagePosition?: "left" | "right";
+  /** The media element for this row — an <Image>, <video>, <img> gif, etc. Caller owns it. */
+  media: React.ReactNode;
+  mediaPosition?: "left" | "right";
+  /** Override the media wrapper's default aspect ratio / size / rounding for this instance. */
+  mediaClassName?: string;
+  /** Override the default gap between the text and media columns (e.g. "gap-8 md:gap-24"). */
+  textWidth?: string;
   eyebrow?: string;
   heading?: React.ReactNode;
   body?: React.ReactNode;
@@ -25,9 +28,10 @@ interface SplitSectionProps {
 }
 
 export function SplitSection({
-  image,
-  alt,
-  imagePosition = "right",
+  media,
+  mediaPosition = "right",
+  mediaClassName,
+  textWidth,
   eyebrow,
   heading,
   body,
@@ -35,63 +39,75 @@ export function SplitSection({
   cta,
   className,
 }: SplitSectionProps) {
-  const imageFirst = imagePosition === "left";
-
-  const imageCol = (
-    <div className="w-full md:w-[55%] md:h-[35vh] relative aspect-[4/3] overflow-hidden rounded-2xl">
-      <Image src={image} alt={alt} fill className="object-cover" />
-    </div>
-  );
-
-  const textCol = (
-    <div className="w-full md:w-[45%] flex flex-col justify-center">
-      <div className="flex flex-col gap-4 max-w-[22rem] md:mx-auto md:mr-10 items-center justify-center ">
-        {eyebrow && (
-          <span className="text-caption text-text-tertiary tracking-[var(--tracking-mono)]">
-            {eyebrow}
-          </span>
-        )}
-        {heading && (
-          <Heading level="h1" reveal={false} className="text-size-sm leading-heading  font-base">
-            {heading}
-          </Heading>
-        )}
-        {body && <Paragraph className={bodyClassName}>{body}</Paragraph>}
-        {cta && (
-          <div className="pt-2">
-            <Button
-              intent="outline"
-              shape="pill"
-              size="md"
-              className="self-start"
-              {...(cta.href ? { as: "a", href: cta.href } : { onClick: cta.onClick })}
-            >
-              {cta.label}
-            </Button>
-          </div>
-        )}
-      </div>
-    </div>
-  );
+  const imageOnLeft = mediaPosition === "left";
 
   return (
     <div
       className={cn(
-        "flex flex-col gap-8 md:gap-12 md:flex-row items-center px-3 md:px-2",
+        "flex flex-col md:flex-row items-start gap-8 md:gap-20 px-3 md:px-2",
+        imageOnLeft && "md:flex-row-reverse",
         className,
       )}
     >
-      {imageFirst ? (
-        <>
-          {imageCol}
-          {textCol}
-        </>
-      ) : (
-        <>
-          {textCol}
-          {imageCol}
-        </>
-      )}
+      <div className="flex flex-col w-full md:w-[45%] justify-start">
+        <div
+          className={cn(
+            "flex flex-col gap-6  md:mx-auto items-start justify-center",
+            imageOnLeft ? "md:ml-10" : "md:mr-10",
+            textWidth ?? "max-w-[22rem]",
+             
+          )}
+        >
+          {eyebrow && (
+            <span
+              className={cn(
+                "text-size-body text-tertiary tracking-[var(--tracking-mono)]",
+                imageOnLeft ? "mr-auto" : "mr-auto",
+              )}
+            >
+              {eyebrow}
+            </span>
+          )}
+          {heading && (
+            <Heading
+              level="h1"
+              reveal={false}
+              className={cn(
+                "text-size-sm leading-heading font-base",
+                imageOnLeft ? "mr-auto" : "mr-auto",
+              )}
+            >
+              {heading}
+            </Heading>
+          )}
+          {body && <Paragraph className={bodyClassName}>{body}</Paragraph>}
+          {cta && (
+            <div className="pt-2">
+              <Button
+                intent="outline"
+                shape="pill"
+                size="md"
+                className="self-start"
+                {...(cta.href
+                  ? { as: "a", href: cta.href }
+                  : { onClick: cta.onClick })}
+              >
+                {cta.label}
+              </Button>
+            </div>
+          )}
+        </div>
+      </div>
+
+      <div
+        className={cn(
+          "w-full md:w-[55%] md:h-[35vh] relative aspect-[4/3] overflow-hidden rounded-2xl",
+          "[&>*]:absolute [&>*]:inset-0 [&>*]:h-full [&>*]:w-full [&>*]:object-cover",
+          mediaClassName,
+        )}
+      >
+        {media}
+      </div>
     </div>
   );
 }
