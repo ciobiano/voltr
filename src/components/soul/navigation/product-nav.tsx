@@ -7,7 +7,7 @@ import { VOLTR_EASING } from "@/motion/easing";
 import { NavLogo } from "@/components/primitives/nav-logo";
 
 const navLinksLeft = [
-  { label: "F2.b", href: "#f2b" },
+  { label: "F2.b", href: "/f2b" },
   { label: "Technology", href: "/technology" },
   { label: "Specs", href: "/specs" },
 ];
