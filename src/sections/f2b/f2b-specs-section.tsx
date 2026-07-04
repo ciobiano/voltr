@@ -1,6 +1,7 @@
 import Image from "next/image";
-import { Button } from "@/components/primitives/button";
+import Link from "next/link";
 import { Heading } from "@/components/primitives/heading";
+import { buttonVariants } from "@/design-system/variants";
 
 export function F2bSpecsSection() {
   return (
@@ -22,9 +23,9 @@ export function F2bSpecsSection() {
           See every measurement,<br />system, and spec.
         </Heading>
 
-        <Button intent="outline" shape="pill" size="md">
+        <Link href="/specs" className={buttonVariants({ intent: "outline", shape: "pill", size: "md" })}>
           See full specs
-        </Button>
+        </Link>
       </div>
     </section>
   );

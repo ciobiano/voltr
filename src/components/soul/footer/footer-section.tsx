@@ -27,7 +27,7 @@ const footerColumns = [
     { label: "Company", href: "#" },
     { label: "Events", href: "#" },
     { label: "Contact", href: "#" },
-    { label: "Specs", href: "#" },
+    { label: "Specs", href: "/specs" },
   ],
   [
     { label: "Journal", href: "#" },

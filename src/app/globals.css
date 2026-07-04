@@ -28,6 +28,10 @@
   --color-dune:     #c9b99a;
   --color-obsidian: #2a2a2a;
 
+  /* Specs page accents */
+  --color-forest: #1f3d3a;
+  --color-ink:    #17140f;
+
   --text-size-4xl:       clamp(5.5rem, 3.18rem + 11.61vw, 13.625rem);
   --text-size-3xl:       clamp(4rem, 2.5rem + 7.5vw, 9.25rem);
   --text-size-editorial: clamp(4.5rem, 9vw, 10.5rem);
