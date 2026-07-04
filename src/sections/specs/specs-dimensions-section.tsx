@@ -10,8 +10,8 @@ const legendColumns = [
 export function SpecsDimensionsSection() {
   return (
     <section className="bg-surface-primary">
-      <Container size="lg" className="pb-1">
-        <div className="rounded-2xl bg-ink px-6 pb-8 pt-10 md:px-10 md:pt-12">
+      <Container size="lg" className="pb-xs">
+        <div className="rounded-2xl bg-ink px-lg pb-xl pt-xl md:px-xl">
           <svg
             viewBox="0 0 1120 420"
             className="block h-auto w-full"
@@ -90,9 +90,9 @@ export function SpecsDimensionsSection() {
             </text>
           </svg>
 
-          <div className="mt-5 grid grid-cols-1 gap-4 border-t border-white/10 pt-8 md:grid-cols-3">
+          <div className="mt-md grid grid-cols-1 gap-md border-t border-white/10 pt-lg md:grid-cols-3">
             {legendColumns.map((column, i) => (
-              <div key={i} className="flex flex-col gap-3">
+              <div key={i} className="flex flex-col gap-sm">
                 {column.map((item) => (
                   <p key={item.code} className="text-size-3xs text-white/70">
                     {item.code}: {item.label} - {item.value}
@@ -104,18 +104,18 @@ export function SpecsDimensionsSection() {
         </div>
       </Container>
 
-      <Container size="lg" className="pb-24 md:pb-28">
-        <div className="mt-1 grid grid-cols-2 gap-1 md:grid-cols-4">
+      <Container size="lg" className="pb-3xl">
+        <div className="mt-xs grid grid-cols-2 gap-xs md:grid-cols-4">
           {statCards.map((card) => (
             <div
               key={card.label}
-              className="relative min-h-[8.5rem] bg-surface-secondary px-6 py-6"
+              className="relative min-h-[8.5rem] bg-surface-secondary px-lg py-lg"
             >
-              <span className="absolute left-3.5 top-3.5 text-xs text-border-subtle">+</span>
-              <span className="absolute right-3.5 top-3.5 text-xs text-border-subtle">+</span>
-              <span className="absolute bottom-3.5 left-3.5 text-xs text-border-subtle">+</span>
-              <span className="absolute bottom-3.5 right-3.5 text-xs text-border-subtle">+</span>
-              <h3 className="mb-8 text-size-2xs font-semibold text-text-primary">
+              <span className="absolute left-md top-md text-xs text-border-subtle">+</span>
+              <span className="absolute right-md top-md text-xs text-border-subtle">+</span>
+              <span className="absolute bottom-md left-md text-xs text-border-subtle">+</span>
+              <span className="absolute bottom-md right-md text-xs text-border-subtle">+</span>
+              <h3 className="mb-xl text-size-2xs font-semibold text-text-primary">
                 {card.value}
               </h3>
               <p className="text-size-body text-text-secondary">{card.label}</p>
