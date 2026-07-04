@@ -16,7 +16,7 @@ export function SpecRow({
   return (
     <div
       className={cn(
-        "grid gap-6 md:gap-8 border-t border-border-subtle px-6 py-5 md:px-7 first:border-t-0",
+        "grid gap-lg border-t border-border-subtle px-lg py-md first:border-t-0",
         className,
       )}
       style={{ gridTemplateColumns: `${labelWidth} 1fr` }}

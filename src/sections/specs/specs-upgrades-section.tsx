@@ -11,7 +11,7 @@ import {
 function UpgradeCard({ card }: { card: UpgradeCardData }) {
   return (
     <div className="overflow-hidden rounded-2xl bg-surface-secondary">
-      <h3 className="px-6 pb-4 pt-7 text-size-xs font-semibold text-text-primary md:px-7">
+      <h3 className="px-lg pb-md pt-lg text-size-xs font-semibold text-text-primary">
         {card.title}
       </h3>
       {card.rows.map((row) => (
@@ -29,25 +29,25 @@ function UpgradeCard({ card }: { card: UpgradeCardData }) {
 export function SpecsUpgradesSection() {
   return (
     <section className="bg-surface-primary">
-      <Container size="lg" className="pb-16 md:pb-20">
-        <Heading level="h1" as="h2" className="mb-8 text-size-2xs md:mb-9">
+      <Container size="lg" className="pb-2xl">
+        <Heading level="h1" as="h2" className="mb-xl text-size-2xs">
           Upgrade Options
         </Heading>
 
-        <div className="grid grid-cols-1 items-start gap-1 md:grid-cols-2">
-          <div className="flex flex-col gap-1">
+        <div className="grid grid-cols-1 items-start gap-xs md:grid-cols-2">
+          <div className="flex flex-col gap-xs">
             {upgradeColumnLeft.map((card) => (
               <UpgradeCard key={card.title} card={card} />
             ))}
           </div>
-          <div className="flex flex-col gap-1">
+          <div className="flex flex-col gap-xs">
             {upgradeColumnRight.map((card) => (
               <UpgradeCard key={card.title} card={card} />
             ))}
           </div>
         </div>
 
-        <div className="pt-10 md:pt-12">
+        <div className="pt-xl">
           <Button intent="outline" shape="pill" size="md">
             Explore the F2.b
           </Button>

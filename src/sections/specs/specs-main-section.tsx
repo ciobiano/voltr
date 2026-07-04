@@ -6,14 +6,14 @@ import { electricRows, exteriorRows, livingRows } from "@/sections/specs/specs-d
 export function SpecsMainSection() {
   return (
     <section className="bg-surface-primary">
-      <Container size="lg" className="pb-20 md:pb-24">
-        <Heading level="h1" as="h2" className="mb-8 text-size-2xs md:mb-9">
+      <Container size="lg" className="pb-2xl md:pb-3xl">
+        <Heading level="h1" as="h2" className="mb-xl text-size-2xs">
           Main Specs
         </Heading>
 
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-lg">
           <div className="overflow-hidden rounded-2xl bg-surface-secondary">
-            <h3 className="px-6 pb-4 pt-7 text-size-sm font-semibold text-text-primary md:px-7">
+            <h3 className="px-lg pb-md pt-lg text-size-sm font-semibold text-text-primary">
               Exterior &amp; Footprint
             </h3>
             {exteriorRows.map((row) => (
@@ -22,7 +22,7 @@ export function SpecsMainSection() {
           </div>
 
           <div className="overflow-hidden rounded-2xl bg-surface-secondary">
-            <h3 className="px-6 pb-4 pt-7 text-size-sm font-semibold text-text-primary md:px-7">
+            <h3 className="px-lg pb-md pt-lg text-size-sm font-semibold text-text-primary">
               The Electric Ecosystem
             </h3>
             {electricRows.map((row) => (
@@ -31,7 +31,7 @@ export function SpecsMainSection() {
           </div>
 
           <div className="overflow-hidden rounded-2xl bg-surface-secondary">
-            <h3 className="px-6 pb-4 pt-7 text-size-sm font-semibold text-text-primary md:px-7">
+            <h3 className="px-lg pb-md pt-lg text-size-sm font-semibold text-text-primary">
               Living Spaces
             </h3>
             {livingRows.map((row) => (
