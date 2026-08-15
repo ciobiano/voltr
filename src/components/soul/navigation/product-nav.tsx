@@ -52,9 +52,11 @@ export function ProductNav({ className }: ProductNavProps) {
   return (
     <>
       {/* Scrim over the page behind the pill while the menu is open */}
+      {/* z-55 so the scrim also covers the z-50 price dock, which would
+          otherwise float on top of the open menu. */}
       <motion.div
         aria-hidden
-        className="fixed left-0 top-0 z-40 h-screen w-screen bg-black/25"
+        className="fixed left-0 top-0 z-[55] h-screen w-screen bg-black/25"
         initial={false}
         animate={{ opacity: menuOpen ? 1 : 0 }}
         transition={{ duration: 0.6, ease: "easeInOut" }}
@@ -64,7 +66,7 @@ export function ProductNav({ className }: ProductNavProps) {
 
       <motion.header
         className={cn(
-          "fixed top-0 left-0 z-50 flex w-full items-center justify-center ",
+          "fixed top-0 left-0 z-[60] flex w-full items-center justify-center ",
           className,
         )}
         initial={{ opacity: 0, y: -10 }}
@@ -103,7 +105,9 @@ export function ProductNav({ className }: ProductNavProps) {
                 aria-label={menuOpen ? "Close menu" : "Open menu"}
                 aria-expanded={menuOpen}
                 onClick={() => setMenuOpen((v) => !v)}
-                className="relative h-4 w-[22px] shrink-0 cursor-pointer"
+                // `before:` expands the tap area to ~46x44 without changing the
+                // 22x16 visual box, so desktop spacing is untouched.
+                className="relative h-4 w-[22px] shrink-0 cursor-pointer before:absolute before:-inset-x-3 before:-inset-y-[14px] before:content-['']"
               >
                 <motion.span
                   className="absolute left-0 h-[2px] w-[22px] rounded-full bg-current"

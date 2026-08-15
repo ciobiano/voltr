@@ -34,7 +34,7 @@ const cards = [
   {
     src: "/images/rv-images/features.png",
     alt: "",
-    height: "h-[280px] md:h-[360px]",
+    height: "h-[160px] md:h-[360px]",
     objectPosition: "object-center",
     title: "Technology",
     subtitle: "Discover the tech within",
@@ -42,7 +42,7 @@ const cards = [
   {
     src: "/images/rv-images/interior.png",
     alt: "",
-    height: "h-[280px] md:h-[360px]",
+    height: "h-[160px] md:h-[360px]",
     objectPosition: "object-top",
     title: "Experience",
     subtitle: "Find your way into an F2.b",
@@ -102,6 +102,17 @@ export function NavMenu({ open, onClose }: NavMenuProps) {
     };
   }, [open]);
 
+  // The page behind is scroll-locked while open, so Escape is the only
+  // keyboard way out of the sheet.
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open, onClose]);
+
   return (
     <motion.div
       aria-hidden={!open}
@@ -110,9 +121,12 @@ export function NavMenu({ open, onClose }: NavMenuProps) {
       transition={{ duration: 0.72, ease: VOLTR_EASING.menu }}
       style={{ overflow: "hidden", pointerEvents: open ? "auto" : "none" }}
     >
-      <div className="flex flex-col gap-10 px-2 pb-10 pt-8 md:flex-row md:items-start md:gap-10 md:px-4 md:pt-10">
-        {/* Left: image cards */}
-        <div className="flex flex-[1.6] gap-4">
+      {/* Mobile: the sheet is taller than the viewport and the page behind is
+          scroll-locked, so the sheet itself has to scroll or the links below
+          the fold are unreachable. Desktop lays out side by side and fits. */}
+      <div className="flex max-h-[calc(100dvh-7.5rem)] flex-col gap-10 overflow-y-auto overscroll-contain px-2 pb-10 pt-8 md:max-h-none md:flex-row md:items-start md:gap-10 md:overflow-visible md:px-4 md:pt-10">
+        {/* Image cards — below the links on mobile so nav comes first */}
+        <div className="order-2 flex flex-[1.6] gap-4 md:order-1">
           <div className="flex flex-1 flex-col gap-4">
             {cards.map((card, i) => (
               <MenuCard key={card.title} delay={open ? 0.14 + i * 0.06 : 0} open={open}>
@@ -131,7 +145,7 @@ export function NavMenu({ open, onClose }: NavMenuProps) {
           </div>
           <div className="flex-1">
             <MenuCard delay={open ? 0.26 : 0} open={open}>
-              <div className="relative h-[584px] w-full md:h-[736px]">
+              <div className="relative h-[336px] w-full md:h-[736px]">
                 <Image
                   src={tallCard.src}
                   alt={tallCard.alt}
@@ -145,8 +159,8 @@ export function NavMenu({ open, onClose }: NavMenuProps) {
           </div>
         </div>
 
-        {/* Right: nav links + secondary footer-style links */}
-        <div className="flex flex-1 flex-col pt-1">
+        {/* Nav links + secondary footer-style links — first on mobile */}
+        <div className="order-1 flex flex-1 flex-col pt-1 md:order-2">
           {menuLinks.map((link, i) => {
             const d = 0.22 + i * 0.09;
             return (
