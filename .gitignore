@@ -25,3 +25,8 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .gstack/
+
+# local qa artifacts
+.playwright-mcp/
+direction/StickySections/
+vehicle-intro-pinned-gallery.png

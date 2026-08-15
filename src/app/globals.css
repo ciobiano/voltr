@@ -32,6 +32,18 @@
   --color-forest: #1f3d3a;
   --color-ink:    #17140f;
 
+  /* Order/Build page accents — pixel-sampled from the design handoff's
+     rendered crops (crops/cfg_top.png, cfg_upgrades.png, cfg_addons*.png),
+     not just the .dc.html source: the rendered text colors are neutral
+     greys, not the warm-tinted hex the source markup declares. */
+  --color-order-warm:      #f2efea;
+  --color-order-warm-soft: #faf6ef;
+  --color-order-teal:      #29525e;
+  --color-order-border:    #d7d1c4;
+  --color-order-text-light: #999999;
+  --color-order-text-mid:   #666666;
+  --color-order-text-label: #615f5e;
+
   --text-size-4xl:       clamp(5.5rem, 3.18rem + 11.61vw, 13.625rem);
   --text-size-3xl:       clamp(4rem, 2.5rem + 7.5vw, 9.25rem);
   --text-size-editorial: clamp(4.5rem, 9vw, 10.5rem);
@@ -66,6 +78,46 @@
   --spacing-3xl: 96px;
   --spacing-4xl: 160px;
 
+  /*
+   * Sizing scale for the w, min-w, and max-w utilities — deliberately
+   * separate from --spacing-*. Tailwind v4 resolves those utilities' named
+   * keys (xs..4xl) in this priority order: width/min-width/max-width theme
+   * keys first, then --spacing-*, then --container-* last. Our --spacing-*
+   * scale above reuses the same xs..4xl keywords for much smaller
+   * gap/padding values (e.g. --spacing-4xl: 160px), which — being second in
+   * the lookup order — silently wins over Tailwind's own container fallback
+   * (third). So the fix has to happen at the first-priority namespace.
+   * Without this block, max-w-4xl resolves to 160px instead of 56rem.
+   */
+  --width-xs: 20rem;
+  --width-sm: 24rem;
+  --width-md: 28rem;
+  --width-lg: 32rem;
+  --width-xl: 36rem;
+  --width-2xl: 42rem;
+  --width-3xl: 48rem;
+  --width-4xl: 56rem;
+
+  --min-width-xs: 20rem;
+  --min-width-sm: 24rem;
+  --min-width-md: 28rem;
+  --min-width-lg: 32rem;
+  --min-width-xl: 36rem;
+  --min-width-2xl: 42rem;
+  --min-width-3xl: 48rem;
+  --min-width-4xl: 56rem;
+
+  --max-width-xs: 20rem;
+  --max-width-sm: 24rem;
+  --max-width-md: 28rem;
+  --max-width-lg: 32rem;
+  --max-width-xl: 36rem;
+  --max-width-2xl: 42rem;
+  --max-width-3xl: 48rem;
+  --max-width-4xl: 56rem;
+  --max-width-5xl: 64rem;
+  --max-width-6xl: 72rem;
+  --max-width-7xl: 80rem;
   --container-dialog: 72rem;
   --size-scale-ring: clamp(75rem, 10rem + 80vw, 34rem);
 
@@ -131,18 +183,20 @@
 }
 
 @utility text-subhead {
-  font-family: var(--font-sans);
+  font-family: var(--font-display);
   font-size: var(--text-size-xs);
-  letter-spacing: var(--tracking-wide);
+  letter-spacing: var(--tracking-mono);
   line-height: 1.3;
   font-weight: 400;
+  -webkit-text-stroke: 0.8px currentColor;
 }
 
 @utility text-body {
-  font-family: var(--font-sans);
-  font-size: 1rem;
+  font-family: var(--font-display);
+  font-size: var(--text-size-2xs);
   line-height: var(--leading-body);
   font-weight: 400;
+  
 }
 
 @utility text-caption {
@@ -354,7 +408,11 @@
   }
 
   html {
-    overflow-x: hidden;
+    /* clip, not hidden: overflow-x:hidden paired with an unset overflow-y
+       forces overflow-y to compute as non-visible too (CSS spec quirk),
+       which turns html/body into an unintended sticky containing block and
+       breaks position:sticky for descendants. clip avoids that pairing. */
+    overflow-x: clip;
     scrollbar-gutter: stable;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -371,8 +429,8 @@
   body {
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
-    font-family: var(--font-sans);
+    overflow-x: clip;
+    font-family: var(--font-display);
     font-size: var(--text-size-body);
     line-height: var(--leading-body);
   }

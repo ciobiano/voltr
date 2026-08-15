@@ -56,7 +56,7 @@ export const buttonVariants = cva(
         primary:
           "bg-text-primary text-surface-primary active:brightness-[0.85]",
         accent:
-          "bg-accent text-surface-primary active:brightness-[0.85]",
+          "bg-accent text-primary active:brightness-[0.85]",
         ghost:
           "border border-transparent bg-glass-dark text-white backdrop-blur-sm active:brightness-[0.9]",
         outline:

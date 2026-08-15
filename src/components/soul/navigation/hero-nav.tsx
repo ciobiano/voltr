@@ -14,8 +14,8 @@ const navLinksLeft = [
 ];
 
 const navLinksRight = [
-  { label: "Experience", href: "#experience" },
-  { label: "Buy it now", href: "#buy" },
+  { label: "Experience", href: "/experience" },
+  { label: "Buy it now", href: "/order" },
 ];
 
 interface HeroNavProps {

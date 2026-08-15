@@ -9,7 +9,7 @@ interface ContainerProps {
 const containerSizes: Record<string, string> = {
   sm: "max-w-2xl",
   md: "max-w-4xl",
-  lg: "max-w-6xl",
+  lg: "max-w-7xl",
 };
 
 export function Container({ size = "md", children, className }: ContainerProps) {

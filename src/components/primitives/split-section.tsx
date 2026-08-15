@@ -73,7 +73,7 @@ export function SplitSection({
               level="h1"
               reveal={false}
               className={cn(
-                "text-size-sm leading-heading font-base",
+                "text-size-sm leading-heading font-base w-full   max-w-sm",
                 imageOnLeft ? "mr-auto" : "mr-auto",
               )}
             >
@@ -84,7 +84,7 @@ export function SplitSection({
           {cta && (
             <div className="pt-2">
               <Button
-                intent="outline"
+                intent="accent"
                 shape="pill"
                 size="md"
                 className="self-start"
@@ -101,7 +101,7 @@ export function SplitSection({
 
       <div
         className={cn(
-          "w-full md:w-[55%] md:h-[35vh] relative aspect-[4/3] overflow-hidden rounded-2xl",
+          "w-full md:w-[55%] md:h-[35vh] relative aspect-[4/3] overflow-hidden rounded-lg",
           "[&>*]:absolute [&>*]:inset-0 [&>*]:h-full [&>*]:w-full [&>*]:object-cover",
           mediaClassName,
         )}

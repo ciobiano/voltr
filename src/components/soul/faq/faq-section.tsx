@@ -53,8 +53,18 @@ export function FaqSection({ className }: { className?: string }) {
     <section className={cn("bg-surface-primary py-24 md:py-32", className)}>
       <Container
         size="md"
-        className="flex flex-col items-center gap-6 text-center mx-auto"
+        className="flex max-w-[40rem] flex-col items-center gap-6 text-center mx-auto"
       >
+
+        <Heading
+          level="h1"
+          as="h2"
+          className="text-size-2xl leading-heading text-stroke tracking-mono"
+        >
+          Frequently Asked
+          <br />
+          Questions
+        </Heading>
         <RevealText className="flex items-center justify-center">
           <span
             className={cn(
@@ -67,19 +77,9 @@ export function FaqSection({ className }: { className?: string }) {
             FAQ
           </span>
         </RevealText>
-
-        <Heading
-          level="h1"
-          as="h2"
-          className="text-size-2xl leading-heading tracking-mono"
-        >
-          Frequently Asked
-          <br />
-          Questions
-        </Heading>
       </Container>
 
-      <Container size="md" className="mt-16 md:mt-20 mx-auto">
+      <Container size="md" className="mt-16 max-w-[60rem] md:mt-20 mx-auto">
         <Accordion.Root type="multiple" className="w-full">
           {FAQ_ITEMS.map((item) => (
             <Accordion.Item

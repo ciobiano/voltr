@@ -24,7 +24,12 @@ interface StackingCardSceneProps {
   rightText: ReactNode;
 }
 
-export function StackingCardScene({ cards, headingSvgSrc, leftText, rightText }: StackingCardSceneProps) {
+export function StackingCardScene({
+  cards,
+  headingSvgSrc,
+  leftText,
+  rightText,
+}: StackingCardSceneProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const svgRef = useRef<HTMLDivElement>(null);
   const pinnedRef = useRef<HTMLDivElement>(null);
@@ -39,7 +44,9 @@ export function StackingCardScene({ cards, headingSvgSrc, leftText, rightText }:
   const getActiveY = () =>
     Math.max(
       0,
-      (svgRef.current?.getBoundingClientRect().bottom ?? 0) + HEADER_GAP - cardParentTop(),
+      (svgRef.current?.getBoundingClientRect().bottom ?? 0) +
+        HEADER_GAP -
+        cardParentTop(),
     );
 
   const getStartY = () =>
@@ -88,7 +95,12 @@ export function StackingCardScene({ cards, headingSvgSrc, leftText, rightText }:
 
   return (
     <div ref={sectionRef} className="relative w-full">
-      <div ref={pinnedRef} className="relative w-full h-auto md:h-screen md:overflow-visible z-50">
+      <div
+        ref={pinnedRef}
+        className="relative w-full h-auto md:h-screen md:overflow-visible z-20   Phar2580
+        PharPhar2580
+        "
+      >
         {/*
           Desktop heading rides along inside the already-pinned container
           instead of getting its own separate ScrollTrigger pin. A second

@@ -6,6 +6,7 @@ export const VOLTR_EASING = {
   linear: [1, 0, 0, 1] as const,
   ambient: [0.4, 0, 0.6, 1] as const,
   entrance: [0.12, 0.7, 0.1, 1] as const,
+  menu: [0.16, 1, 0.3, 1] as const,
 } as const;
 
 export const VOLTR_DURATION = {

@@ -16,10 +16,10 @@ function Sparkle() {
 }
 
 const primaryNavLinks = [
-  { label: "F2.B", href: "#ae1" },
-  { label: "Technology", href: "#technology" },
-  { label: "Experience", href: "#experience" },
-  { label: "Buy it now", href: "#buy" },
+  { label: "F2.B", href: "/f2b" },
+  { label: "Technology", href: "/technology" },
+  { label: "Experience", href: "/experience" },
+  { label: "Buy it now", href: "/order" },
 ];
 
 const footerColumns = [

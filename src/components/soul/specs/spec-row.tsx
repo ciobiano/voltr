@@ -16,13 +16,13 @@ export function SpecRow({
   return (
     <div
       className={cn(
-        "grid gap-lg border-t border-border-subtle px-lg py-md first:border-t-0",
+        "grid gap-60 border-t border-border-subtle px-lg py-md first:border-t-0",
         className,
       )}
       style={{ gridTemplateColumns: `${labelWidth} 1fr` }}
     >
-      <div className="text-size-body font-semibold text-text-primary">{label}</div>
-      <div className="text-size-body leading-relaxed text-text-secondary">{value}</div>
+      <div className="text-size-3xs font-medium text-text-primary">{label}</div>
+      <div className="text-md text-primary">{value}</div>
     </div>
   );
 }

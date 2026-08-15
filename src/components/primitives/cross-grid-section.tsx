@@ -30,8 +30,8 @@ export function CrossGridSection({
         className
       )}
     >
-      <div className="mx-auto px-6 md:px-16 max-w-7xl">
-        <div className="flex flex-col md:flex-row gap-12 md:gap-16 items-stretch">
+      <div className="mx-auto px-6 md:px-10 max-w-[88rem]">
+        <div className="flex flex-col md:flex-row gap-12 md:gap-24 items-stretch">
           {/* Left: eyebrow + headline + form */}
           <div className="flex-1 flex flex-col gap-12">
             <div className="space-y-10">
@@ -45,7 +45,7 @@ export function CrossGridSection({
           </div>
 
           {/* Right: image */}
-          <div className="md:w-[52%] relative rounded-2xl overflow-hidden aspect-[4/3] md:aspect-auto md:min-h-[420px]">
+          <div className="md:w-[62%] md:self-start relative rounded-2xl overflow-hidden aspect-[4/2.5]">
             <Image src={image} alt={imageAlt} fill className="object-cover" />
           </div>
         </div>
