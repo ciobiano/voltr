@@ -10,7 +10,7 @@ import { technologyFeatures, discoverFeatures } from "@/sections/f2b/features";
 import { SplitSection } from "@/components/primitives/split-section";
 import { F2bCustomizeSection } from "@/sections/f2b/f2b-customize-section";
 import { F2bSpecsSection } from "@/sections/f2b/f2b-specs-section";
-import { F2bExpandSection } from "@/sections/f2b/f2b-expand-section";
+import { ExpandSection } from "@/components/soul/expand-section/expand-section";
 import { FooterSection } from "@/components/soul/footer/footer-section";
 
 export default function F2bPage() {
@@ -36,7 +36,14 @@ export default function F2bPage() {
         />
         <F2bCustomizeSection />
         <F2bSpecsSection />
-        <F2bExpandSection />
+        <ExpandSection
+          image={{ src: "/images/rv-images/lifestyle.png", alt: "Built for you" }}
+          headline="Built for you"
+          ctas={[
+            { eyebrow: "Talk with an expert", title: "Get your questions answered", tone: "dark" },
+            { eyebrow: "Start your build", title: "Customize your F2.b. Your way.", tone: "accent" },
+          ]}
+        />
       </main>
       <FooterSection />
       <PriceDock

@@ -42,9 +42,9 @@ const HUB_ROWS = [
 export function TechnologyAppSection() {
   return (
     <section className="relative bg-surface-primary py-20 md:py-28">
-      <Container size="lg" className="mx-auto w-full px-2 md:px-12">
+      <Container size="lg" className="mx-auto max-w-[88rem] px-2 md:px-12">
         {/* Hero */}
-        <div className="flex flex-col mx-auto items-center gap-6 text-center pb-16 md:pb-20">
+        <div className="flex flex-col mx-auto max-w-[40rem]  items-center gap-6 text-center pb-16 md:pb-20">
           <Label className="tracking-[var(--tracking-mono)]">Voltr App</Label>
           <Heading
             level="h1"
@@ -66,10 +66,10 @@ export function TechnologyAppSection() {
         </div>
 
         {/* Three-up feature grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-7 pt-16 md:pt-20 pb-20 md:pb-28">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-2 pt-5 md:pt-2 pb-20 md:pb-28">
           {APP_FEATURES.map((feature) => (
             <div key={feature.title}>
-              <div className="relative w-full aspect-square rounded-lg overflow-hidden mb-5">
+              <div className="relative w-full aspect-6/4 rounded-2xl overflow-hidden mb-2">
                 <Image
                   src={feature.image}
                   alt={feature.title}
@@ -78,10 +78,10 @@ export function TechnologyAppSection() {
                   sizes="(max-width: 768px) 92vw, 30vw"
                 />
               </div>
-              <h3 className="text-body font-semibold text-text-primary mb-2">
+              <h3 className="text-size-3xs font-semibold text-text-primary mb-2">
                 {feature.title}
               </h3>
-              <p className="text-size-3xs leading-relaxed text-text-secondary">
+              <p className="text-subhead leading-tight text-text-tertiary">
                 {feature.body}
               </p>
             </div>
@@ -89,19 +89,18 @@ export function TechnologyAppSection() {
         </div>
 
         {/* Power Hub */}
-        <div className="grid grid-cols-1 md:grid-cols-[minmax(280px,400px)_1fr] gap-12 md:gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-[minmax(280px,400px)_1fr] gap-12 md:gap-40">
           <div>
-            <Label className="mb-4 font-semibold tracking-[var(--tracking-mono)]">
+            <Label className="mb-4 text-size-3xs font-semibold text-tertiary tracking-[var(--tracking-mono)]">
               Power Hub
             </Label>
-            <Heading
-              level="h1"
-              as="h2"
-              className="text-size-md text-stroke leading-heading tracking-[var(--tracking-mono)] mb-6"
+            <div
+             
+              className="text-size-sm  leading-heading  tracking-[var(--tracking-mono)] w-full max-w-[20vw] mb-6"
             >
               Where Form Meets Function.
-            </Heading>
-            <p className="text-size-3xs leading-relaxed text-text-secondary max-w-[22rem]">
+            </div>
+            <p className="text-md mt-4 tracking-wide  max-w-[22rem]">
               The Power Hub keeps your trailer&apos;s most essential power systems
               working together in one integrated space, so charging, backup
               power, and connectivity are always within reach.
@@ -112,9 +111,9 @@ export function TechnologyAppSection() {
             {HUB_ROWS.map((row) => (
               <div
                 key={row.title}
-                className="grid grid-cols-1 md:grid-cols-[310px_1fr] gap-6 md:gap-10 items-center"
+                className="grid grid-cols-1 md:grid-cols-[310px_1fr] gap-6 md:gap-8 "
               >
-                <div className="relative w-full aspect-[310/210] rounded-lg overflow-hidden">
+                <div className="relative w-full aspect-[300/190] rounded-lg overflow-hidden">
                   <Image
                     src={row.image}
                     alt={row.title}
@@ -124,10 +123,10 @@ export function TechnologyAppSection() {
                   />
                 </div>
                 <div>
-                  <h4 className="text-body font-semibold text-text-primary mb-3">
+                  <h4 className="text-size-3xs font-semibold text-text-primary mb-3">
                     {row.title}
                   </h4>
-                  <p className="text-size-3xs leading-relaxed text-text-secondary">
+                  <p className="text-size-xs tracking-mono  text-secondary">
                     {row.body}
                   </p>
                 </div>

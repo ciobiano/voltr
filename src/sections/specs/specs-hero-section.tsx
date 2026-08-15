@@ -11,19 +11,19 @@ const legendColumns = [
 
 export function SpecsHeroSection() {
   return (
-    <section className="bg-surface-primary">
-      <Container size="lg" className="text-center pt-2xl pb-xl md:pt-3xl">
+    <section className="bg-surface-primary ">
+      <Container size="lg" className="text-center gap-4 md:gap-10 pt-2xl  pb-xl mx-auto md:pt-3xl">
         <Heading level="h1" as="h2" className="text-size-lg leading-heading text-stroke">
           The F2.b by the Numbers
         </Heading>
-        <p className="mx-auto mt-lg max-w-md text-size-body leading-relaxed text-text-secondary">
+        <p className="mx-auto my-xl max-w-[30vw] text-body leading-tight text-text-tertiary">
           A closer look at the systems, dimensions, and performance that define the F2.b.
         </p>
       </Container>
 
-      <Container size="lg" className="pb-xs">
-        <div className="rounded-2xl bg-ink px-lg pb-xl pt-xl md:px-xl">
-          <div className="relative aspect-[1120/420] w-full">
+      <div className="mx-auto max-w-[88rem] px-4 pb-xs">
+        <div className="rounded-2xl bg-ink  px-lg pb-xl pt-xl md:px-xl">
+          <div className="relative aspect-[1120/620] w-full">
             <Image
               src="/svg/f2b-dimensions-diagram.svg"
               alt="F2.b dimension diagram — front and side elevations"
@@ -32,11 +32,11 @@ export function SpecsHeroSection() {
             />
           </div>
 
-          <div className="mt-md grid grid-cols-1 gap-md border-t border-white/10 pt-lg md:grid-cols-3">
+          <div className="mt-md  grid grid-cols-1 gap-md border-t border-white/10 pt-lg md:grid-cols-3">
             {legendColumns.map((column, i) => (
               <div key={i} className="flex flex-col gap-sm">
                 {column.map((item) => (
-                  <p key={item.code} className="text-size-3xs text-white/70">
+                  <p key={item.code} className="text-size-2xs text-white/70 text-center">
                     {item.code}: {item.label} - {item.value}
                   </p>
                 ))}
@@ -44,23 +44,19 @@ export function SpecsHeroSection() {
             ))}
           </div>
         </div>
-      </Container>
+      </div>
 
-      <Container size="lg" className="pb-3xl">
-        <div className="mt-xs grid grid-cols-2 gap-xs md:grid-cols-4">
+      <Container size="lg" className="pb-3xl mx-auto max-w-[88rem]">
+        <div className="mt-xs grid grid-cols-2 gap-md md:grid-cols-4 font-display">
           {statCards.map((card) => (
             <div
               key={card.label}
-              className="relative min-h-[8.5rem] bg-surface-secondary px-lg py-lg"
+              className="relative min-w-80 min-h-[8.5rem] bg-surface-secondary px-lg py-lg rounded-lg"
             >
-              <span className="absolute left-md top-md text-xs text-border-subtle">+</span>
-              <span className="absolute right-md top-md text-xs text-border-subtle">+</span>
-              <span className="absolute bottom-md left-md text-xs text-border-subtle">+</span>
-              <span className="absolute bottom-md right-md text-xs text-border-subtle">+</span>
-              <h3 className="mb-xl text-size-2xs font-semibold text-text-primary">
+              <h3 className="mb-xl text-subhead font-medium text-text-primary">
                 {card.value}
               </h3>
-              <p className="text-size-body text-text-secondary">{card.label}</p>
+              <p className="text-subhead text-primary">{card.label}</p>
             </div>
           ))}
         </div>

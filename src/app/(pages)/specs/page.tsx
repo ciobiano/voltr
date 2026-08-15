@@ -4,7 +4,7 @@ import { FooterSection } from "@/components/soul/footer/footer-section";
 import { SpecsHeroSection } from "@/sections/specs/specs-hero-section";
 import { SpecsMainSection } from "@/sections/specs/specs-main-section";
 import { SpecsUpgradesSection } from "@/sections/specs/specs-upgrades-section";
-import { SpecsCtaSection } from "@/sections/specs/specs-cta-section";
+import { ExpandSection } from "@/components/soul/expand-section/expand-section";
 
 export default function SpecsPage() {
   return (
@@ -14,7 +14,14 @@ export default function SpecsPage() {
         <SpecsHeroSection />
         <SpecsMainSection />
         <SpecsUpgradesSection />
-        <SpecsCtaSection />
+        <ExpandSection
+          image={{ src: "/images/rv-images/features.png", alt: "Make it yours" }}
+          headline="Make it yours"
+          ctas={[
+            { eyebrow: "Talk with an expert", title: "Get your questions answered", tone: "dark" },
+            { eyebrow: "Start your build", title: "Customize your F2.b. Your way.", tone: "accent" },
+          ]}
+        />
       </main>
       <FooterSection />
     </ClientProviders>

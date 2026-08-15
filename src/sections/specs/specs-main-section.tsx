@@ -5,15 +5,15 @@ import { electricRows, exteriorRows, livingRows } from "@/sections/specs/specs-d
 
 export function SpecsMainSection() {
   return (
-    <section className="bg-surface-primary">
-      <Container size="lg" className="pb-2xl md:pb-3xl">
-        <Heading level="h1" as="h2" className="mb-xl text-size-2xs">
+    <section className="bg-surface-primary font-display">
+      <Container size="lg" className="pb-2xl md:pb-3xl mx-auto max-w-[88rem]">
+        <Heading level="h1" as="h2" className="mb-xl">
           Main Specs
         </Heading>
 
         <div className="flex flex-col gap-lg">
           <div className="overflow-hidden rounded-2xl bg-surface-secondary">
-            <h3 className="px-lg pb-md pt-lg text-size-sm font-semibold text-text-primary">
+            <h3 className="px-lg pb-md pt-lg text-subhead  text-text-primary">
               Exterior &amp; Footprint
             </h3>
             {exteriorRows.map((row) => (

@@ -11,7 +11,7 @@ import {
 function UpgradeCard({ card }: { card: UpgradeCardData }) {
   return (
     <div className="overflow-hidden rounded-2xl bg-surface-secondary">
-      <h3 className="px-lg pb-md pt-lg text-size-xs font-semibold text-text-primary">
+      <h3 className="px-lg pb-md pt-lg text-subhead text-text-primary">
         {card.title}
       </h3>
       {card.rows.map((row) => (
@@ -28,9 +28,9 @@ function UpgradeCard({ card }: { card: UpgradeCardData }) {
 
 export function SpecsUpgradesSection() {
   return (
-    <section className="bg-surface-primary">
-      <Container size="lg" className="pb-2xl">
-        <Heading level="h1" as="h2" className="mb-xl text-size-2xs">
+    <section className="bg-surface-primary font-display">
+      <Container size="lg" className="pb-2xl max-w-[88rem] mx-auto">
+        <Heading level="h1" as="h2" className="mb-xl ">
           Upgrade Options
         </Heading>
 
@@ -47,6 +47,12 @@ export function SpecsUpgradesSection() {
           </div>
         </div>
 
+        <div className="pt-xl max-w-[45vw] ">
+          <p className="text-size-md font-base font-display  tracking-mono leading-display">
+            Continuous software updates ensure your F2.B evolves with every
+            mile. Engineered to endure.
+          </p>
+        </div>
         <div className="pt-xl">
           <Button intent="outline" shape="pill" size="md">
             Explore the F2.b

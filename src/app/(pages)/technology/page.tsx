@@ -11,6 +11,7 @@ import { technologyFeatures } from "@/sections/home/features";
 import { StackingCardScene } from "@/components/soul/stacking-cards/stacking-card-scene";
 import { CARDS } from "@/components/soul/stacking-cards/vehicle-stacking-content";
 import { FaqSection } from "@/components/soul/faq/faq-section";
+import { NewsletterSection } from "@/components/soul/newsletter/newsletter-section";
 
 export default function TechnologyPage() {
   return (
@@ -51,6 +52,7 @@ export default function TechnologyPage() {
         />
 
         <FaqSection />
+        <NewsletterSection />
       </main>
       <FooterSection />
     </ClientProviders>
