@@ -2,22 +2,23 @@ import Image from "next/image";
 import { Container } from "@/components/primitives/container";
 import { Label } from "@/components/primitives/label";
 import { Heading } from "@/components/primitives/heading";
+import { rvImages } from "@/assets/rv-images";
 
 const APP_FEATURES = [
   {
     title: "Real-time Tracking",
     body: "Track water and power at a glance, so nothing interrupts your trip.",
-    image: "/images/rv-images/features.png",
+    image: rvImages.systemConnectivity.src,
   },
   {
     title: "Back-Up Camera",
     body: "Keep an eye on your site and navigate tight spots with ease, right from the app.",
-    image: "/images/rv-images/interior.png",
+    image: rvImages.systemCamera.src,
   },
   {
     title: "Seamless Camp Set-up",
     body: "Auto-level your trailer, or switch from Road Mode to Camp Mode with a tap.",
-    image: "/images/rv-images/lifestyle.png",
+    image: rvImages.systemCampSetup.src,
   },
 ] as const;
 
@@ -25,17 +26,17 @@ const HUB_ROWS = [
   {
     title: "Charging",
     body: "With a NACS charging port, you have flexible options to recharge at home or on the road.",
-    image: "/images/rv-images/features.png",
+    image: rvImages.systemCharging.src,
   },
   {
     title: "Vehicle-to-Load Power",
     body: "Tap into stored energy, from charging your EV to powering your home in an outage.",
-    image: "/images/rv-images/interior.png",
+    image: rvImages.systemPower.src,
   },
   {
     title: "Starlink",
     body: "Stay connected even off the grid, with a built-in Starlink connection port.",
-    image: "/images/rv-images/lifestyle.png",
+    image: rvImages.systemConnectivity.src,
   },
 ] as const;
 
@@ -57,7 +58,7 @@ export function TechnologyAppSection() {
 
         <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden">
           <Image
-            src="/images/rv-images/lifestyle.png"
+            src={rvImages.exteriorHero.src}
             alt="Voltr App running on a tablet"
             fill
             className="object-cover"

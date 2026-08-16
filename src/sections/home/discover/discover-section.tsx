@@ -7,27 +7,28 @@ import { Heading } from "@/components/primitives/heading";
 import { RevealText } from "@/components/primitives/reveal";
 import { RevealLines } from "@/components/primitives/reveal-lines";
 import { SplitSection } from "@/components/primitives/split-section";
+import { rvImages } from "@/assets/rv-images";
 
 const articles = [
   {
     title: "VOLTR Expands Colorado Facility, More Than Quadrupling Manufacturing Capacity",
     date: "04.09.2026",
-    image: "/images/rv-images/features.png",
+    image: rvImages.editorialFacility.src,
   },
   {
     title: "Setting the VOLTR Standard",
     date: "02.14.2026",
-    image: "/images/rv-images/interior.png",
+    image: rvImages.interiorGalley.src,
   },
   {
     title: "Why I Chose an F2.B",
     date: "09.16.2025",
-    image: "/images/rv-images/lifestyle.png",
+    image: rvImages.editorialOwnerStory.src,
   },
   {
     title: "Tom von Re Joins the Board as Director of Innovation",
     date: "03.02.2025",
-    image: "/images/rv-images/features.png",
+    image: rvImages.editorialFacility.src,
   },
 ];
 
@@ -37,7 +38,7 @@ export function DiscoverSection() {
       {/* Inset vehicle image card */}
       <div className="relative mx-3 md:mx-2 h-[58vh] overflow-hidden rounded-2xl">
         <Image
-          src="/images/rv-images/features.png"
+          src={rvImages.exteriorHero.src}
           alt="VOLTR F2.B"
           fill
           className="object-cover"
@@ -66,7 +67,7 @@ export function DiscoverSection() {
       {/* About split */}
       <div className="pb-20 md:pb-28">
         <SplitSection
-          media={<Image src="/images/rv-images/lifestyle.png" alt="VOLTR team" fill />}
+          media={<Image src={rvImages.editorialTeam.src} alt="VOLTR team" fill />}
           body="We started VOLTR with a belief: exploring the outdoors should be effortless, and it should be possible for more people without compromising the places we love. As a direct-to-consumer adventure vehicle manufacturer, we're able to bring that experience straight into people's hands, reimagining this industry from the ground up with an all-electric design that's aerodynamic and built to go farther with less. "
           cta={{ label: "About us" }}
           bodyClassName="text-text-primary px-4"

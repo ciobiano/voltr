@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { VOLTR_EASING } from "@/motion/easing";
+import { rvImages } from "@/assets/rv-images";
 
 interface NavMenuProps {
   open: boolean;
@@ -32,7 +33,7 @@ const footerColumns = [
 
 const cards = [
   {
-    src: "/images/rv-images/features.png",
+    src: rvImages.systemSolar.src,
     alt: "",
     height: "h-[160px] md:h-[360px]",
     objectPosition: "object-center",
@@ -40,7 +41,7 @@ const cards = [
     subtitle: "Discover the tech within",
   },
   {
-    src: "/images/rv-images/interior.png",
+    src: rvImages.interiorLounge.src,
     alt: "",
     height: "h-[160px] md:h-[360px]",
     objectPosition: "object-top",
@@ -50,7 +51,7 @@ const cards = [
 ];
 
 const tallCard = {
-  src: "/images/rv-images/lifestyle.png",
+  src: rvImages.exteriorCampsite.src,
   alt: "",
   title: "F2.b",
   subtitle: "Your American-built adventure vehicle",

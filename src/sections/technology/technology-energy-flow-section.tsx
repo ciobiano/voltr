@@ -10,6 +10,7 @@ import { Container } from "@/components/primitives/container";
 import { TechnologySpecsSection } from "@/sections/technology/technology-specs-section";
 import { Heading } from "@/components/primitives/heading";
 import { Label } from "@/components/primitives/label";
+import { rvImages } from "@/assets/rv-images";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -32,7 +33,7 @@ const CARDS = [
     id: "solar",
     title: "Topped Off by the Sun",
     body: "Heat-tempered rooftop solar panels ensure continuous power production.",
-    image: "/images/rv-images/features.png",
+    image: rvImages.systemSolar.src,
     xPct: 3.2,
     yPx: 59.8,
     widthPct: 30.33,
@@ -41,7 +42,7 @@ const CARDS = [
     id: "battery",
     title: "Stored for Later",
     body: "Our high-capacity batteries keep that energy ready to use.",
-    image: "/images/rv-images/interior.png",
+    image: rvImages.systemBattery.src,
     xPct: 63.9,
     yPx: 501.8,
     widthPct: 30.61,
@@ -50,7 +51,7 @@ const CARDS = [
     id: "usage",
     title: "Stay cool. Stay fed. Stay powered.",
     body: "Effortlessly power your appliances, climate, and lights with minimal noise.",
-    image: "/images/rv-images/lifestyle.png",
+    image: rvImages.systemPower.src,
     xPct: 3.8,
     yPx: 1207.7,
     widthPct: 30.33,

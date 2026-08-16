@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Heading } from "@/components/primitives/heading";
 import { buttonVariants } from "@/design-system/variants";
+import { rvImages } from "@/assets/rv-images";
 
 export function F2bSpecsSection() {
   return (
@@ -9,7 +10,7 @@ export function F2bSpecsSection() {
       {/* Floor plan image — bleeds out at top */}
       <div className="relative w-full h-[45vh] md:h-[35vh]">
         <Image
-          src="/images/rv-images/interior.png"
+          src={rvImages.interiorGalley.src}
           alt="F2.b floor plan"
           fill
           className="object-cover object-top"

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { cn } from "@/lib/utils";
+import { rvImages } from "@/assets/rv-images";
 
 export type OrderView = "exterior" | "interior";
 
@@ -9,8 +10,8 @@ interface OrderImageViewerProps {
 }
 
 const viewImages: Record<OrderView, { src: string; alt: string }> = {
-  exterior: { src: "/images/rv-images/lifestyle.png", alt: "F2.b exterior" },
-  interior: { src: "/images/rv-images/interior.png", alt: "F2.b interior" },
+  exterior: rvImages.exteriorHero,
+  interior: rvImages.interiorLounge,
 };
 
 export function OrderImageViewer({ view, onChangeView }: OrderImageViewerProps) {

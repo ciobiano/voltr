@@ -7,6 +7,7 @@ import { useGSAP } from "@gsap/react";
 import { Container } from "@/components/primitives/container";
 import { Label } from "@/components/primitives/label";
 import { Heading } from "@/components/primitives/heading";
+import { rvImages } from "@/assets/rv-images";
 
 const TICK_COUNT = 60;
 const TICK_OUTER = 86;
@@ -39,7 +40,7 @@ export function TechnologyScaleSection() {
   return (
     <section className="relative m-2 rounded-lg h-full max-h-[95vh] overflow-hidden py-10 md:py-5">
       <Image
-        src="/images/rv-images/lifestyle.png"
+        src={rvImages.exteriorHero.src}
         alt=""
         fill
         className="object-cover"

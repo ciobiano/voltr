@@ -1,12 +1,13 @@
+import { rvImages } from "@/assets/rv-images";
 export const VIEWS = [
-  { id: "exterior",   label: "Exterior",   image: "/images/rv-images/features.png" },
-  { id: "interior",   label: "Interior",   image: "/images/rv-images/interior.png" },
-  { id: "floor-plan", label: "Floor Plan", image: "/images/rv-images/lifestyle.png" },
+  { id: "exterior",   label: "Exterior",   image: rvImages.exteriorHero.src },
+  { id: "interior",   label: "Interior",   image: rvImages.interiorLounge.src },
+  { id: "floor-plan", label: "Floor Plan", image: rvImages.exteriorExpanded.src },
 ] as const;
 
 export const MODES = [
-  { id: "camp", label: "Camp Mode", image: "/images/rv-images/lifestyle.png" },
-  { id: "road", label: "Road Mode", image: "/images/rv-images/features.png" },
+  { id: "camp", label: "Camp Mode", image: rvImages.systemSolar.src },
+  { id: "road", label: "Road Mode", image: rvImages.exteriorCampsite.src },
 ] as const;
 
 export const EXTERIOR_COLORS = [

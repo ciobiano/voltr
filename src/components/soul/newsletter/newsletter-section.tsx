@@ -1,4 +1,5 @@
 import { CrossGridSection } from "@/components/primitives/cross-grid-section";
+import { rvImages } from "@/assets/rv-images";
 
 export function NewsletterSection() {
   return (
@@ -10,7 +11,7 @@ export function NewsletterSection() {
           about our trailers in the wild — find it in our newsletter.
         </p>
       }
-      image="/images/rv-images/lifestyle.png"
+      image={rvImages.exteriorTowing.src}
       imageAlt="VOLTR F2.B in the wild"
     />
   );

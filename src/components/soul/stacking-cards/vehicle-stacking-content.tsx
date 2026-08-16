@@ -1,12 +1,13 @@
 import { Button } from "@/components/primitives/button";
 import type { StackingCardData } from "@/components/soul/stacking-cards/stacking-card-scene";
+import { rvImages } from "@/assets/rv-images";
 
 export const CARDS: StackingCardData[] = [
-  { src: "/images/rv-images/interior.png", alt: "Interior view" },
-  { src: "/images/rv-images/features.png", alt: "Integrated features" },
-  { src: "/images/rv-images/lifestyle.png", alt: "Lifestyle scene" },
+  { src: rvImages.exteriorHero.src, alt: "Interior view" },
+  { src: rvImages.interiorLounge.src, alt: "Integrated features" },
+  { src: rvImages.exteriorExpanded.src, alt: "Lifestyle scene" },
   {
-    src: "/images/rv-images/lifestyle.png",
+    src: rvImages.exteriorCampsite.src,
     alt: "F2.B night reveal",
     overlay: (
       <>

@@ -8,6 +8,7 @@ import { ExperienceFieldnotesSection } from "@/sections/experience/experience-fi
 import { ExperienceCloserLookSection } from "@/sections/experience/experience-closer-look-section";
 import { ExperienceEventsSection } from "@/sections/experience/experience-events-section";
 import { ExperienceBookATourSection } from "@/sections/experience/experience-book-a-tour-section";
+import { rvImages } from "@/assets/rv-images";
 
 const dockItems = [
   { id: "videos", label: "Videos" },
@@ -26,7 +27,7 @@ export default function ExperiencePage() {
         <ExperienceEventsSection />
         <ExperienceBookATourSection />
         <ExpandSection
-          image={{ src: "/images/rv-images/features.png", alt: "Make it yours" }}
+          image={rvImages.exteriorExpanded}
           headline="Make it yours"
           ctas={[
             { eyebrow: "Talk with an expert", title: "Get your questions answered", tone: "dark" },

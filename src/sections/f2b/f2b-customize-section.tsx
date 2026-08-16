@@ -5,6 +5,7 @@ import { Plus } from "lucide-react";
 import { Carousel } from "@/components/primitives/carousel";
 import { Heading } from "@/components/primitives/heading";
 import { Button } from "@/components/primitives/button";
+import { rvImages } from "@/assets/rv-images";
 
 interface PackageCard {
   name: string;
@@ -16,27 +17,27 @@ const packages: PackageCard[] = [
   {
     name: "TrekDrive",
     tagline: "Make towing feel effortless.",
-    image: "/images/rv-images/features.png",
+    image: rvImages.systemDrivetrain.src,
   },
   {
     name: "Elevated Living Package",
     tagline: "Turn Every Stop Into a Stay.",
-    image: "/images/rv-images/interior.png",
+    image: rvImages.interiorLounge.src,
   },
   {
     name: "Solar+",
     tagline: "Turns your F2.b into a true sun-powered basecamp.",
-    image: "/images/rv-images/lifestyle.png",
+    image: rvImages.systemSolar.src,
   },
   {
     name: "Summit Sleeper",
     tagline: "A twin bed that lowers by night and disappears by day.",
-    image: "/images/rv-images/interior.png",
+    image: rvImages.interiorSleeping.src,
   },
   {
     name: "Effortless Pack",
     tagline: "Remove stress from your list of things to pack.",
-    image: "/images/rv-images/features.png",
+    image: rvImages.exteriorExpanded.src,
   },
 ];
 

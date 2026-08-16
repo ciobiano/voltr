@@ -1,3 +1,4 @@
+import { rvImages } from "@/assets/rv-images";
 export interface FieldnoteItem {
   id: string;
   handle: string;
@@ -34,9 +35,9 @@ export interface TourOption {
 }
 
 const images = [
-  "/images/rv-images/interior.png",
-  "/images/rv-images/lifestyle.png",
-  "/images/rv-images/features.png",
+  rvImages.interiorLounge.src,
+  rvImages.exteriorCampsite.src,
+  rvImages.systemSolar.src,
 ];
 
 export const fieldnotes: FieldnoteItem[] = [

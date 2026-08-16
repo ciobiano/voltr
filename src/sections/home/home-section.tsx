@@ -7,6 +7,7 @@ import Image from "next/image";
 import { HeroNav } from "@/components/soul/navigation/hero-nav";
 import { Heading } from "@/components/primitives/heading";
 import { VOLTR_EASING } from "@/motion/easing";
+import { rvImages } from "@/assets/rv-images";
 
 export function HeroSection() {
   const [ready, setReady] = useState(false);
@@ -27,7 +28,7 @@ export function HeroSection() {
         style={{ y }}
       >
         <Image
-          src="/images/rv-images/interior.png"
+          src={rvImages.interiorLounge.src}
           alt="VOLTR Hero"
           fill
           priority

@@ -5,6 +5,7 @@ import { Label } from "@/components/primitives/label";
 import { MascotIcon } from "@/components/primitives/mascot-icon";
 import { RevealLines } from "@/components/primitives/reveal-lines";
 import { SplitSection } from "@/components/primitives/split-section";
+import { rvImages } from "@/assets/rv-images";
 
 export function TechnologyIntroSection() {
   return (
@@ -44,7 +45,7 @@ export function TechnologyIntroSection() {
           textWidth="max-w-[30rem]"
           media={
             <Image
-              src="/images/rv-images/lifestyle.png"
+              src={rvImages.exteriorAero.src}
               alt="Aerodynamic on the Road, Expansive at Camp"
               fill
             />
@@ -65,7 +66,7 @@ export function TechnologyIntroSection() {
         <SplitSection
           media={
             <Image
-              src="/images/rv-images/interior.png"
+              src={rvImages.interiorLounge.src}
               alt="Stress-Tested for Rock-Solid Towing"
               fill
             />
