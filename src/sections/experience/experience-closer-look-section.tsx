@@ -42,7 +42,9 @@ export function ExperienceCloserLookSection() {
                   />
                 }
                 mediaClassName="transition-transform duration-[var(--duration-ui)] group-hover:scale-95 md:h-[40vh] md:w-[60vw] aspect-[4/3]"
-                textWidth="max-w-[30rem] w-[30rem] gap-8"
+                // w-[30rem] is 480px — wider than a phone, which forced the
+                // whole row past the viewport and clipped the section.
+                textWidth="w-full max-w-[30rem] gap-8 md:w-[30rem]"
                 
                 heading={item.title}
                 body={

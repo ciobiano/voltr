@@ -125,7 +125,9 @@ export function ExpandSection({ image, headline, ctas }: ExpandSectionProps) {
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
         <h2
           ref={headlineRef}
-          className="text-size-3xl font-display font-font-base text-stroke text-white text-center whitespace-nowrap"
+          // nowrap clips the headline at phone widths (68px type needs ~394px
+          // for "Make it yours"). Wrapping keeps the type scale intact.
+          className="text-size-3xl font-display font-font-base text-stroke text-white text-center whitespace-normal px-4 md:whitespace-nowrap md:px-0"
         >
           {headline}
         </h2>
