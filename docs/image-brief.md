@@ -17,7 +17,8 @@ things, and skipping either gives you 20 different vehicles:
 1. **Paste the VEHICLE block verbatim into every prompt.** Never paraphrase it.
 2. **Generate the hero first. Once you like it, attach it to every later prompt**
    and open with: *"Match the vehicle in the attached photo exactly — same body,
-   same proportions, same colour, same amber line. Change only the setting."*
+   same proportions, same faceted aluminium body and black glass. Change only
+   the setting."*
 
 Two more habits that matter:
 
@@ -37,19 +38,31 @@ Two more habits that matter:
 > A large all-electric **towed** travel trailer, roughly 9 metres long — a
 > trailer, NOT a motorhome, van or truck. It has **no cab, no windshield, no
 > driver's seat, no engine and no front wheels** — the front end is a smooth
-> blank nose with a tow hitch at the bottom. Two axles at the rear.
-> One monolithic aerodynamic shell in matte graphite with warm off-white lower
-> panels, and a single thin amber accent line running the length of the body.
-> Flush frameless glazing, hidden panel seams, no chrome anywhere, no badges or
-> lettering of any kind, blacked-out alloy wheels, low wide stance. The side
-> walls slide outward to nearly double the interior width when parked.
+> faceted nose with a tow hitch at the bottom. Wheels sit tucked under the body
+> near the rear.
+>
+> The body is **angular and faceted**, built from flat chamfered planes meeting
+> at hard edges — geometric and wedge-like rather than rounded. Panels are
+> **raw brushed aluminium** with a soft satin sheen that picks up the sky. The
+> upper third and the entire rear cap are **black smoked glass**, flush with the
+> aluminium and nearly seamless. A long panoramic glass wall runs down one side
+> under a retractable fabric awning. The word **VOLTR** appears once, small, in
+> thin widely-spaced capitals on the dark glass. Vertical L-shaped LED tail
+> lights at the rear corners, a slim rear ladder, low ground clearance,
+> stabiliser jacks at the corners. No chrome, no decals, no other lettering.
 
-**Why this block is so blunt:** a test render from a softer version of this
-prompt produced a drivable box van with a windshield, wing mirrors and invented
-badge lettering on the grille — and no expansion at all. Image models default to
-"camper van" unless you rule it out explicitly. If a result comes back with a
-cab, reply: *"This is a motorhome. I need a towed trailer — remove the cab,
-windshield and front wheels, put a tow hitch on a blank front nose."*
+**Attach your reference photos to every prompt.** You already have two shots of
+the correct vehicle (the campsite three-quarter and the rear-on forest road).
+Those are worth more than any paragraph of description — lead every prompt with:
+*"Match the vehicle in the attached photos exactly: same faceted aluminium body,
+same black glass, same proportions, same VOLTR wordmark. Change only the setting
+and camera."*
+
+**Why the block is so blunt about "trailer":** a test render from a softer prompt
+produced a drivable box van with a windshield, wing mirrors and invented badge
+lettering — and no expansion at all. Image models default to "camper van" unless
+you rule it out. If a result comes back with a cab, reply: *"This is a motorhome.
+I need a towed trailer — remove the cab, windshield and front wheels."*
 
 ### PHOTOGRAPHY (verbatim, every single prompt)
 
@@ -81,10 +94,10 @@ Used on: every product hero, the order configurator, technology scale section.
 ### 2. `interior-lounge.jpg` — slot `interiorLounge`
 Used on: order configurator interior view, home, f2b, nav menu.
 > [VEHICLE] [PHOTOGRAPHY] Interior of the trailer's main living space: pale oak
-> floors, warm off-white walls, low-profile built-in seating, one thin amber
-> detail line. Full-height panoramic glazing along one wall looking out onto a
-> pine forest. Shot wide at 24mm from the far corner, daylight only, no lamps
-> on. [AVOID]
+> floors, warm off-white walls and low-profile built-in seating, with exposed
+> brushed-aluminium edges echoing the exterior. The full-height panoramic glass
+> wall runs down one side looking out onto a pine forest. Shot wide at 24mm from
+> the far corner, daylight only, no lamps on. [AVOID]
 
 ### 3. `exterior-expanded.jpg` — slot `exteriorExpanded`
 Used on: the full-bleed "Make it yours" section on three pages. **This is the
