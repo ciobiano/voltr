@@ -1,68 +1,185 @@
-# F2.b image brief
+# F2.b image brief — ChatGPT generation guide
 
-The site currently ships **3 photographs stretched across 75 call sites**. Every
-slot now resolves through `src/assets/rv-images.ts`, so replacing the set means
-editing that one file — drop new files into `public/images/rv-images/` and point
-the slots at them.
+The site ships **3 photographs stretched across 75 call sites**. Every slot now
+resolves through `src/assets/rv-images.ts`, so replacing the set is a one-file
+edit: drop files into `public/images/rv-images/`, point the slots at them, done.
 
-## Why these are generated, not stock
+Generate these in ChatGPT. Work top-down — the first 8 shots carry most of the
+site, and you can stop there and still transform how it looks.
 
-Two constraints have to hold at once: the vehicle must read as a modern,
-AI/robotic expandable RV, and we must own or be licensed for the pixels.
+---
 
-Photographic stock cannot do both. Openverse (commercial-license filter) returns
-exactly one result for "futuristic camper trailer" — a retro glamping trailer.
-"Concept car" returns Volkswagen and Toyota press photos. The reason is simple:
-vehicles like this barely exist as physical objects, so they exist as renders
-owned by the companies designing them. Lifting a manufacturer's renders means
-publishing someone else's patented product as our own.
+## 1. Read this first — how to keep 20 images looking like one shoot
 
-Generating our own renders satisfies both constraints.
+ChatGPT has **no seed and no negative prompt**. Consistency comes from two
+things, and skipping either gives you 20 different vehicles:
 
-## House style
+1. **Paste the VEHICLE block verbatim into every prompt.** Never paraphrase it.
+2. **Generate the hero first. Once you like it, attach it to every later prompt**
+   and open with: *"Match the vehicle in the attached photo exactly — same body,
+   same proportions, same colour, same amber line. Change only the setting."*
 
-Apply to every prompt so the set reads as one shoot:
+Two more habits that matter:
 
-- Matte graphite and warm off-white body, thin amber accent line, no chrome
-- Aerodynamic monolithic shell, flush glazing, hidden seams
-- Natural light — golden hour or overcast; never studio flash or neon rim light
-- Photographic realism: full-frame, 35mm or 50mm, shallow-to-medium depth
-- Muted natural palette. **No purple gradients, no glow effects, no lens flare**
-- 3:2 landscape unless noted. Minimum 2400px on the long edge
+- **Ask for a photograph, not a render.** ChatGPT drifts toward glossy CGI. The
+  PHOTOGRAPHY block below fights that. If a result still looks like a render,
+  reply: *"Too CGI. Make it a real photograph — natural light falloff, real
+  atmosphere, slight sensor grain, imperfect surfaces."*
+- **Iterate in the same chat.** Don't restart. Say *"same shot, move the camera
+  lower"* or *"same shot, overcast instead of golden hour."*
 
-## Shot list
+---
 
-Slot names match `rvImages.*` keys in `src/assets/rv-images.ts`.
+## 2. The three blocks to paste
 
-| Slot | Shot | Prompt seed |
-|---|---|---|
-| `exteriorHero` | Full profile, golden hour | Aerodynamic electric travel trailer parked on a high desert plateau at golden hour, matte graphite shell, amber accent line, three-quarter front view, photographic, 50mm |
-| `exteriorTowing` | Under tow, highway | Same trailer towed by a modern electric pickup on an open mountain highway, motion in the background, overcast light, side-on tracking shot |
-| `exteriorCampsite` | Parked at camp | Trailer set up at a forest clearing campsite at dusk, warm interior light spilling from flush windows, tripod-steady wide shot |
-| `exteriorExpanded` | Expansion deployed | Same trailer with side wall expanded outward to double interior width, showing the transformed silhouette, clean daylight, three-quarter rear |
-| `exteriorAero` | Platform detail | Low-angle detail of the aerodynamic underbody and wheel arch, matte finish, shallow depth of field |
-| `interiorLounge` | Main living space | Interior lounge of a premium electric travel trailer, pale oak and off-white, full-height panoramic glazing, daylight, wide 24mm |
-| `interiorGalley` | Kitchen / work surface | Compact galley with a continuous stone counter, integrated induction top, warm daylight from the left |
-| `interiorSleeping` | Sleeping quarters | Sleeping area with a low platform bed and a skylight over it, linen bedding, soft morning light |
-| `systemSolar` | Roof array | Overhead drone view of the roof solar array in full sun, geometric panel pattern, trailer parked in open terrain |
-| `systemBattery` | Battery pack | Clean technical detail of an underfloor high-voltage battery module, matte housing, neutral light |
-| `systemDrivetrain` | Hitch / assist | Close detail of the smart hitch coupling between truck and trailer, mechanical precision, shallow depth |
-| `systemPower` | Off-grid power | Exterior power outlets in use at a campsite, cable running to equipment, evening light |
-| `systemCharging` | DC fast charge | Trailer connected to a DC fast charger at a modern charging plaza, blue hour |
-| `systemCamera` | Camera view | Rear camera perspective while reversing into a campsite, slightly wide and low |
-| `systemConnectivity` | Satellite link | Roof-mounted satellite antenna against a clear night sky over a remote camp |
-| `systemCampSetup` | Deploying | Trailer levelling itself on powered stabilisers at arrival, late afternoon |
-| `editorialFacility` | Factory | Interior of a clean modern assembly facility, trailer shells on the line, industrial daylight |
-| `editorialTeam` | Team | Candid group of engineers and designers beside a finished trailer outside the facility, natural light |
-| `editorialOwnerStory` | Owner on the road | A couple outside their trailer at a scenic overlook, unposed, morning light |
+### VEHICLE (verbatim, every single prompt)
 
-## Wiring new images
+> A large all-electric **towed** travel trailer, roughly 9 metres long — a
+> trailer, NOT a motorhome, van or truck. It has **no cab, no windshield, no
+> driver's seat, no engine and no front wheels** — the front end is a smooth
+> blank nose with a tow hitch at the bottom. Two axles at the rear.
+> One monolithic aerodynamic shell in matte graphite with warm off-white lower
+> panels, and a single thin amber accent line running the length of the body.
+> Flush frameless glazing, hidden panel seams, no chrome anywhere, no badges or
+> lettering of any kind, blacked-out alloy wheels, low wide stance. The side
+> walls slide outward to nearly double the interior width when parked.
 
-1. Export at the sizes above, name files after the slot (`exterior-hero.jpg`)
-2. Drop them in `public/images/rv-images/`
-3. In `src/assets/rv-images.ts`, replace the `PLACEHOLDER` constant references
-   with the real paths per slot and delete `PLACEHOLDER` once nothing uses it
-4. `bun run build` — no other file needs to change
+**Why this block is so blunt:** a test render from a softer version of this
+prompt produced a drivable box van with a windshield, wing mirrors and invented
+badge lettering on the grille — and no expansion at all. Image models default to
+"camper van" unless you rule it out explicitly. If a result comes back with a
+cab, reply: *"This is a motorhome. I need a towed trailer — remove the cab,
+windshield and front wheels, put a tow hitch on a blank front nose."*
 
-Prefer `.jpg` at quality 80 or `.webp` for photographs. The current three PNGs
-total 9.7MB, which is heavy for the web; JPEG/WebP will cut that substantially.
+### PHOTOGRAPHY (verbatim, every single prompt)
+
+> Shot as a still frame from a documentary videographer's footage. Real
+> photograph, full-frame camera, natural available light only. Cinematic but
+> unstyled — no studio lighting, no artificial glow, no lens flare, no colour
+> grading tricks. Muted natural palette. Slight sensor grain. Wide landscape
+> format, 3:2.
+
+### AVOID (phrase as instructions, since there is no negative prompt)
+
+> Keep it grounded and real. No purple or teal gradients, no glowing edges, no
+> neon, no floating UI graphics, no text, no logos, no watermarks, no oversaturated
+> sunset colours. Do not make it look like a video game or a product render.
+
+---
+
+## 3. Priority 1 — the 8 shots that carry the site
+
+Generate these first. Save with the exact filename given.
+
+### 1. `exterior-hero.jpg` — slot `exteriorHero`
+Used on: every product hero, the order configurator, technology scale section.
+> [VEHICLE] [PHOTOGRAPHY] The trailer is parked on a high desert plateau at
+> golden hour, mountains far in the background. Three-quarter front view from a
+> slightly low camera position, 50mm. Long warm shadows across the ground.
+> Nobody in frame. [AVOID]
+
+### 2. `interior-lounge.jpg` — slot `interiorLounge`
+Used on: order configurator interior view, home, f2b, nav menu.
+> [VEHICLE] [PHOTOGRAPHY] Interior of the trailer's main living space: pale oak
+> floors, warm off-white walls, low-profile built-in seating, one thin amber
+> detail line. Full-height panoramic glazing along one wall looking out onto a
+> pine forest. Shot wide at 24mm from the far corner, daylight only, no lamps
+> on. [AVOID]
+
+### 3. `exterior-expanded.jpg` — slot `exteriorExpanded`
+Used on: the full-bleed "Make it yours" section on three pages. **This is the
+shot that has to sell the expandable idea.**
+> [VEHICLE] [PHOTOGRAPHY] The trailer is parked and fully deployed — both side
+> walls slid outward, roughly double its travel width, the expansion clearly
+> readable in the silhouette. Alpine meadow, overcast soft daylight. Three-quarter
+> rear view, 35mm, camera at chest height. [AVOID]
+
+### 4. `exterior-campsite.jpg` — slot `exteriorCampsite`
+Used on: feature cards, nav menu tall card, fieldnotes.
+> [VEHICLE] [PHOTOGRAPHY] The trailer set up at a remote forest clearing at
+> dusk, warm interior light spilling out through the windows onto the ground.
+> Camp chairs nearby, no people. Wide shot, 35mm, tripod-steady, blue hour sky
+> still holding some light. [AVOID]
+
+### 5. `exterior-towing.jpg` — slot `exteriorTowing`
+Used on: newsletter section.
+> [VEHICLE] [PHOTOGRAPHY] The trailer under tow behind a modern electric pickup
+> truck on an open mountain highway. Side-on tracking shot from a moving vehicle,
+> background slightly motion-blurred, overcast flat light, wet road surface.
+> [AVOID]
+
+### 6. `exterior-aero.jpg` — slot `exteriorAero`
+Used on: technology hero, f2b design card.
+> [VEHICLE] [PHOTOGRAPHY] Tight three-quarter detail of the trailer's lower
+> body and wheel arch, emphasising the aerodynamic underbody and matte finish.
+> Low camera near ground level, 85mm, shallow depth of field, soft overcast
+> light. [AVOID]
+
+### 7. `system-solar.jpg` — slot `systemSolar`
+Used on: solar feature cards, energy flow, nav menu.
+> [VEHICLE] [PHOTOGRAPHY] Elevated drone view looking down on the trailer's roof
+> in full sun, showing the complete solar array as a clean geometric pattern of
+> panels. Parked in open high-country terrain, hard midday light, strong shadow
+> of the trailer on the ground. [AVOID]
+
+### 8. `interior-galley.jpg` — slot `interiorGalley`
+Used on: f2b specs, editorial cards.
+> [VEHICLE] [PHOTOGRAPHY] The trailer's compact galley: continuous pale stone
+> counter, integrated induction hob, pale oak cabinetry with no visible handles.
+> Warm morning daylight entering from a window on the left. 35mm, eye level.
+> [AVOID]
+
+---
+
+## 4. Priority 2 — the remaining 11
+
+Same three blocks, same rules.
+
+| Filename / slot | Shot |
+|---|---|
+| `interior-sleeping.jpg` `interiorSleeping` | Sleeping area, low platform bed, linen bedding, skylight directly above, soft early morning light, 28mm |
+| `system-battery.jpg` `systemBattery` | Clean technical detail of the underfloor high-voltage battery module, matte housing, neutral even light, 50mm |
+| `system-drivetrain.jpg` `systemDrivetrain` | Close detail of the smart hitch coupling between truck and trailer, mechanical precision, shallow depth, overcast light |
+| `system-power.jpg` `systemPower` | Exterior power outlets in use at a campsite, cable running to equipment on the ground, warm evening light |
+| `system-charging.jpg` `systemCharging` | Trailer connected to a DC fast charger at a modern charging plaza, blue hour, wet tarmac reflections |
+| `system-camera.jpg` `systemCamera` | Rear-camera perspective reversing into a forest campsite, slightly wide and low, late afternoon |
+| `system-connectivity.jpg` `systemConnectivity` | Roof-mounted satellite antenna against a clear star-filled night sky over a remote camp, long exposure |
+| `system-camp-setup.jpg` `systemCampSetup` | The trailer levelling itself on powered stabilisers on arrival, one side slightly raised, late afternoon light |
+| `editorial-facility.jpg` `editorialFacility` | Interior of a clean modern assembly facility, trailer shells on the line, tall windows, industrial daylight |
+| `editorial-team.jpg` `editorialTeam` | Candid group of engineers and designers beside a finished trailer outside the facility, natural light, unposed |
+| `editorial-owner-story.jpg` `editorialOwnerStory` | A couple standing outside their trailer at a scenic overlook, seen from behind, unposed, morning light |
+
+---
+
+## 5. Portrait variants — do not skip these
+
+Four containers on the site are **tall portrait crops**. A landscape image there
+gets cut to a narrow vertical strip and looks broken.
+
+Regenerate these three as vertical, adding to the prompt:
+*"Vertical portrait format, 9:16, composed for a tall narrow crop."*
+
+- `exterior-campsite-portrait.jpg` — nav menu tall card, fieldnotes carousel
+- `interior-lounge-portrait.jpg` — fieldnotes carousel
+- `system-solar-portrait.jpg` — fieldnotes carousel
+
+---
+
+## 6. Export settings
+
+- **JPEG, quality 80.** The three current PNGs total 9.7MB, which is heavy and
+  slows every page. JPEG or WebP will cut that by roughly 5-10x.
+- **Landscape shots:** 2400px on the long edge is plenty. Hero can go 3000px.
+- **Portrait variants:** 1600px wide minimum.
+- Name files exactly as listed above.
+
+---
+
+## 7. Handing them back
+
+Drop the files in `public/images/rv-images/` and tell me they're there. I'll
+point each slot in `src/assets/rv-images.ts` at its file, add the portrait
+variants where the tall crops are used, rebuild, and check every page for broken
+or badly-cropped images.
+
+You do not need to touch any component — that is the whole point of the manifest.
