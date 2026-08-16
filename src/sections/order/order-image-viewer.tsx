@@ -17,8 +17,11 @@ export function OrderImageViewer({ view, onChangeView }: OrderImageViewerProps) 
   const image = viewImages[view];
 
   return (
-    <div className="sticky top-[80px]">
-      <div className="relative h-[93vh] overflow-hidden rounded-2xl bg-order-warm">
+    // Sticky only in the two-column layout. In one column the sticky element's
+    // containing block is the whole grid, so it parks over the configurator and
+    // hides every control below it.
+    <div className="lg:sticky lg:top-[80px]">
+      <div className="relative h-[58vh] overflow-hidden rounded-2xl bg-order-warm lg:h-[93vh]">
         <Image
           src={image.src}
           alt={image.alt}

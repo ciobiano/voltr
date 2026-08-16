@@ -25,7 +25,9 @@ export function OrderConfiguratorSection() {
 
   return (
     <section className="bg-surface-primary font-display">
-      <div className="grid grid-cols-1 items-start gap-sm px-2 pt-2 md:grid-cols-[1fr_500px]">
+      {/* The 500px panel column is fixed, so splitting at md leaves the image a
+          229px sliver on tablets. Two columns only once there's room at lg. */}
+      <div className="grid grid-cols-1 items-start gap-sm px-4 pt-2 md:px-2 lg:grid-cols-[1fr_500px]">
         <OrderImageViewer
           view={state.view}
           onChangeView={(view) => setState((s) => ({ ...s, view }))}

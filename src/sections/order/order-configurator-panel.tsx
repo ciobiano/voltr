@@ -69,7 +69,7 @@ export function OrderConfiguratorPanel({
   return (
     <div className="pb-10">
       {/* Heading */}
-      <div className="px-0 pb-10 pt-20 text-center">
+      <div className="px-0 pb-10 pt-12 text-center lg:pt-20">
         <p className="mb-3.5 text-size-3xs font-medium text-tertiary">Customization</p>
         <h1 className="text-size-md font-medium leading-[1.02] tracking-[-0.05em]">
           <span className="block  text-order-text-light">Build your</span>
@@ -144,7 +144,10 @@ export function OrderConfiguratorPanel({
                   <p className="text-sm text-order-text-label">{upgrade.price}</p>
                 </div>
                 <div className="flex shrink-0 items-center gap-3">
-                  <span className="text-[13px] text-order-text-mid">View details</span>
+                  {/* Collides with wrapping upgrade names in a 375px column */}
+                  <span className="hidden text-[13px] text-order-text-mid sm:inline">
+                    View details
+                  </span>
                   <button
                     type="button"
                     onClick={() => onToggleUpgrade(upgrade.name)}
@@ -203,7 +206,10 @@ export function OrderConfiguratorPanel({
         {accessories.map((accessory) => {
           const added = !!selectedAccessories[accessory.name];
           return (
-            <div key={accessory.name} className="grid grid-cols-2 overflow-hidden rounded-2xl">
+            <div
+              key={accessory.name}
+              className="grid grid-cols-1 overflow-hidden rounded-2xl md:grid-cols-2"
+            >
               <div className="flex flex-col bg-order-warm px-5 pb-[22px] pt-5">
                 <p className="mb-2.5 text-base font-medium leading-[1.25] text-black">
                   {accessory.name}
@@ -226,7 +232,9 @@ export function OrderConfiguratorPanel({
                   {added ? <Check size={16} strokeWidth={2.4} /> : <Plus size={16} strokeWidth={2.4} />}
                 </button>
               </div>
-              <div className="min-h-full bg-order-warm-soft" />
+              {/* Empty media pane — hidden on mobile, where it would eat half
+                  the card and squeeze the copy into an unreadable column. */}
+              <div className="hidden min-h-full bg-order-warm-soft md:block" />
             </div>
           );
         })}
