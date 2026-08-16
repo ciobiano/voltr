@@ -52,13 +52,26 @@ Two more habits that matter:
 > LED tail lights at the rear corners, a slim rear ladder, low ground clearance,
 > stabiliser jacks at the corners. No chrome, no decals, no other lettering.
 
-### DEPLOYED STATE (add to any shot where the trailer is parked at camp)
+### TRAVEL MODE vs DEPLOYED — the expansion is VERTICAL
 
-> Parked and set up: a large fabric awning cantilevers out from the glass side,
-> shading a timber deck platform that extends from the trailer. Outdoor lounge
-> seating and a compact outdoor galley module sit on the deck. Warm interior
-> light glows through the panoramic glass. The side wall is slid outward,
-> widening the interior.
+This is the single most important thing to get right, and the easiest to get
+wrong. The trailer **does not slide out sideways**. Its roof lifts.
+
+**TRAVEL MODE** (use for towing and driving shots):
+
+> In travel mode the trailer is low and road-hugging — a sleek closed wedge,
+> roof down, barely taller than the tow vehicle, presenting a minimal
+> aerodynamic profile.
+
+**DEPLOYED** (use for every parked/camp shot):
+
+> Parked and deployed: the entire **roof section has lifted vertically**,
+> raising the top of the trailer and revealing a continuous band of glass
+> running all the way around beneath the raised roof, so the upper half becomes
+> a panoramic glazed clerestory. Stabiliser legs are down at the corners. A
+> fabric awning cantilevers out over a timber deck with outdoor lounge seating
+> and a compact outdoor galley module. Warm interior light glows out through the
+> glass band.
 
 ### TOW VEHICLE (only for shots that include the truck)
 
@@ -67,9 +80,18 @@ Two more habits that matter:
 > L-shaped LED headlights, **VOLTR** in thin spaced capitals across the grille.
 > Short bed, hitched to the trailer.
 
-**Attach your reference photos to every prompt.** You have three shots of the
-correct vehicle now — the campsite three-quarter, the rear-on forest road, and
-the lakeside aerial with the truck. Those beat any paragraph of description.
+### INTERIOR (for the two interior shots)
+
+> Inside, warm cream and soft white surfaces with black window frames and black
+> fixtures. Windows wrap around the space with white roller blinds, recessed
+> downlights in a panelled ceiling, white composite countertops, pale cabinetry
+> with slim recessed pulls. Lived-in and modern rather than luxurious — real
+> objects on the counter, a plant, fruit, a coffee setup. Natural daylight only.
+
+**Attach your reference photos to every prompt.** You have several now — the
+campsite three-quarter, the rear-on forest road, the lakeside aerial with the
+truck, the long-lens desert towing shot, the roof-raised desert shot, and the
+galley interior. Those beat any paragraph of description.
 Lead every prompt with: *"Match the vehicles in the attached photos exactly:
 same brushed silver body, same black glass, same proportions, same VOLTR
 wordmark. Change only the setting and camera."*
@@ -109,33 +131,32 @@ Used on: every product hero, the order configurator, technology scale section.
 
 ### 2. `interior-lounge.jpg` — slot `interiorLounge`
 Used on: order configurator interior view, home, f2b, nav menu.
-> [VEHICLE] [PHOTOGRAPHY] Interior of the trailer's main living space: pale oak
-> floors, warm off-white walls and low-profile built-in seating, with exposed
-> brushed-aluminium edges echoing the exterior. The full-height panoramic glass
-> wall runs down one side looking out onto a pine forest. Shot wide at 24mm from
-> the far corner, daylight only, no lamps on. [AVOID]
+> [VEHICLE] [INTERIOR] [PHOTOGRAPHY] The main living space looking toward the
+> lounge end, wraparound windows on both sides framing desert light, built-in
+> bench seating in grey upholstery. Shot wide at 24mm from the far corner,
+> daylight only. [AVOID]
 
 ### 3. `exterior-expanded.jpg` — slot `exteriorExpanded`
 Used on: the full-bleed "Make it yours" section on three pages. **This is the
 shot that has to sell the expandable idea.**
-> [VEHICLE] [DEPLOYED STATE] [PHOTOGRAPHY] The trailer parked and fully
+> [VEHICLE] [DEPLOYED] [PHOTOGRAPHY] The trailer parked and fully
 > deployed on a granite bench above an alpine lake, the expansion and extended
 > awning clearly readable in the silhouette. Elevated three-quarter view from
 > slightly above, 35mm, late golden hour. [AVOID]
 
 ### 4. `exterior-campsite.jpg` — slot `exteriorCampsite`
 Used on: feature cards, nav menu tall card, fieldnotes.
-> [VEHICLE] [DEPLOYED STATE] [PHOTOGRAPHY] The trailer set up at a remote forest
+> [VEHICLE] [DEPLOYED] [PHOTOGRAPHY] The trailer set up at a remote forest
 > clearing at dusk, warm interior light spilling through the glass onto the deck.
 > No people in frame. Wide shot, 35mm, tripod-steady, blue hour sky still holding
 > some light. [AVOID]
 
 ### 5. `exterior-towing.jpg` — slot `exteriorTowing`
 Used on: newsletter section.
-> [VEHICLE] [TOW VEHICLE] [PHOTOGRAPHY] The trailer under tow behind the VOLTR
-> pickup on an open mountain highway. Side-on tracking shot from a moving
-> vehicle, background slightly motion-blurred, overcast flat light, wet road
-> surface. [AVOID]
+> [VEHICLE] [TRAVEL MODE] [TOW VEHICLE] [PHOTOGRAPHY] The trailer under tow
+> behind the pickup on a dirt road crossing high desert country. Shot from far
+> away with a long lens across the valley, so the rig sits small in a big
+> landscape of scrub, juniper and red rock benches. Hard midday sun. [AVOID]
 
 ### 6. `exterior-aero.jpg` — slot `exteriorAero`
 Used on: technology hero, f2b design card.
@@ -153,10 +174,10 @@ Used on: solar feature cards, energy flow, nav menu.
 
 ### 8. `interior-galley.jpg` — slot `interiorGalley`
 Used on: f2b specs, editorial cards.
-> [VEHICLE] [PHOTOGRAPHY] The trailer's compact galley: continuous pale stone
-> counter, integrated induction hob, pale oak cabinetry with no visible handles.
-> Warm morning daylight entering from a window on the left. 35mm, eye level.
-> [AVOID]
+> [VEHICLE] [INTERIOR] [PHOTOGRAPHY] The compact galley in use: a person in a
+> beanie and knit sweater making pour-over coffee at the counter, induction hob
+> and sink beside them, low afternoon sun raking through the side windows.
+> Candid and unposed, 35mm, eye level. [AVOID]
 
 ---
 
