@@ -41,22 +41,38 @@ Two more habits that matter:
 > faceted nose with a tow hitch at the bottom. Wheels sit tucked under the body
 > near the rear.
 >
-> The body is **angular and faceted**, built from flat chamfered planes meeting
-> at hard edges — geometric and wedge-like rather than rounded. Panels are
-> **raw brushed aluminium** with a soft satin sheen that picks up the sky. The
-> upper third and the entire rear cap are **black smoked glass**, flush with the
-> aluminium and nearly seamless. A long panoramic glass wall runs down one side
-> under a retractable fabric awning. The word **VOLTR** appears once, small, in
-> thin widely-spaced capitals on the dark glass. Vertical L-shaped LED tail
-> lights at the rear corners, a slim rear ladder, low ground clearance,
+> The body is **angular and faceted** — flat chamfered planes meeting at crisp
+> edges, geometric and wedge-like, but with generous corner radii rather than
+> knife-sharp corners. Panels are **brushed silver aluminium** with a soft satin
+> sheen that picks up the sky. The upper band, the front cap and the rear cap are
+> **black smoked glass**, flush with the aluminium and nearly seamless. A long
+> **panoramic glass wall** runs down one side. The roof carries a **flush black
+> solar array** and a low-profile climate unit. The word **VOLTR** appears once,
+> small, in thin widely-spaced capitals on the dark front cap. Vertical L-shaped
+> LED tail lights at the rear corners, a slim rear ladder, low ground clearance,
 > stabiliser jacks at the corners. No chrome, no decals, no other lettering.
 
-**Attach your reference photos to every prompt.** You already have two shots of
-the correct vehicle (the campsite three-quarter and the rear-on forest road).
-Those are worth more than any paragraph of description — lead every prompt with:
-*"Match the vehicle in the attached photos exactly: same faceted aluminium body,
-same black glass, same proportions, same VOLTR wordmark. Change only the setting
-and camera."*
+### DEPLOYED STATE (add to any shot where the trailer is parked at camp)
+
+> Parked and set up: a large fabric awning cantilevers out from the glass side,
+> shading a timber deck platform that extends from the trailer. Outdoor lounge
+> seating and a compact outdoor galley module sit on the deck. Warm interior
+> light glows through the panoramic glass. The side wall is slid outward,
+> widening the interior.
+
+### TOW VEHICLE (only for shots that include the truck)
+
+> A matching all-electric crew-cab pickup in the same design family: brushed
+> silver body with a black roof and black wheels, angular front end, vertical
+> L-shaped LED headlights, **VOLTR** in thin spaced capitals across the grille.
+> Short bed, hitched to the trailer.
+
+**Attach your reference photos to every prompt.** You have three shots of the
+correct vehicle now — the campsite three-quarter, the rear-on forest road, and
+the lakeside aerial with the truck. Those beat any paragraph of description.
+Lead every prompt with: *"Match the vehicles in the attached photos exactly:
+same brushed silver body, same black glass, same proportions, same VOLTR
+wordmark. Change only the setting and camera."*
 
 **Why the block is so blunt about "trailer":** a test render from a softer prompt
 produced a drivable box van with a windshield, wing mirrors and invented badge
@@ -102,24 +118,24 @@ Used on: order configurator interior view, home, f2b, nav menu.
 ### 3. `exterior-expanded.jpg` — slot `exteriorExpanded`
 Used on: the full-bleed "Make it yours" section on three pages. **This is the
 shot that has to sell the expandable idea.**
-> [VEHICLE] [PHOTOGRAPHY] The trailer is parked and fully deployed — both side
-> walls slid outward, roughly double its travel width, the expansion clearly
-> readable in the silhouette. Alpine meadow, overcast soft daylight. Three-quarter
-> rear view, 35mm, camera at chest height. [AVOID]
+> [VEHICLE] [DEPLOYED STATE] [PHOTOGRAPHY] The trailer parked and fully
+> deployed on a granite bench above an alpine lake, the expansion and extended
+> awning clearly readable in the silhouette. Elevated three-quarter view from
+> slightly above, 35mm, late golden hour. [AVOID]
 
 ### 4. `exterior-campsite.jpg` — slot `exteriorCampsite`
 Used on: feature cards, nav menu tall card, fieldnotes.
-> [VEHICLE] [PHOTOGRAPHY] The trailer set up at a remote forest clearing at
-> dusk, warm interior light spilling out through the windows onto the ground.
-> Camp chairs nearby, no people. Wide shot, 35mm, tripod-steady, blue hour sky
-> still holding some light. [AVOID]
+> [VEHICLE] [DEPLOYED STATE] [PHOTOGRAPHY] The trailer set up at a remote forest
+> clearing at dusk, warm interior light spilling through the glass onto the deck.
+> No people in frame. Wide shot, 35mm, tripod-steady, blue hour sky still holding
+> some light. [AVOID]
 
 ### 5. `exterior-towing.jpg` — slot `exteriorTowing`
 Used on: newsletter section.
-> [VEHICLE] [PHOTOGRAPHY] The trailer under tow behind a modern electric pickup
-> truck on an open mountain highway. Side-on tracking shot from a moving vehicle,
-> background slightly motion-blurred, overcast flat light, wet road surface.
-> [AVOID]
+> [VEHICLE] [TOW VEHICLE] [PHOTOGRAPHY] The trailer under tow behind the VOLTR
+> pickup on an open mountain highway. Side-on tracking shot from a moving
+> vehicle, background slightly motion-blurred, overcast flat light, wet road
+> surface. [AVOID]
 
 ### 6. `exterior-aero.jpg` — slot `exteriorAero`
 Used on: technology hero, f2b design card.
