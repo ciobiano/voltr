@@ -62,7 +62,7 @@ export const FeatureCard = forwardRef<HTMLElement, FeatureCardProps>(
           }}
           className={cn(
             "relative min-w-0 rounded-2xl overflow-hidden md:aspect-8/5 aspect-2/3  group cursor-pointer",
-            "w-[70vw] h-[50vh] md:h-auto  md:w-[45vw]",
+            "w-[70vw] h-[50vh] md:w-[55vw] lg:h-auto lg:w-[45vw]",
             className,
           )}
         >

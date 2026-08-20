@@ -18,7 +18,7 @@ export default function F2bPage() {
   return (
     <ClientProviders>
       <ProductNav />
-      <main className="pt-[72px]">
+      <main className="pt-[56px] md:pt-0">
         <F2bHeroSection />
         <TechnologySection
           features={discoverFeatures}

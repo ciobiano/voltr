@@ -44,16 +44,16 @@ export function SplitSection({
   return (
     <div
       className={cn(
-        "flex flex-col md:flex-row items-start gap-8 md:gap-20 px-3 md:px-2",
-        imageOnLeft && "md:flex-row-reverse",
+        "flex flex-col lg:flex-row items-start gap-8 lg:gap-20 px-3 lg:px-2",
+        imageOnLeft && "lg:flex-row-reverse",
         className,
       )}
     >
-      <div className="flex flex-col w-full md:w-[45%] justify-start">
+      <div className="flex flex-col w-full lg:w-[45%] justify-start">
         <div
           className={cn(
-            "flex flex-col gap-6  md:mx-auto items-start justify-center",
-            imageOnLeft ? "md:ml-10" : "md:mr-10",
+            "flex flex-col gap-6 lg:mx-auto items-start justify-center",
+            imageOnLeft ? "lg:ml-10" : "lg:mr-10",
             textWidth ?? "max-w-[22rem]",
              
           )}
@@ -101,7 +101,7 @@ export function SplitSection({
 
       <div
         className={cn(
-          "w-full md:w-[55%] md:h-[35vh] relative aspect-[4/3] overflow-hidden rounded-lg",
+          "w-full lg:w-[55%] lg:h-[35vh] relative aspect-[4/3] overflow-hidden rounded-lg",
           "[&>*]:absolute [&>*]:inset-0 [&>*]:h-full [&>*]:w-full [&>*]:object-cover",
           mediaClassName,
         )}

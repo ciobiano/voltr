@@ -25,7 +25,7 @@ export function ExperienceFieldnotesSection() {
             onClick={() => setActiveId(item.id)}
             // Widths were inverted: the base (mobile) case was the narrowest at
             // 25vw, giving 94px cards. 78vw matches what `sizes` below assumes.
-            className="group flex h-auto w-[78vw] shrink-0 flex-col gap-sm text-left sm:w-[42vw] md:h-[55vh] md:w-[22vw]"
+            className="group flex h-auto w-[78vw] shrink-0 flex-col gap-sm text-left sm:w-[42vw] lg:h-[55vh] lg:w-[22vw]"
           >
             <div className="relative aspect-[2/4] w-full overflow-hidden rounded-lg transition-transform duration-[var(--duration-ui)] group-hover:scale-95">
               <Image

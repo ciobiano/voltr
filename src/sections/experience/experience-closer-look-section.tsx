@@ -41,10 +41,10 @@ export function ExperienceCloserLookSection() {
                     className="object-cover"
                   />
                 }
-                mediaClassName="transition-transform duration-[var(--duration-ui)] group-hover:scale-95 md:h-[40vh] md:w-[60vw] aspect-[4/3]"
+                mediaClassName="transition-transform duration-[var(--duration-ui)] group-hover:scale-95 lg:h-[40vh] lg:w-[60vw] aspect-[4/3]"
                 // w-[30rem] is 480px — wider than a phone, which forced the
                 // whole row past the viewport and clipped the section.
-                textWidth="w-full max-w-[30rem] gap-8 md:w-[30rem]"
+                textWidth="w-full max-w-[30rem] gap-8 lg:w-[30rem]"
                 
                 heading={item.title}
                 body={

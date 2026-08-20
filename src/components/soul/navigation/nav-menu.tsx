@@ -35,7 +35,7 @@ const cards = [
   {
     src: rvImages.systemSolar.src,
     alt: "",
-    height: "h-[160px] md:h-[360px]",
+    height: "h-[160px] md:h-[232px] lg:h-[360px]",
     objectPosition: "object-center",
     title: "Technology",
     subtitle: "Discover the tech within",
@@ -43,7 +43,7 @@ const cards = [
   {
     src: rvImages.interiorLounge.src,
     alt: "",
-    height: "h-[160px] md:h-[360px]",
+    height: "h-[160px] md:h-[232px] lg:h-[360px]",
     objectPosition: "object-top",
     title: "Experience",
     subtitle: "Find your way into an F2.b",
@@ -146,7 +146,7 @@ export function NavMenu({ open, onClose }: NavMenuProps) {
           </div>
           <div className="flex-1">
             <MenuCard delay={open ? 0.26 : 0} open={open}>
-              <div className="relative h-[336px] w-full md:h-[736px]">
+              <div className="relative h-[336px] w-full md:h-[480px] lg:h-[736px]">
                 <Image
                   src={tallCard.src}
                   alt={tallCard.alt}

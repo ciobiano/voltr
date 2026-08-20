@@ -17,7 +17,7 @@ export default function TechnologyPage() {
   return (
     <ClientProviders>
       <ProductNav />
-      <main className="pt-18">
+      <main className="pt-[56px] md:pt-0">
         <TechnologyHeroSection />
         <TechnologyIntroSection />
         <TechnologyScaleSection />

@@ -51,7 +51,7 @@ export function TechnologyIntroSection() {
             />
           }
           mediaPosition="right"
-          mediaClassName="md:h-[40vh] md:w-[60vw] aspect-[4/3]"
+          mediaClassName="lg:h-[40vh] lg:w-[60vw] aspect-[4/3]"
           eyebrow="Shape-Shifting Design"
           heading={
             <>
@@ -73,7 +73,7 @@ export function TechnologyIntroSection() {
           }
           textWidth="max-w-[30rem] "
           mediaPosition="left"
-          mediaClassName="md:h-[39vh] md:w-[60vw] aspect-[8/8]"
+          mediaClassName="lg:h-[39vh] lg:w-[60vw] aspect-[8/8]"
           eyebrow="Confidence in Motion"
           heading={
             <>

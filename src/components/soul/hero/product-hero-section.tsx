@@ -29,6 +29,16 @@ export function ProductHeroSection({ image, leftText, rightText }: ProductHeroSe
       const right = rightRef.current;
       if (!row || !left || !right) return;
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      // Below md the two lines stack, so the joined-to-split horizontal move
+      // has nothing to travel along. Fade them in instead.
+      if (window.matchMedia("(max-width: 767px)").matches) {
+        gsap.fromTo(
+          [left, right],
+          { opacity: 0, y: 24 },
+          { opacity: 1, y: 0, duration: 0.9, ease: "power3.out", stagger: 0.08 },
+        );
+        return;
+      }
 
       // Measure the final (split) layout, then animate in from a joined,
       // centered "single sentence" position out to the resting left/right spots.
@@ -54,9 +64,9 @@ export function ProductHeroSection({ image, leftText, rightText }: ProductHeroSe
   );
 
   return (
-    <section className="relative h-[94vh] w-full overflow-hidden text-white">
+    <section className="relative h-[calc(100svh-56px)] w-full overflow-hidden text-white md:h-screen">
       <motion.div
-        className="absolute inset-4 md:inset-2 will-change-transform overflow-hidden rounded-lg"
+        className="absolute inset-3 md:inset-2 will-change-transform overflow-hidden rounded-lg"
         style={{ y }}
       >
         <Image
@@ -69,14 +79,22 @@ export function ProductHeroSection({ image, leftText, rightText }: ProductHeroSe
         />
       </motion.div>
 
-      <div className="relative z-10 flex h-full w-full items-center px-6 pb-28 md:px-10 md:pb-32">
-        <div ref={rowRef} className="flex w-full items-end justify-between">
-          <h1 ref={leftRef} className="text-heading-xl max-w-[42%] text-white">
-            {leftText}
-          </h1>
-          <h1 ref={rightRef} className="text-heading-xl max-w-[42%] text-right text-white">
-            {rightText}
-          </h1>
+      <div className="relative z-10 flex h-full w-full items-center">
+        <div className="w-full px-6 md:px-5">
+          <div
+            ref={rowRef}
+            className="ml-5 flex flex-col md:ml-0 md:flex-row md:items-end md:justify-between"
+          >
+            <h1 ref={leftRef} className="text-heading-xl max-w-[700px] text-white md:max-w-[42%]">
+              {leftText}
+            </h1>
+            <h1
+              ref={rightRef}
+              className="text-heading-xl max-w-[700px] text-white md:max-w-[42%] md:text-right"
+            >
+              {rightText}
+            </h1>
+          </div>
         </div>
       </div>
     </section>

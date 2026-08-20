@@ -16,13 +16,13 @@ export function SpecsHeroSection() {
         <Heading level="h1" as="h2" className="text-size-lg leading-heading text-stroke">
           The F2.b by the Numbers
         </Heading>
-        <p className="mx-auto my-xl max-w-[30vw] text-body leading-tight text-text-tertiary">
+        <p className="mx-auto my-xl max-w-prose px-2 text-body leading-tight text-text-tertiary md:max-w-[30vw] md:px-0">
           A closer look at the systems, dimensions, and performance that define the F2.b.
         </p>
       </Container>
 
       <div className="mx-auto max-w-[88rem] px-4 pb-xs">
-        <div className="rounded-2xl bg-ink  px-lg pb-xl pt-xl md:px-xl">
+        <div className="rounded-2xl bg-ink px-md pb-lg pt-lg md:px-xl md:pb-xl md:pt-xl">
           <div className="relative aspect-[1120/620] w-full">
             <Image
               src="/svg/f2b-dimensions-diagram.svg"
@@ -51,7 +51,7 @@ export function SpecsHeroSection() {
           {statCards.map((card) => (
             <div
               key={card.label}
-              className="relative min-w-80 min-h-[8.5rem] bg-surface-secondary px-lg py-lg rounded-lg"
+              className="relative min-h-[8.5rem] min-w-0 rounded-lg bg-surface-secondary px-md py-md md:min-w-0 md:px-lg md:py-lg"
             >
               <h3 className="mb-xl text-subhead font-medium text-text-primary">
                 {card.value}

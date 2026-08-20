@@ -17,9 +17,9 @@ export function ExperienceBookATourSection() {
           </h2>
         </div>
 
-        <ul className="grid gap-xl sm:grid-cols-2 md:grid-cols-3">
+        <ul className="grid gap-xl sm:grid-cols-2 lg:grid-cols-3">
           {tourOptions.map((tour) => (
-            <li key={tour.id} className="flex flex-col gap-y-sm rounded-md bg-surface-primary p-sm md:w-[28vw] md:max-w-[50vw] " >
+            <li key={tour.id} className="flex flex-col gap-y-sm rounded-md bg-surface-primary p-sm lg:w-[28vw] lg:max-w-[50vw] " >
               <div className="flex flex-1 flex-col justify-between gap-y-2xl p-sm ">
                 <div className="flex flex-col gap-y-xs ">
                   <h3 className="text-subhead text-text-primary">{tour.title}</h3>
