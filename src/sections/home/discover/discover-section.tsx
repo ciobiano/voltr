@@ -6,27 +6,29 @@ import { Carousel } from "@/components/primitives/carousel";
 import { Heading } from "@/components/primitives/heading";
 import { RevealText } from "@/components/primitives/reveal";
 import { RevealLines } from "@/components/primitives/reveal-lines";
+import { SplitSection } from "@/components/primitives/split-section";
+import { rvImages } from "@/assets/rv-images";
 
 const articles = [
   {
     title: "VOLTR Expands Colorado Facility, More Than Quadrupling Manufacturing Capacity",
     date: "04.09.2026",
-    image: "/images/rv-images/features.png",
+    image: rvImages.editorialFacility.src,
   },
   {
     title: "Setting the VOLTR Standard",
     date: "02.14.2026",
-    image: "/images/rv-images/interior.png",
+    image: rvImages.interiorGalley.src,
   },
   {
-    title: "Why I Chose an AE.1",
+    title: "Why I Chose an F2.B",
     date: "09.16.2025",
-    image: "/images/rv-images/lifestyle.png",
+    image: rvImages.editorialOwnerStory.src,
   },
   {
     title: "Tom von Re Joins the Board as Director of Innovation",
     date: "03.02.2025",
-    image: "/images/rv-images/features.png",
+    image: rvImages.editorialFacility.src,
   },
 ];
 
@@ -36,8 +38,8 @@ export function DiscoverSection() {
       {/* Inset vehicle image card */}
       <div className="relative mx-3 md:mx-2 h-[58vh] overflow-hidden rounded-2xl">
         <Image
-          src="/images/rv-images/features.png"
-          alt="VOLTR AE.1"
+          src={rvImages.exteriorHero.src}
+          alt="VOLTR F2.B"
           fill
           className="object-cover"
         />
@@ -49,7 +51,7 @@ export function DiscoverSection() {
             </p>
           </RevealText>
           <Button intent="ghost" shape="pill" size="md">
-            Explore the AE.1
+            Explore the F2.B
           </Button>
         </div>
       </div>
@@ -62,33 +64,14 @@ export function DiscoverSection() {
         intuitive spaces, your journey becomes unforgettable.
       </RevealLines>
 
-      {/* About split — text left, photo right */}
-      <div className="flex flex-col md:flex-row gap-8 md:gap-0 px-3 md:px-2 pt-0 pb-20 md:pb-28">
-        <div className="w-full md:w-[45%] items-center flex flex-col" >
-          <div className="flex flex-col justify-between gap-10   text-primary   max-w-[20em] ">
-            
-          <p >
-            We started VOLTR with a belief: exploring the outdoors should be
-            effortless, and it should be possible for more people without
-            compromising the places we love. As a direct-to-consumer adventure
-            vehicle manufacturer, we&apos;re able to bring that experience
-            straight into people&apos;s hands, reimagining this industry from
-            the ground up with an all-electric design that&apos;s aerodynamic
-            and built to go farther with less. Whether you're heading off-grid for a weekend or crossing the country, our trailers are built for comfort, connection, and freedom, 
-          </p>
-          <Button intent="outline" shape="pill" size="md" className="self-start">
-            About us
-          </Button>
-          </div>
-        </div>
-        <div className="md:w-[55%] h-full max-h-[35vh] rounded-xl relative aspect-[4/3] md:aspect-square md:min-h-[120px] overflow-hidden">
-          <Image
-            src="/images/rv-images/lifestyle.png"
-            alt="VOLTR team"
-            fill
-            className="object-cover "
-          />
-        </div>
+      {/* About split */}
+      <div className="pb-20 md:pb-28">
+        <SplitSection
+          media={<Image src={rvImages.editorialTeam.src} alt="VOLTR team" fill />}
+          body="We started VOLTR with a belief: exploring the outdoors should be effortless, and it should be possible for more people without compromising the places we love. As a direct-to-consumer adventure vehicle manufacturer, we're able to bring that experience straight into people's hands, reimagining this industry from the ground up with an all-electric design that's aerodynamic and built to go farther with less. "
+          cta={{ label: "About us" }}
+          bodyClassName="text-text-primary px-4"
+        />
       </div>
 
       {/* More to Discover */}
@@ -107,9 +90,9 @@ export function DiscoverSection() {
           {articles.map((article) => (
             <article
               key={article.title}
-              className="flex-none w-[calc(13.39px*100*0.33333-clamp(1rem,-0.9286rem+9.6429vw,7.75rem)*2*0.33333-8px*0.66667)] cursor-pointer group"
+              className="flex-none w-[85vw] md:w-[calc((100%-2*1.25rem)/3)] cursor-pointer group"
             >
-              <div className="relative w-[95vw] md:w-full rounded-xl  aspect-[8/5] md:aspect-5/3 overflow-hidden mb-4">
+              <div className="relative w-[85vw] md:w-full rounded-xl  aspect-[8/5] md:aspect-5/3 overflow-hidden mb-4">
                 <Image
                   src={article.image}
                   alt={article.title}

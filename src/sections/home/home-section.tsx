@@ -7,13 +7,13 @@ import Image from "next/image";
 import { HeroNav } from "@/components/soul/navigation/hero-nav";
 import { Heading } from "@/components/primitives/heading";
 import { VOLTR_EASING } from "@/motion/easing";
+import { rvImages } from "@/assets/rv-images";
 
 export function HeroSection() {
   const [ready, setReady] = useState(false);
   const { scrollY } = useScroll();
 
   const y = useTransform(scrollY, [0, 1000], [0, 220]);
-  const scale = useTransform(scrollY, [0, 1000], [1, 1.08]);
 
   useEffect(() => {
     const t = setTimeout(() => setReady(true), 3400);
@@ -24,11 +24,11 @@ export function HeroSection() {
     <section className="relative h-screen w-full overflow-hidden text-white">
       {/* Background with parallax */}
       <motion.div
-        className="absolute inset-4 md:inset-2 will-change-transform overflow-hidden rounded-lg"
-        style={{ y, scale }}
+        className="absolute inset-3 md:inset-2 mt-14 md:mt-0 will-change-transform overflow-hidden rounded-lg"
+        style={{ y }}
       >
         <Image
-          src="/images/rv-images/interior.png"
+          src={rvImages.interiorLounge.src}
           alt="VOLTR Hero"
           fill
           priority
@@ -42,7 +42,7 @@ export function HeroSection() {
       {/* Main Copy */}
       <div className="relative z-20 flex h-full w-full items-center">
         <div className="w-full px-6 md:px-5">
-          <div className="flex items-end justify-between">
+          <div className="flex flex-col md:flex-row ml-5 md:ml-0 md:items-end md:justify-between">
             <motion.div
               initial={{ opacity: 0, y: 32, filter: "blur(6px)" }}
               animate={

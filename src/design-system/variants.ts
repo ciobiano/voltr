@@ -8,7 +8,7 @@ export const headingVariants = cva(
         display:
           "text-display tracking-[var(--tracking-display)] leading-[var(--leading-display)]",
         h1: "text-heading-xl tracking-[var(--tracking-mono)] ",
-        h2: "text-subhead font-semi tracking-[var(--tracking-wide)]",
+        h2: "text-subhead font-display  tracking-[var(--tracking-wide)]",
         h3: "text-body tracking-[var(--tracking-normal)]",
         
       },
@@ -56,19 +56,19 @@ export const buttonVariants = cva(
         primary:
           "bg-text-primary text-surface-primary active:brightness-[0.85]",
         accent:
-          "bg-accent text-surface-primary active:brightness-[0.85]",
+          "bg-accent text-primary active:brightness-[0.85]",
         ghost:
-          "border border-white/30 bg-glass-dark text-white backdrop-blur-sm active:brightness-[0.9]",
+          "border border-transparent bg-glass-dark text-white backdrop-blur-sm active:brightness-[0.9]",
         outline:
-          "bg-surface-tertiary border border-border-subtle text-text-primary shadow-[var(--shadow-elevation-1)] active:brightness-[0.9]",
+          "bg-white border border-border-subtle text-text-primary shadow-[var(--shadow-elevation-1)] active:brightness-[0.9]",
       },
       shape: {
         pill: "relative overflow-hidden rounded-full ",
-        semi: "rounded-3xl",
+        semi: "relative overflow-hidden rounded-lg",
       },
       size: {
         sm: "px-5 py-1.5 text-size-caption",
-        md: "px-8 py-2.5 text-sm",
+        md: "px-7 py-3 text-sm",
         lg: "px-10 py-3.5 text-base",
       },
     },
@@ -98,6 +98,37 @@ export const cardVariants = cva("rounded-none", {
     intent: "flat",
   },
 });
+
+export const dialogOverlayVariants = cva(
+  "fixed inset-0 z-50 bg-black/60 backdrop-blur-sm ",
+);
+
+export const dialogContentVariants = cva(
+  "fixed left-1/2 top-1/2 z-50 w-[92vw] max-w-[var(--container-dialog)] max-h-[85vh] overflow-hidden rounded-2xl bg-surface-primary shadow-[var(--shadow-elevation-1)] focus:outline-none",
+);
+
+export const dialogPanelVariants = cva(
+  "h-full max-h-[85vh] overflow-y-auto p-8 md:p-12",
+);
+
+export const dialogCloseVariants = cva(
+  "absolute top-4 right-4 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-orange text-surface-primary shadow-[var(--shadow-elevation-1)] transition-colors duration-[var(--duration-ui)] hover:brightness-95 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-surface-primary focus:ring-border-focus",
+);
+
+export const faqIconVariants = cva(
+  "transition-transform duration-[var(--duration-ui)] ease-[var(--ease-micro)]",
+  {
+    variants: {
+      open: {
+        true: "rotate-45",
+        false: "rotate-0",
+      },
+    },
+    defaultVariants: {
+      open: false,
+    },
+  },
+);
 
 export const sectionVariants = cva("relative min-h-screen flex items-center justify-center", {
   variants: {

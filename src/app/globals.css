@@ -17,6 +17,32 @@
   --color-border-focus: oklch(0% 0 0);
   --color-glass-dark: color-mix(in oklab, black 40%, transparent);
   --color-orange: oklch(0.68 0.2 32.3);
+  --color-green: #2fa163;
+
+  /* F2b exterior paint colors */
+  --color-shade-moss:    #6b7c5a;
+  --color-granite-braun: #4a3d30;
+  --color-snow-line:     #d8d8d8;
+
+  /* F2b interior finish colors */
+  --color-dune:     #c9b99a;
+  --color-obsidian: #2a2a2a;
+
+  /* Specs page accents */
+  --color-forest: #1f3d3a;
+  --color-ink:    #17140f;
+
+  /* Order/Build page accents — pixel-sampled from the design handoff's
+     rendered crops (crops/cfg_top.png, cfg_upgrades.png, cfg_addons*.png),
+     not just the .dc.html source: the rendered text colors are neutral
+     greys, not the warm-tinted hex the source markup declares. */
+  --color-order-warm:      #f2efea;
+  --color-order-warm-soft: #faf6ef;
+  --color-order-teal:      #29525e;
+  --color-order-border:    #d7d1c4;
+  --color-order-text-light: #999999;
+  --color-order-text-mid:   #666666;
+  --color-order-text-label: #615f5e;
 
   --text-size-4xl:       clamp(5.5rem, 3.18rem + 11.61vw, 13.625rem);
   --text-size-3xl:       clamp(4rem, 2.5rem + 7.5vw, 9.25rem);
@@ -28,6 +54,7 @@
   --text-size-sm:        clamp(1.5rem, 1.32rem + 0.89vw, 2.125rem);
   --text-size-xs:        clamp(1.375rem, 1.34rem + 0.18vw, 1.5rem);
   --text-size-2xs:       clamp(1.125rem, 1.09rem + 0.18vw, 1.25rem);
+  --text-size-3xs:       clamp(0.875rem, 0.855rem + 0.1vw, 0.9375rem);
   --text-size-body:      1rem;
   --text-size-caption:   0.75rem;
 
@@ -40,6 +67,8 @@
   --leading-heading: 1;
   --leading-body: 1.6;
 
+  --spacing-section-inset: clamp(0.25rem, 1.5vw, 0.5rem);
+
   --spacing-xs: 4px;
   --spacing-sm: 8px;
   --spacing-md: 16px;
@@ -48,6 +77,49 @@
   --spacing-2xl: 64px;
   --spacing-3xl: 96px;
   --spacing-4xl: 160px;
+
+  /*
+   * Sizing scale for the w, min-w, and max-w utilities — deliberately
+   * separate from --spacing-*. Tailwind v4 resolves those utilities' named
+   * keys (xs..4xl) in this priority order: width/min-width/max-width theme
+   * keys first, then --spacing-*, then --container-* last. Our --spacing-*
+   * scale above reuses the same xs..4xl keywords for much smaller
+   * gap/padding values (e.g. --spacing-4xl: 160px), which — being second in
+   * the lookup order — silently wins over Tailwind's own container fallback
+   * (third). So the fix has to happen at the first-priority namespace.
+   * Without this block, max-w-4xl resolves to 160px instead of 56rem.
+   */
+  --width-xs: 20rem;
+  --width-sm: 24rem;
+  --width-md: 28rem;
+  --width-lg: 32rem;
+  --width-xl: 36rem;
+  --width-2xl: 42rem;
+  --width-3xl: 48rem;
+  --width-4xl: 56rem;
+
+  --min-width-xs: 20rem;
+  --min-width-sm: 24rem;
+  --min-width-md: 28rem;
+  --min-width-lg: 32rem;
+  --min-width-xl: 36rem;
+  --min-width-2xl: 42rem;
+  --min-width-3xl: 48rem;
+  --min-width-4xl: 56rem;
+
+  --max-width-xs: 20rem;
+  --max-width-sm: 24rem;
+  --max-width-md: 28rem;
+  --max-width-lg: 32rem;
+  --max-width-xl: 36rem;
+  --max-width-2xl: 42rem;
+  --max-width-3xl: 48rem;
+  --max-width-4xl: 56rem;
+  --max-width-5xl: 64rem;
+  --max-width-6xl: 72rem;
+  --max-width-7xl: 80rem;
+  --container-dialog: 72rem;
+  --size-scale-ring: clamp(75rem, 10rem + 80vw, 34rem);
 
   --shadow-elevation-1: 0 2px 8px rgba(0,0,0,0.04);
   --shadow-elevation-2: 0 4px 24px rgba(0,0,0,0.06);
@@ -107,22 +179,24 @@
   font-size: var(--text-size-lg);
   letter-spacing: var(--tracking-wide);
   line-height: var(--leading-heading);
-  font-weight: 300;
+  font-weight: 400;
 }
 
 @utility text-subhead {
-  font-family: var(--font-sans);
+  font-family: var(--font-display);
   font-size: var(--text-size-xs);
-  letter-spacing: var(--tracking-wide);
+  letter-spacing: var(--tracking-mono);
   line-height: 1.3;
   font-weight: 400;
+  -webkit-text-stroke: 0.8px currentColor;
 }
 
 @utility text-body {
-  font-family: var(--font-sans);
-  font-size: 1rem;
+  font-family: var(--font-display);
+  font-size: var(--text-size-2xs);
   line-height: var(--leading-body);
   font-weight: 400;
+  
 }
 
 @utility text-caption {
@@ -177,6 +251,10 @@
   letter-spacing: var(--tracking-mono);
 }
 
+@utility text-stroke {
+  -webkit-text-stroke: 2px currentColor;
+}
+
 @utility cross-pattern {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cline x1='50' y1='38' x2='50' y2='62' stroke='%23C2BAB0' stroke-width='0.5'/%3E%3Cline x1='38' y1='50' x2='62' y2='50' stroke='%23C2BAB0' stroke-width='0.5'/%3E%3C/svg%3E");
   background-size: 80px 80px;
@@ -186,6 +264,8 @@
 /* Optical weight between Regular (400) and Medium (500).
    Static fonts can't interpolate — a hairline stroke thickens glyph paths optically. */
 
+
+@utility section-inset { margin: var(--spacing-section-inset); }
 
 @utility text-size-4xl     { font-size: var(--text-size-4xl); }
 @utility text-size-3xl     { font-size: var(--text-size-3xl); }
@@ -197,6 +277,7 @@
 @utility text-size-sm      { font-size: var(--text-size-sm); }
 @utility text-size-xs      { font-size: var(--text-size-xs); }
 @utility text-size-2xs     { font-size: var(--text-size-2xs); }
+@utility text-size-3xs     { font-size: var(--text-size-3xs); }
 @utility text-size-body    { font-size: var(--text-size-body); }
 @utility text-size-caption { font-size: var(--text-size-caption); }
 
@@ -277,6 +358,32 @@
   }
 }
 
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+.animate-accordion-down {
+  animation: accordion-down var(--duration-ui) var(--ease-micro) forwards;
+}
+
+.animate-accordion-up {
+  animation: accordion-up var(--duration-ui) var(--ease-micro) forwards;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .btn-pill::before,
   .btn-pill::after {
@@ -284,6 +391,11 @@
   }
 
   .btn-pill:hover > span {
+    animation: none;
+  }
+
+  .animate-accordion-down,
+  .animate-accordion-up {
     animation: none;
   }
 }
@@ -296,6 +408,12 @@
   }
 
   html {
+    /* clip, not hidden: overflow-x:hidden paired with an unset overflow-y
+       forces overflow-y to compute as non-visible too (CSS spec quirk),
+       which turns html/body into an unintended sticky containing block and
+       breaks position:sticky for descendants. clip avoids that pairing. */
+    overflow-x: clip;
+    scrollbar-gutter: stable;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
@@ -311,7 +429,8 @@
   body {
     margin: 0;
     padding: 0;
-    font-family: var(--font-sans);
+    overflow-x: clip;
+    font-family: var(--font-display);
     font-size: var(--text-size-body);
     line-height: var(--leading-body);
   }

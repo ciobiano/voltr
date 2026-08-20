@@ -1,4 +1,5 @@
 import { CrossGridSection } from "@/components/primitives/cross-grid-section";
+import { rvImages } from "@/assets/rv-images";
 
 export function NewsletterSection() {
   return (
@@ -6,12 +7,12 @@ export function NewsletterSection() {
       eyebrow="Want the latest info on all things VOLTR?"
       headline={
         <p className="text-size-sm leading-heading   text-text-primary">
-          New AE.1 production updates, traveling roadshow locations, stories
+          New F2.B production updates, traveling roadshow locations, stories
           about our trailers in the wild — find it in our newsletter.
         </p>
       }
-      image="/images/rv-images/lifestyle.png"
-      imageAlt="VOLTR AE.1 in the wild"
+      image={rvImages.exteriorTowing.src}
+      imageAlt="VOLTR F2.B in the wild"
     />
   );
 }
