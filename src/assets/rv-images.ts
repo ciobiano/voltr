@@ -17,7 +17,7 @@ export interface RvImage {
   alt: string;
 }
 
-/** Placeholder sources. Every slot below still points at one of these three. */
+/** Placeholder sources, for slots that do not have real photography yet. */
 const PLACEHOLDER = {
   exterior: "/images/rv-images/lifestyle.png",
   interior: "/images/rv-images/interior.png",
@@ -27,20 +27,20 @@ const PLACEHOLDER = {
 export const rvImages = {
   // ---------------------------------------------------------------- exterior
   exteriorHero: {
-    src: PLACEHOLDER.exterior,
-    alt: "F2.b parked at golden hour, full exterior profile",
+    src: "/images/rv-images/exterior-hero.jpg",
+    alt: "The F2.b under tow behind a VOLTR pickup on a forest mountain road",
   },
   exteriorTowing: {
-    src: PLACEHOLDER.exterior,
-    alt: "F2.b under tow behind an electric truck on an open highway",
+    src: "/images/rv-images/exterior-towing.jpg",
+    alt: "The F2.b under tow on a dirt road through high pine country",
   },
   exteriorCampsite: {
-    src: PLACEHOLDER.exterior,
-    alt: "F2.b set up at a remote campsite",
+    src: "/images/rv-images/exterior-campsite.jpg",
+    alt: "The F2.b parked in red rock desert country",
   },
   exteriorExpanded: {
-    src: PLACEHOLDER.detail,
-    alt: "F2.b with its living space expanded",
+    src: "/images/rv-images/exterior-expanded.jpg",
+    alt: "The F2.b deployed at a lakeside camp, awning extended over the deck",
   },
   exteriorAero: {
     src: PLACEHOLDER.detail,
@@ -63,16 +63,16 @@ export const rvImages = {
 
   // ----------------------------------------------------------------- systems
   systemSolar: {
-    src: PLACEHOLDER.detail,
-    alt: "Roof-mounted solar array charging the F2.b",
+    src: "/images/rv-images/system-solar.jpg",
+    alt: "Overhead view of the F2.b's full-length roof solar array",
   },
   systemBattery: {
     src: PLACEHOLDER.interior,
     alt: "F2.b high-voltage battery pack",
   },
   systemDrivetrain: {
-    src: PLACEHOLDER.detail,
-    alt: "F2.b TrekDrive assisted-drive system",
+    src: "/images/rv-images/system-drivetrain.jpg",
+    alt: "The F2.b under tow, TrekDrive assisting the climb",
   },
   systemPower: {
     src: PLACEHOLDER.exterior,
