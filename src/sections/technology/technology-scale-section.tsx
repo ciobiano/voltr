@@ -106,8 +106,14 @@ export function TechnologyScaleSection() {
             })}
           </svg>
 
-          <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-center px-8">
-            <Heading level="h1" as="h2" className="text-accent ">
+          <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 px-6 text-center md:px-8">
+            {/* Sized against the dial rather than the page: the ring is 286px on
+                a phone, so a page-scale heading overflowed it top and bottom. */}
+            <Heading
+              level="h1"
+              as="h2"
+              className="text-accent text-[clamp(1rem,4.4vw,2.125rem)] leading-snug"
+            >
               Canopy on test Drive:
               <br />
               100+, on the Road

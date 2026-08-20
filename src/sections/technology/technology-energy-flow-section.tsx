@@ -173,32 +173,35 @@ export function TechnologyEnergyFlowSection() {
             Built to last a Lifetime.
           </Heading>
         </div>
-        {/* Below lg — the same three steps as a vertical rail: a dashed line,
-            a node marker per step and the card beside it. The precise
-            scroll-driven timeline needs a wide canvas, so it only runs at lg. */}
-        <div className="relative flex flex-col gap-8 lg:hidden">
-          <span
+        {/* Mobile — simple vertical stack */}
+        <div className="relative flex flex-col items-center gap-16 md:hidden">
+          <svg
+            viewBox="0 0 10 300"
+            preserveAspectRatio="none"
+            className="absolute hidden left-1/2 top-8 bottom-8 -translate-x-1/2 h-[calc(100%-4rem)] w-2"
             aria-hidden="true"
-            className="absolute bottom-8 left-6 top-8 border-l-2 border-dashed border-text-primary/30"
-          />
+          >
+            <line
+              x1="5"
+              y1="0"
+              x2="5"
+              y2="300"
+              stroke="var(--color-text-primary)"
+              strokeWidth={3}
+              strokeLinecap="round"
+              strokeDasharray="0.1 10"
+              vectorEffect="non-scaling-stroke"
+              opacity={0.85}
+            />
+          </svg>
 
-          {CARDS.map((card, i) => {
-            const Icon = NODES[i]?.icon ?? Sun;
-            return (
-              <div key={card.id} className="relative flex items-start gap-4">
-                <span className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-text-primary">
-                  <Icon size={22} strokeWidth={1.6} className="text-white" />
-                </span>
-                <div className="min-w-0 flex-1">
-                  <StepCard card={card} />
-                </div>
-              </div>
-            );
-          })}
+          {CARDS.map((card) => (
+            <StepCard key={card.id} card={card} />
+          ))}
         </div>
 
         {/* Desktop — precise scroll-driven timeline, ported from design reference */}
-        <div ref={timelineRef} className="relative hidden w-full aspect-[45/52] lg:block">
+        <div ref={timelineRef} className="relative hidden md:block w-full aspect-[45/52]">
           <svg
             viewBox={`0 0 ${VIEWBOX_W} ${VIEWBOX_H}`}
             preserveAspectRatio="xMidYMin meet"
@@ -246,11 +249,11 @@ function NodeMarker({ icon: Icon }: { icon: typeof Sun }) {
     <div data-node className="absolute z-10 h-0 w-0">
       <span
         data-ring
-        className="pointer-events-none absolute left-0 top-0 h-14 w-14 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[var(--color-green)] xl:h-20 xl:w-20"
+        className="pointer-events-none absolute left-0 top-0 h-20 w-20 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[var(--color-green)]"
       />
       <div
         data-disc
-        className="absolute left-0 top-0 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full xl:h-20 xl:w-20"
+        className="absolute left-0 top-0 flex h-20 w-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full"
       >
         <Icon size={28} strokeWidth={1.6} className="text-white" />
       </div>
@@ -262,10 +265,10 @@ function StepCard({ card }: { card: (typeof CARDS)[number] }) {
   return (
     <div
       key={card.id}
-      className="flex w-full flex-col overflow-hidden rounded-xl border border-border-subtle bg-surface-primary group lg:w-auto lg:flex-[0_0_20vw]"
+      className="flex-[0_0_92vw] md:flex-[0_0_20vw] flex flex-col rounded-xl overflow-hidden bg-surface-primary border border-border-subtle group"
     >
       {/* Text area */}
-      <div className="flex flex-col gap-2 overflow-hidden p-4 lg:h-[8rem] lg:gap-2">
+      <div className="flex flex-col gap-4 md:gap-2 p-4 md:h-[8rem]  overflow-hidden">
         <span className=" text-size-3xs font-display font-semibold text-text-primary">
           {card.title}
         </span>
@@ -275,13 +278,13 @@ function StepCard({ card }: { card: (typeof CARDS)[number] }) {
       </div>
 
       {/* Image area */}
-      <div className="relative m-1 mt-3 aspect-8/5 overflow-hidden rounded-lg lg:mt-20 lg:aspect-[6/3]">
+      <div className="relative md:aspect-[6/3] aspect-8/5 m-1 rounded-lg mt-20 overflow-hidden">
         <Image
           src={card.image}
           alt={card.title}
           fill
           className="object-cover"
-          sizes="(max-width: 1024px) 90vw, 22vw"
+          sizes="(max-width: 768px) 52vw, 22vw"
         />
         <button
           className="absolute bottom-3 right-3 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-surface-secondary/1 bg-surface-secondary/4 text-white backdrop-blur-md transition-colors group-hover:bg-orange"
