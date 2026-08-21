@@ -20,7 +20,7 @@ export default function ExperiencePage() {
   return (
     <ClientProviders>
       <ProductNav />
-      <main className="pt-[56px] md:pt-0">
+      <main className="pt-18">
         <ExperienceHeroSection />
         <ExperienceFieldnotesSection />
         <ExperienceCloserLookSection />

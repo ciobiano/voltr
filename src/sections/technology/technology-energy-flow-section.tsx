@@ -265,7 +265,7 @@ function StepCard({ card }: { card: (typeof CARDS)[number] }) {
   return (
     <div
       key={card.id}
-      className="flex-[0_0_92vw] md:flex-[0_0_20vw] flex flex-col rounded-xl overflow-hidden bg-surface-primary border border-border-subtle group"
+      className="flex-[0_0_92vw] md:flex-[0_0_42vw] lg:flex-[0_0_20vw] flex flex-col rounded-xl overflow-hidden bg-surface-primary border border-border-subtle group"
     >
       {/* Text area */}
       <div className="flex flex-col gap-4 md:gap-2 p-4 md:h-[8rem]  overflow-hidden">

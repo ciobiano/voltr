@@ -47,7 +47,7 @@ export function SpecsHeroSection() {
       </div>
 
       <Container size="lg" className="pb-3xl mx-auto max-w-[88rem]">
-        <div className="mt-xs grid grid-cols-2 gap-md md:grid-cols-4 font-display">
+        <div className="mt-xs grid grid-cols-2 gap-md font-display lg:grid-cols-4">
           {statCards.map((card) => (
             <div
               key={card.label}

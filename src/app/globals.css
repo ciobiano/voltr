@@ -443,3 +443,20 @@
     color: var(--color-surface-primary);
   }
 }
+
+/* Tablet only (768-1023). The desktop dial is 1200px, wider than a tablet
+   screen, so it was cropped left and right into a slab instead of reading as a
+   circle. Fit it to the width there. Mobile below 768 and desktop from 1024
+   are both untouched. */
+@media (min-width: 768px) and (max-width: 1023.98px) {
+  :root {
+    --size-scale-ring: calc(100vw - 4.5rem);
+  }
+}
+
+/* Desktop from 1024: the original dial size, unchanged. */
+@media (min-width: 1024px) {
+  :root {
+    --size-scale-ring: 75rem;
+  }
+}

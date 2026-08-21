@@ -20,7 +20,7 @@ export function ExperienceEventsSection() {
 
         <div className="flex flex-col">
           {/* Column headers only make sense once the rows are columns (md+) */}
-          <div className="hidden grid-cols-[1fr_auto_1fr] items-center gap-x-lg border-b border-border-subtle py-sm md:grid">
+          <div className="hidden grid-cols-[1fr_auto_1fr] items-center gap-x-lg border-b border-border-subtle py-sm lg:grid">
             <span className="justify-self-start text-size-3xs text-primary">Date</span>
             <span className="justify-self-center text-size-3xs text-primary">Event</span>
             <span aria-hidden="true" />
@@ -32,12 +32,12 @@ export function ExperienceEventsSection() {
                 key={event.id}
                 // Three columns in 375px gave the date 31px and the title 79px,
                 // wrapping both to four lines. Stack them until there's room.
-                className="group grid grid-cols-1 gap-y-sm border-b border-border-subtle py-lg md:grid-cols-[1fr_auto_1fr] md:gap-x-2xl md:gap-y-0"
+                className="group grid grid-cols-1 gap-y-sm border-b border-border-subtle py-lg lg:grid-cols-[1fr_auto_1fr] lg:gap-x-2xl lg:gap-y-0"
               >
                 <time className="justify-self-start text-size-3xs  text-primary">
                   {event.date}
                 </time>
-                <div className="flex w-full mx-auto max-w-2xl gap-lg justify-self-start md:justify-self-center">
+                <div className="flex w-full mx-auto max-w-2xl gap-lg justify-self-start lg:justify-self-center">
                   <div className="relative hidden h-[8.4rem] w-[13.2rem] shrink-0 overflow-hidden rounded-lg sm:block md:h-[12.6rem] md:w-[20.6rem]">
                     <Image
                       src={event.image}
@@ -51,7 +51,7 @@ export function ExperienceEventsSection() {
                     <span className="text-subhead text-text-primary">{event.title}</span>
                   </div>
                 </div>
-                <div className="justify-self-start md:justify-self-end">
+                <div className="justify-self-start lg:justify-self-end">
 
                 <a
                   href="#"

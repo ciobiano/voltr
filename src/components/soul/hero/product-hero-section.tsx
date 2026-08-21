@@ -64,9 +64,9 @@ export function ProductHeroSection({ image, leftText, rightText }: ProductHeroSe
   );
 
   return (
-    <section className="relative h-[calc(100svh-56px)] w-full overflow-hidden text-white md:h-screen">
+    <section className="relative h-[94vh] w-full overflow-hidden text-white">
       <motion.div
-        className="absolute inset-3 md:inset-2 will-change-transform overflow-hidden rounded-lg"
+        className="absolute inset-4 md:inset-2 will-change-transform overflow-hidden rounded-lg"
         style={{ y }}
       >
         <Image

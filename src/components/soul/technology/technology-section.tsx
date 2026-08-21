@@ -65,7 +65,7 @@ export function TechnologySection({
             key={feature.name ?? feature.title}
             feature={feature}
             variant="technology"
-            className="flex-[0_0_80vw] md:flex-[0_0_45vw]"
+            className="flex-[0_0_80vw] md:flex-[0_0_60vw] lg:flex-[0_0_45vw]"
           />
         ))}
       </Carousel>

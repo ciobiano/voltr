@@ -16,7 +16,9 @@ export function SpecRow({
   return (
     <div
       className={cn(
-        "grid gap-60 border-t border-border-subtle px-lg py-md first:border-t-0",
+        // gap-60 is 240px. At tablet that leaves the label column below its own
+        // 160px minimum, so the row collapses. Desktop keeps the wide gap.
+        "grid gap-60 border-t border-border-subtle px-lg py-md first:border-t-0 md:gap-12 lg:gap-60",
         className,
       )}
       style={{ gridTemplateColumns: `${labelWidth} 1fr` }}

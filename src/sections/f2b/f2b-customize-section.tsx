@@ -73,7 +73,7 @@ export function F2bCustomizeSection() {
         {packages.map((pkg) => (
           <div
             key={pkg.name}
-            className="flex-[0_0_72vw] md:flex-[0_0_20vw] flex flex-col rounded-xl overflow-hidden bg-surface-primary border border-border-subtle group"
+            className="flex-[0_0_72vw] md:flex-[0_0_42vw] lg:flex-[0_0_20vw] flex flex-col rounded-xl overflow-hidden bg-surface-primary border border-border-subtle group"
           >
             {/* Text area */}
             <div className="flex flex-col gap-2 p-4 h-[8rem] overflow-hidden">

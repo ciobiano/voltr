@@ -55,6 +55,10 @@ export function StackingCardScene({
     10;
 
   useStackingCards({
+    // The pinned card stack needs a wide canvas: at tablet it clamped the
+    // side copy to 150px and reserved 200vh of empty scroll. Tablet gets the
+    // stacked layout instead, same as mobile.
+    minBreakpoint: "(min-width: 1024px)",
     sectionRef,
     pinnedRef,
     cardsRef,
@@ -97,7 +101,7 @@ export function StackingCardScene({
     <div ref={sectionRef} className="relative w-full">
       <div
         ref={pinnedRef}
-        className="relative w-full h-auto md:h-screen md:overflow-visible z-20   Phar2580
+        className="relative w-full h-auto lg:h-screen lg:overflow-visible z-20   Phar2580
         PharPhar2580
         "
       >
@@ -112,7 +116,7 @@ export function StackingCardScene({
         <div
           ref={svgRef}
           aria-hidden="true"
-          className="pointer-events-none absolute inset-x-0 top-[5vh] z-10 hidden select-none md:flex md:justify-center"
+          className="pointer-events-none absolute inset-x-0 top-[5vh] z-10 hidden select-none lg:flex lg:justify-center"
         >
           <Image
             src={headingSvgSrc}
@@ -126,23 +130,23 @@ export function StackingCardScene({
         {/* Mobile heading — in-flow duplicate, unchanged. */}
         <div
           aria-hidden="true"
-          className="pointer-events-none relative z-10 flex mb-20 mx-2 md:mx-0  md:w-[90vw] shrink-0 select-none justify-center md:hidden"
+          className="pointer-events-none relative z-10 flex mb-20 mx-2 lg:mx-0  lg:w-[90vw] shrink-0 select-none justify-center lg:hidden"
         >
           <Image
             src={headingSvgSrc}
             alt=""
             width={1411}
             height={181}
-            className="w-full md:min-w-[640px] max-w-[1680px]"
+            className="w-full lg:min-w-[640px] max-w-[1680px]"
           />
         </div>
 
         <div className="relative w-full -top-10">
           <div
             ref={cardsTrackRef}
-            className="relative z-50 w-full px-4 md:px-0 md:pt-[20vh] md:will-change-transform"
+            className="relative z-50 w-full px-4 lg:px-0 lg:pt-[20vh] lg:will-change-transform"
           >
-            <div className="relative mx-auto flex w-full flex-col gap-6 md:block md:aspect-[4/5] md:w-[min(42vw,43rem)]">
+            <div className="relative mx-auto flex w-full flex-col gap-6 lg:block lg:aspect-[4/5] lg:w-[min(42vw,43rem)]">
               {cards.map((card, i) => (
                 <div
                   key={`${card.src}-${i}`}
@@ -150,7 +154,7 @@ export function StackingCardScene({
                     if (cardsRef.current) cardsRef.current[i] = el;
                   }}
                   className={cn(
-                    "relative aspect-[4/5] w-full shrink-0 rounded-[1rem] md:absolute md:left-0 md:top-0 md:will-change-transform md:max-h-[67vh]",
+                    "relative aspect-[4/5] w-full shrink-0 rounded-[1rem] lg:absolute lg:left-0 lg:top-0 lg:will-change-transform lg:max-h-[67vh]",
                     CARD_Z_INDICES[i] ?? "z-50",
                   )}
                 >
@@ -159,7 +163,7 @@ export function StackingCardScene({
                     alt={card.alt}
                     fill
                     className="rounded-[1rem] object-cover"
-                    sizes="(max-width: 768px) 88vw, 46rem"
+                    sizes="(max-width: 1024px) 88vw, 46rem"
                     priority={i === 0}
                   />
 
@@ -175,14 +179,14 @@ export function StackingCardScene({
 
           <div
             ref={leftTextRef}
-            className="z-30 w-full max-w-[60vw] ml-6 mt-8 md:mt-0 md:absolute md:max-w-[clamp(150px,16vw,245px)] md:left-[7.5vw] md:top-[30vh]"
+            className="z-30 w-full max-w-[60vw] ml-6 mt-8 lg:mt-0 lg:absolute lg:max-w-[clamp(150px,16vw,245px)] lg:left-[7.5vw] lg:top-[30vh]"
           >
             {leftText}
           </div>
 
           <div
             ref={rightTextRef}
-            className="z-30 w-full max-w-[60vw] mt-8 ml-6  md:mt-0 md:absolute md:max-w-[clamp(150px,16vw,245px)] md:right-[6.5vw] md:top-[18vh]"
+            className="z-30 w-full max-w-[60vw] mt-8 ml-6  lg:mt-0 lg:absolute lg:max-w-[clamp(150px,16vw,245px)] lg:right-[6.5vw] lg:top-[18vh]"
           >
             {rightText}
           </div>
@@ -193,7 +197,7 @@ export function StackingCardScene({
           after the pin. A shortfall here caps the max reachable ScrollTrigger
           progress below 100%, so card 4's rise (which completes exactly at
           100%) can never finish. */}
-      <div className="hidden md:block md:h-[200vh]" aria-hidden="true" />
+      <div className="hidden lg:block lg:h-[200vh]" aria-hidden="true" />
     </div>
   );
 }

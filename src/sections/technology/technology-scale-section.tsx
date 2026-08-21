@@ -107,12 +107,12 @@ export function TechnologyScaleSection() {
           </svg>
 
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 px-6 text-center md:px-8">
-            {/* Sized against the dial rather than the page: the ring is 286px on
-                a phone, so a page-scale heading overflowed it top and bottom. */}
+            {/* Tracks the dial, which is itself viewport-width based. Matches the
+                original ~67px at desktop and shrinks to fit the ring on a phone. */}
             <Heading
               level="h1"
               as="h2"
-              className="text-accent text-[clamp(1rem,4.4vw,2.125rem)] leading-snug"
+              className="text-accent text-[clamp(1rem,4.4vw,2.125rem)] leading-snug md:text-[clamp(1.1rem,5.2vw,4.5rem)] md:leading-[var(--leading-heading)] lg:text-[length:var(--text-size-xl)]"
             >
               Canopy on test Drive:
               <br />

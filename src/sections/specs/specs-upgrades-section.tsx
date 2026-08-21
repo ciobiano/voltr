@@ -34,7 +34,9 @@ export function SpecsUpgradesSection() {
           Upgrade Options
         </Heading>
 
-        <div className="grid grid-cols-1 items-start gap-xs md:grid-cols-2">
+        {/* Two columns here halve the width available to each spec row, which
+            leaves its label and value columns around 130px on a tablet. */}
+        <div className="grid grid-cols-1 items-start gap-xs lg:grid-cols-2">
           <div className="flex flex-col gap-xs">
             {upgradeColumnLeft.map((card) => (
               <UpgradeCard key={card.title} card={card} />

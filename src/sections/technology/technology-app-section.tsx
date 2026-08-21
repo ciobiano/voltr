@@ -90,7 +90,7 @@ export function TechnologyAppSection() {
         </div>
 
         {/* Power Hub */}
-        <div className="grid grid-cols-1 md:grid-cols-[minmax(280px,400px)_1fr] gap-12 md:gap-40">
+        <div className="grid grid-cols-1 lg:grid-cols-[minmax(280px,400px)_1fr] gap-12 lg:gap-40">
           <div>
             <Label className="mb-4 text-size-3xs font-semibold text-tertiary tracking-[var(--tracking-mono)]">
               Power Hub
@@ -112,7 +112,7 @@ export function TechnologyAppSection() {
             {HUB_ROWS.map((row) => (
               <div
                 key={row.title}
-                className="grid grid-cols-1 md:grid-cols-[310px_1fr] gap-6 md:gap-8 "
+                className="grid grid-cols-1 lg:grid-cols-[310px_1fr] gap-6 lg:gap-8"
               >
                 <div className="relative w-full aspect-[300/190] rounded-lg overflow-hidden">
                   <Image

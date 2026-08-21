@@ -33,7 +33,7 @@ export function TechnologySpecsSection() {
         {SPEC_ROWS.map((row) => (
           <div
             key={row.title}
-            className="grid grid-cols-1 md:grid-cols-[minmax(180px,15rem)_1fr] gap-4 md:gap-8 border-t border-border-subtle py-6"
+            className="grid grid-cols-1 lg:grid-cols-[minmax(180px,15rem)_1fr] gap-4 lg:gap-8 border-t border-border-subtle py-6"
           >
             <h4 className="text-body font-medium text-text-primary">{row.title}</h4>
             <p className="text-size-3xs lg:w-[20vw] leading-relaxed text-text-secondary">{row.body}</p>
